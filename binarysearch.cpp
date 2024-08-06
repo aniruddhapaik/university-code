@@ -50,7 +50,7 @@ public:
     BinarySearch(std::vector<int>& values) {
         this->arr = &values;
     }
-    void getKey(int num) {
+    void setKey(int num) {
         this->resetIndexes();
         this->search(num);
     }
@@ -66,7 +66,7 @@ int main() {
         std::cout << "Binary Search\nPress CTRL+C to quit" << std::endl;
         std::cout << "Enter a value to search in array: ";
         if (std::cin >> key) {
-            bsearch.getKey(key);
+            bsearch.setKey(key);
         } else {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
