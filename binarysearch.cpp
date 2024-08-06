@@ -63,7 +63,7 @@ int main() {
     int key{};
     while(1) {
         system("cls");
-        std::cout << "Press CTRL+C to quit" << std::endl;
+        std::cout << "Binary Search\nPress CTRL+C to quit" << std::endl;
         std::cout << "Enter a value to search in array: ";
         if (std::cin >> key) {
             bsearch.getKey(key);
