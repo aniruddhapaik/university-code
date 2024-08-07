@@ -3,82 +3,122 @@
 #include <limits>
 #include <conio.h>
 
-#define GOLDEN_RATIO 1.618
+// #define GOLDEN_RATIO 1.618
 
 class FibonacciSearch {
 private:
     std::vector<int> fibseries;
     std::vector<int>* arr;
 
-    size_t arr_size;
+    size_t arr_size; // n
     int offset;
-    int index;
-    int fm2;
-    int right;
-    int key;
+    size_t k; // using as index for the Fibonacci series
+    int n1; // n - 1
+    int key; // search term
 
-void resetAndCalculateTrackers() {
-    this->offset = -1;
-    int range = (this->arr_size / GOLDEN_RATIO) + 1;
-    this->generateFibonacciSeries(range);
-    // this->printFib();
-    this->right = this->arr_size - 1;
-    this->fm2 = this->seekfm2();
-}
-
-void generateFibonacciSeries(int range) {
-    this->fibseries.push_back(0);
-    this->fibseries.push_back(1);
-
-    std::cout << "range: " << range << std::endl;
-
-    for (int i = 2; i <= range; i++) {
-        int prev2 = this->fibseries.at(i-2);
-        int prev1 = this->fibseries.at(i-1);
-
-        this->fibseries.push_back(prev2 + prev1);
-    }
-}
-
-int seekfm2() {
-    size_t fib_size = this->fibseries.size();
-    for (int i = 0; i < fib_size; i++) {
-        if (this->fibseries.at(i) >= this->arr_size) {
-            return this->fibseries.at(i-2);
+    void resetAndCalculateTrackers() {
+        this->offset = -1;
+        this->k = 0;
+        // int range = (this->arr_size / GOLDEN_RATIO) + 1;
+        // Generating fibonacci numbers only as many as required.
+        if (this->fibseries.empty()) {
+            this->generateFibonacciSeries(); 
         }
+        this->k = this->fibseries.size()-1;
+        /*
+            Knowing that the last element in the this->fibseries array will be the
+            smallest value that is greater or equal to the size of the search array this->arr,
+            and in consequence that will be the fm value we start off with.
+            So, to keep track of the index of fm in the fibseries array, 
+            this->k is at last updated to match the index of the last element in this->fibseries,
+            which is the first fm value we start the algorithm with.
+            */
+        this->n1 = this->arr_size - 1; // n-1
     }
-    return 0;
-}
+
+    void generateFibonacciSeries() {
+        int fm2 = 0;
+        int fm1 = 1;
+        int fm = fm2 + fm1;
+
+        this->fibseries.push_back(fm2);
+        this->fibseries.push_back(fm1);
+        this->fibseries.push_back(fm);
+        
+        while(fm < this->arr_size) {
+            fm2 = fm1;
+            fm1 = fm;
+            fm = fm2 + fm1;
+
+            this->fibseries.push_back(fm);
+        }
+        return;
+    }
+
+    int search() {
+        if (this->k < 2) { return -1; }
+        int i = std::min((this->offset+this->fibseries.at(this->k-2)), this->n1);
+        // printTelemetry(i);
+        if (this->key == this->arr->at(i)) { return i; } 
+        else if (this->key > this->arr->at(i)) {
+            this->offset = i;
+            this->k--;
+            return this->search();
+        } else if (this->key < this->arr->at(i)) {
+            this->k = k - 2;
+            return this->search();
+        } 
+        if (this->key == this->arr->at(this->offset+1)) { return (this->offset+1); }
+        return -1;
+    }
+
+    // const void printTelemetry(int i) const {
+    //     std::cout << "k:   " << this->k << " | F(k): "<< this->fibseries.at(this->k) << std::endl;
+    //     std::cout << "k-2: " << this->k-2 << " | F(k-2): " << this->fibseries.at(this->k-2) << " | offset: " << this->offset << std::endl;
+    //     std::cout << "i: " << i << " | A[i]: " << this->arr->at(i) << std::endl;
+    //     this->printFib();
+
+    //     return;
+    // }
+
+    // const void printFib() const {
+    //     std::cout << "Fib: ";
+    //     for (int i: this->fibseries) {
+    //         std::cout << i << ", ";
+    //     }
+    //     std::cout << '\n' << std::endl;
+    // }
 
 public:
     FibonacciSearch(std::vector<int>& arr) {
-        this->arr = &arr;
-
-        this->arr_size = this->arr->size();
-        this->resetAndCalculateTrackers();
+        this->arr = &arr; // setting the search array
+        this->arr_size = this->arr->size(); // n
+        // this->resetAndCalculateTrackers();
     }
 
     const void setKey(int key) {
         this->key = key;
-    }
-
-    const void printFib() const {
-        for (int i: this->fibseries) {
-            std::cout << i << ", ";
+        this->resetAndCalculateTrackers();
+        // std::cout << "\nfm2: " << this->fm2 << std::endl;
+        if (this->k) { 
+            int i = this->search();
+            if (i != -1) {
+                std::cout << "Found key at index: " << i << std::endl;
+            } else {
+                std::cout << "Element not found" << std::endl;
+            }
         }
-        std::cout << std::endl;
+        return;
     }
 };
 
-
 int main() {
     std::vector<int> arr {2,5,9,10,13,16,21,25,27,34};
-
     FibonacciSearch fib(arr);
 
     int key{};
     while(1) {
-        // system("cls");
+        system("cls");
         std::cout << "Fibonacci Search\nPress CTRL+C to quit" << std::endl;
         std::cout << "Enter a value to search in array: ";
         if (std::cin >> key) {
