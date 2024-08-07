@@ -19,7 +19,7 @@ private:
     void resetAndCalculateTrackers() {
         this->offset = -1;
         this->k = 0;
-        // int range = (this->arr_size / GOLDEN_RATIO) + 1;
+
         // Generating fibonacci numbers only as many as required.
         if (this->fibseries.empty()) {
             this->generateFibonacciSeries(); 
@@ -72,34 +72,32 @@ private:
         return -1;
     }
 
-    // const void printTelemetry(int i) const {
-    //     std::cout << "k:   " << this->k << " | F(k): "<< this->fibseries.at(this->k) << std::endl;
-    //     std::cout << "k-2: " << this->k-2 << " | F(k-2): " << this->fibseries.at(this->k-2) << " | offset: " << this->offset << std::endl;
-    //     std::cout << "i: " << i << " | A[i]: " << this->arr->at(i) << std::endl;
-    //     this->printFib();
+    /*const void printTelemetry(int i) const {
+        std::cout << "k:   " << this->k << " | F(k): "<< this->fibseries.at(this->k) << std::endl;
+        std::cout << "k-2: " << this->k-2 << " | F(k-2): " << this->fibseries.at(this->k-2) << " | offset: " << this->offset << std::endl;
+        std::cout << "i: " << i << " | A[i]: " << this->arr->at(i) << std::endl;
+        this->printFib();
 
-    //     return;
-    // }
+        return;
+    }
 
-    // const void printFib() const {
-    //     std::cout << "Fib: ";
-    //     for (int i: this->fibseries) {
-    //         std::cout << i << ", ";
-    //     }
-    //     std::cout << '\n' << std::endl;
-    // }
+    const void printFib() const {
+        std::cout << "Fib: ";
+        for (int i: this->fibseries) {
+            std::cout << i << ", ";
+        }
+        std::cout << '\n' << std::endl;
+    }*/
 
 public:
     FibonacciSearch(std::vector<int>& arr) {
         this->arr = &arr; // setting the search array
         this->arr_size = this->arr->size(); // n
-        // this->resetAndCalculateTrackers();
     }
 
     const void setKey(int key) {
         this->key = key;
         this->resetAndCalculateTrackers();
-        // std::cout << "\nfm2: " << this->fm2 << std::endl;
         if (this->k) { 
             int i = this->search();
             if (i != -1) {
