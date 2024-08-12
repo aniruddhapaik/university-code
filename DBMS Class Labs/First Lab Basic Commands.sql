@@ -5,6 +5,7 @@ show tables;
 select * from city where countrycode = "IND";
 select sum(population) as "Total Population" from city where countrycode = "IND";
 
+-- drop database University;
 create database University;
 show databases;
 use university;
@@ -18,7 +19,7 @@ create table Student(
 );
 desc Student;
 
-alter table Student modify column SID varchar(20) primary key;
+alter table Student modify column SID int primary key;
 -- alter table student drop primary key;
 alter table student rename column city to place;
 alter table student modify column SID int auto_increment;
@@ -63,8 +64,8 @@ alter table student add column dept_ID int not null;
 alter table student add foreign key (dept_ID) references Department(DID);
 
 insert into department (dept_name, floor_location) values
-("Department of Computer Science", 1),
 ("Department of Business Administration", 0),
+("Department of Computer Science", 1),
 ("Department of Commerce", 2);
 select * from department;
 
