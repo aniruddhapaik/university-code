@@ -1,8 +1,8 @@
 # University Codes
 Coding Exercises and Experiments.
-## DBMS Class Labs
+[## DBMS Class Labs](https://github.com/aniruddhapaik/university-code/tree/main/DBMS%20Class%20Labs)
 - First lab (basic SQL commands)
-## Data Structure & Algorithms Class Exercises
+[## Data Structure & Algorithms Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises)
 ### Data Structures
 - Stack (implementation with vector)
 - Queue (implementation with singly linked list with tail)
@@ -10,5 +10,5 @@ Coding Exercises and Experiments.
 - Linear Search
 - Binary Search
 - Fibonacci Search
-## Object Oriented Programming Class Exercises
-- Basic implementation of classes with Inheritance and Polymorphism
+[## Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
+- Basic implementation of classes with Inheritance and Polymorphism (unfinished)
