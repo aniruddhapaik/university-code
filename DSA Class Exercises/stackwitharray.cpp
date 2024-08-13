@@ -100,7 +100,7 @@ public:
         if (this->stack.size()) {
             std::cout << "Elements in the stack:" << std::endl;
             for (int i: this->stack) {
-                std::cout << i << " | ";
+                std::cout << " | " << i;
             }
             std::cout << std::endl;
         } else { this->printStackIsEmpty(); }
