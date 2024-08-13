@@ -10,5 +10,5 @@ Coding Exercises and Experiments.
 - Linear Search
 - Binary Search
 - Fibonacci Search
-### Object Oriented Programming Class Exercises
+## Object Oriented Programming Class Exercises
 - Basic implementation of classes with Inheritance and Polymorphism
