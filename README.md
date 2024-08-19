@@ -7,8 +7,8 @@
 ## [Data Structure & Algorithms Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises)
 ### Data Structures
 - [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/stackwitharray.cpp) (*implementation with* `std::vector`)
-- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
-ℹ️ *under development:*
+- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`) <br>
+  ℹ️ *under development:*
 - Singly Linked List
 - Doubly Linked List
 - Circular Linked List
