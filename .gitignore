@@ -1,3 +1,8 @@
 *.exe
 *.ini
 /.vscode
+*.sln
+*.vcxproj
+*.filters
+*.user
+.vs

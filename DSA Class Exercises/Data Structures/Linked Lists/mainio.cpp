@@ -1,6 +1,5 @@
-#include <limits>
-#include <conio.h>
 #include "singlylinkedlist.cpp"
+#include <conio.h>
 
 enum menu {pushfront, getfront, popfront, pushback, getback, popback, \
            addbefore, addafter, findkey, delkey, peekindex, delindex, \
@@ -12,7 +11,7 @@ int main() {
 
     while(1) {
         system("cls");
-        std::cout << "Stack implementation with std::vector\n";
+        std::cout << "Singly Linked list\n";
         std::cout << "Menu:\n";
         std::cout << pushfront << " : Push Front (key)\n";
         std::cout << getfront << " : Get Key Front\n";
@@ -32,7 +31,17 @@ int main() {
         std::cout << exitprogram << " : Exit Program\n";
         std::cout << "\nEnter menu choice >> " << std::flush;
 
-        if(std::cin >> input) {
+        std::cin >> input;
+        
+        if (std::cin.fail()){
+            clearAndResetInputState();
+            if (std::cin.eof()) {
+                std::cout << "Reached end of input (EOF)." << std::endl;
+            } else {
+                std::cout << "Error: Invalid Input! Enter valid integer." << std::endl;
+            }
+        }
+        else {
             switch (input) {
             case pushfront:
                 break;
@@ -71,13 +80,8 @@ int main() {
                 std::cout << "Enter valid option!" << std::endl;
                 break;
             }
-        } else {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            std::cout << "Enter valid input!" << std::endl;
         }
         _getch();
     }
-
     return 0;
 }
