@@ -44,6 +44,11 @@ private:
         return;
     }
 
+    const void printReturnDefault() const {
+        std::cout << "Returning default value..." << std::endl;
+        return;
+    }
+
     Node* findNodeBefore(int val) {
         Node* temp = this->Head;
 
@@ -66,7 +71,15 @@ private:
         parent->next = new Node(this->last_input, parent->next);
         this->listsize++;
         return;
-    } 
+    }
+
+    void popNode(Node* parent) { // expext the parent node of the node the user wants to delete.
+        Node* temp = parent->next;
+        parent->next = parent->next->next;
+        delete temp;
+        this->listsize--;
+        return;
+    }
 
 public:
     SinglyLinkedList() {
@@ -106,7 +119,11 @@ public:
     }
 
     bool isEmpty() const {
-        if (this->listsize) { return false; }
+        if (this->listsize) { 
+            std::cout << "List size is " << this->listsize << std::endl;    
+            return false; 
+        }
+        this->printEmpty();
         return true;
     }
 
@@ -117,6 +134,7 @@ public:
             std::cout << "Value at the front: " << this->Head->key << std::endl;
             return this->Head->key;
         }
+        this->printReturnDefault();
         return DEFAULT;
     }
 
@@ -127,17 +145,20 @@ public:
             std::cout << "Value at the back: " << this->Tail->key << std::endl;
             return this->Tail->key;
         }
-        return DEFAULT;
+        this->printReturnDefault();
+        return DEFAULT; // if the list is empty, returning a default value
     }
 
     void popFront() {
         if (this->isEmpty()) { this->printEmpty(); }
         else {
-            Node* temp = this->Head;
-            this->Head = this->Head->next;
+            Node* temp = this->Head->next;
+            delete this->Head; // freeing memory
+            this->listsize--; // decreasing the size counter
+            this->Head = temp;
             if (this->Head == nullptr) { this->Tail = nullptr; }
-            
-            delete temp;
+            // the above if statement is for the case there was only one node in the list before the deletion,
+            // so assigning the tail to nullptr as well since the head now points to nullptr.
         }
         return;
     }
@@ -145,15 +166,21 @@ public:
     void popBack() {
         if (this->isEmpty()) { this->printEmpty(); }
         else if (this->Head == this->Tail) {
+            // this block runs if there was only one node, so popBack() would render the list empty.
+            delete this->Head; // freeing memory
+            this->listsize--;
             this->Head = nullptr;
             this->Tail = nullptr;
         } else {
             Node* temp = this->Head;
 
-            while(temp->next->next != nullptr) {
+            while(temp->next->next != nullptr) { // this runs if there are at least 2 nodes
+                // traversing to the parent of the last node 
+                // to delete the last node and set its parent->next pointer to nullptr
                 temp = temp->next;
             }
-            delete temp->next; // deleting tail
+            delete temp->next; // freeing the memory, NO MEMORY LEAKS!
+            this->listsize--;
             temp->next = nullptr;
             this->Tail = temp; // assigning new tail
         }
@@ -166,17 +193,26 @@ public:
             if (this->listsize == 1) { // checking if only one node exists
                 std::cout << "Only one node exists.\n-> Adding new head.." << std::endl;
                 this->pushFront();
+                // since there is only one node, adding before would mean you want to add to the before the only node there is.
+                // so, addBefore() switches to becoming pushFront()
                 return;
             } else {
                 std::cout << "Enter the key before which you want to add new key.\nFind key: " << std::flush;
                 if (this->handleInput()) {
-                    if (this->Head->key == this->last_input) { // checking if wanting assign a new head node
+                    if (this->Head->key == this->last_input) {
+                        // even though there are more than 1 node, in case you still want to add before the first node...
+                        // ...addBefore() automatically switches to pushFront() function
                         this->pushFront();
                         return;
                     } else {
+                        // executes when you want to add somewhere after the first head node.
                         Node* node_parent = this->findNodeBefore(this->last_input);
-                        if (node_parent == nullptr) { return; } // checking node requested for exists or not
-                        else { // adding new key before requested node
+                        // suppose you want to add to a certain node, 
+                        // findNodeBefore() gets the parent node of the node before which you want to add a new node
+                        if (node_parent == nullptr) { return; } 
+                        // if the node requested for is not found, the above evaluates to true
+                        else { 
+                            // getting user to enter new key to actually create a node before requested node
                             std::cout << "Enter key to add: " << std::flush;
                             if (this->handleInput()) {
                                 addNode(node_parent);
@@ -191,32 +227,36 @@ public:
     }
 
     Node* findNode() {
-        std::cout << "Find key: " << std::endl;
+        std::cout << "Find key: " << std::flush;
         if (this->handleInput()) {
             Node* temp = this->Head;
-
-            while(temp != nullptr) {
+            // checking every node if its value matches the key the user is looking for
+            while(temp != nullptr) { // evaluates to false once the tail->next is reached, since tail->next is nullptr
                 if (temp->key == this->last_input) {
                     std::cout << "Key" << this->last_input << " has been found!" << std::endl;
                     return temp;
                 }
                 temp = temp->next;
             }
+            // if the key has not been found 
             std::cout << "Key not found!" << std::endl;
-            return nullptr;
         }
+        return nullptr;
     }
 
     void addAfter() {
         if (this->isEmpty()) { 
             this->printEmpty();
             std::cout << "So add a new key.\n";
-            this->pushFront();
+            this->pushBack(); 
+            // since list is empty, addAfter() automatically switches to pushing to the list.
+            // pushFront() or pushBack() would result in doing the same thing.
         }
         else {
             if (this->listsize == 1) {
                 std::cout << "Only one node exists.\nAdding a new tail.." << std::endl;
-                this->pushBack();
+                this->pushBack(); 
+                // since there is only one node, choosing to addAfter can only mean you are want to add to the end of the list.
             } else {
                 std::cout << "Enter the key after which you add new key. " << std::endl;
                 Node* parent = this->findNode();
@@ -234,7 +274,117 @@ public:
             std::cout << "Can't perform delete operation" << std::endl;
             return;
         } else {
-            
+            std::cout << "Which key you want to delete: " << std::flush;
+            if (this->handleInput()) {
+                if (this->Head->key == this->last_input) {
+                    popFront();
+                } else if (this->listsize > 1) {
+                    Node* parent = this->findNodeBefore(this->last_input);
+                    this->popNode(parent);
+                } else {
+                    std::cout << "Node was not found!" << std::endl;
+                }
+            }
         }
+    }
+
+    int peekIndex() {
+        if (this->listsize) {
+            if (this->listsize > 1) {
+                std::cout << "The list size is " << this->listsize;
+                std::cout << "\nEnter index to peek at: " << std::flush;
+                if (this->handleInput()) {
+                    if (this->last_input >= 0 and this->last_input < this->listsize) {
+                        // traverse the list until index is met.
+                        size_t counter = this->last_input;
+                        Node* temp = this->Head;
+                        while (counter) {
+                            temp = temp->next;
+                            counter--;
+                        }
+                        std::cout << "Key at index " << this->last_input << " is " << temp->key << std::endl;
+                        return temp->key;
+                    } else {
+                        std::cout << "Index is out of bounds!" << std::endl;
+                    }
+                } else {
+                    this->printEmpty();
+                    this->printReturnDefault();
+                    return DEFAULT;
+                }
+            } else {
+                std::cout << "The only key in the list is " << this->Head->key << std::endl;
+                return this->Head->key;
+            }
+        } else {
+            this->printEmpty();
+            this->printReturnDefault();
+        }
+        return DEFAULT;
+    }
+
+    void delIndex() {
+        if (this->listsize) {
+            if (listsize > 1) {
+                std::cout << "List size is " << this->listsize;
+                std::cout << "\nEnter index at which key is to be deleted: " << std::flush;
+                if (this->handleInput()) { // enter index of node to deleted
+                    if (this->last_input == 0) {
+                        // if the index at which the user wants to delete is 0,
+                        // that means its a popFront() operation.
+                        popFront();
+                        return;
+                    }
+                    if (this->last_input > 0 and this->last_input < this->listsize) {
+                        size_t counter = this->last_input - 1; 
+                        // negating 1 purposely to first get to the parent of the node the user wants to delete.
+                        Node* parent = this->Head;
+                        while(counter) {
+                            parent = parent->next;
+                            counter--;
+                        }
+                        popNode(parent);
+                        return;
+                    } else {
+                        std::cout << "Index is out of bounds!" << std::endl;
+                        return;
+                    }
+                }
+            } else {
+                // if there is only one node, delIndex() would mean deleting the only node,
+                // so doing popBack(). popFront() would work here too since there is only one node;
+                popBack();
+                return;
+            }
+        } else {
+            this->printEmpty();
+            return;
+        }
+    }
+
+    size_t getSize() {
+        if (this->listsize) {
+            std::cout << "The list size is " << this->listsize << std::endl;
+            return this->listsize;
+        } 
+        // else
+        this->printEmpty();
+        this->printReturnDefault();
+        return DEFAULT;
+    }
+
+    const void printList() const {
+        if (this->listsize) {
+            Node* temp = this->Head;
+            std::cout << "Elements in list:\n|";
+            while(temp != nullptr) {
+                std::cout << temp->key << " | ";
+            }
+            std::cout.flush();
+            return;
+        }
+        // else 
+        this->printEmpty();
+        return;
     }
 };

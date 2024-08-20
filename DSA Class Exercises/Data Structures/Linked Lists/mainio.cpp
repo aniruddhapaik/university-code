@@ -12,7 +12,7 @@ int main() {
     while(1) {
         system("cls");
         std::cout << "Singly Linked list\n";
-        std::cout << "Menu:\n";
+        std::cout << " ** Menu **\n";
         std::cout << pushfront << " : Push Front (key)\n";
         std::cout << getfront << " : Get Key Front\n";
         std::cout << popfront << " : Pop Front\n";
@@ -29,6 +29,7 @@ int main() {
         std::cout << getsize << " : Get size of List\n";
         std::cout << printlist << " : Print List\n";
         std::cout << exitprogram << " : Exit Program\n";
+        std::cout << "***\n";
         std::cout << "\nEnter menu choice >> " << std::flush;
 
         std::cin >> input;
@@ -44,34 +45,49 @@ int main() {
         else {
             switch (input) {
             case pushfront:
+                list.pushFront();
                 break;
             case getfront:
+                list.getFront();
                 break;
             case popfront:
+                list.popFront();
                 break;
             case pushback:
+                list.pushBack();
                 break;
             case getback:
+                list.getBack();
                 break;
             case popback:
+                list.popBack();
                 break;
             case addbefore:
+                list.addBefore();
                 break;
             case addafter:
+                list.addAfter();
                 break;
             case findkey:
+                list.findNode();
                 break;
             case delkey:
+                list.delKey();
                 break;
             case peekindex:
+                list.peekIndex();
                 break;
             case delindex:
+                list.delIndex();
                 break;
             case isempty:
+                list.isEmpty();
                 break;
             case getsize:
+                list.getSize();
                 break;
             case printlist:
+                list.printList();
                 break;
             case exitprogram:
                 return 0;
