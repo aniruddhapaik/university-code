@@ -10,8 +10,8 @@
 
 ### 💾 Data Structures
 
-- [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/stackwitharray.cpp) (*implementation with* `std::vector`)
-- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
+- [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*implementation with* `std::vector`)
+- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
 - [Singly Linked List](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists)
 </br></br>
 
@@ -27,9 +27,9 @@
 
 ### 📑 Algorithms
 
-- [Linear Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/linearsearch.cpp)
-- [Binary Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/binarysearch.cpp)
-- [Fibonacci Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/fibonaccisearch.cpp)
+- [Linear Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/linearsearch.cpp)
+- [Binary Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/binarysearch.cpp)
+- [Fibonacci Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/fibonaccisearch.cpp)
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
