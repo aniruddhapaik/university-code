@@ -11,25 +11,33 @@ int main() {
 
     while(1) {
         system("cls");
-        std::cout << "Singly Linked list\n";
-        std::cout << " ** Menu **\n";
+        std::cout << "**********************\n";
+        std::cout << "| Singly Linked list |\n";
+        std::cout << "----------------------\n";
+        std::cout << "**       Menu       **\n";
+        std::cout << "**********************\n";
         std::cout << pushfront << " : Push Front (key)\n";
         std::cout << getfront << " : Get Key Front\n";
         std::cout << popfront << " : Pop Front\n";
+        std::cout << "----------------------\n";
         std::cout << pushback << " : Push Back (key)\n";
         std::cout << getback << " : Get Key Back\n";
         std::cout << popback << " : Pop Back\n";
+        std::cout << "----------------------\n";
         std::cout << addbefore << " : Add Before (key)\n";
         std::cout << addafter << " : Add After (key)\n";
+        std::cout << "----------------------\n";
         std::cout << findkey << " : Check if Key is in List (key)\n";
         std::cout << delkey << " : Delete Key (key)\n";
         std::cout << peekindex << " : Peek (index)\n";
         std::cout << delindex << " : Delete at Index (index)\n";
+        std::cout << "----------------------\n";
         std::cout << isempty << " : Check if Empty\n";
         std::cout << getsize << " : Get size of List\n";
         std::cout << printlist << " : Print List\n";
+        std::cout << "----------------------\n";
         std::cout << exitprogram << " : Exit Program\n";
-        std::cout << "***\n";
+        std::cout << "**********************\n";
         std::cout << "\nEnter menu choice >> " << std::flush;
 
         std::cin >> input;
@@ -81,7 +89,7 @@ int main() {
                 list.delIndex();
                 break;
             case isempty:
-                list.isEmpty();
+                list.isEmpty(true);
                 break;
             case getsize:
                 list.getSize();
@@ -97,6 +105,7 @@ int main() {
                 break;
             }
         }
+        std::cout << "\nPress ENTER to continue... " << std::flush;
         _getch();
     }
     return 0;

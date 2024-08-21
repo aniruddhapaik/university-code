@@ -11,15 +11,18 @@
 ### 💾 Data Structures
 
 - [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/stackwitharray.cpp) (*implementation with* `std::vector`)
-- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`) <br><br>
+- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
+- [Singly Linked List](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists)
+</br></br>
+
 **🛠️ under development**:
-- Singly Linked List
+
 - Doubly Linked List
 - Circular Linked List
-- Stack (*implementation with* `array`)
-- Stack (*implementation with* `linked list`)
-- Queue (*implementation with* `std::vector`)
-- Circular Queue
+- Stack (*implementation with* `array`) (maybe)
+- Stack (*implementation with* `linked list`) (maybe)
+- Queue (*implementation with* `std::vector`) (maybe)
+- Circular Queue (*most probably will implement with* `array` or `std::vector`)
 - Priority Queue (*implementation with* `std::vector`)
 
 ### 📑 Algorithms
@@ -30,4 +33,4 @@
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
-- [Basic implementation of classes with Inheritance and Polymorphism](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/polyinherit.cpp) (unfinished)
+- [Basic implementation of classes with Inheritance and Polymorphism](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/polyinherit.cpp) (under development)
