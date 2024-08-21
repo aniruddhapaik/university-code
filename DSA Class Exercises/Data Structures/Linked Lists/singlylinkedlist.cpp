@@ -59,23 +59,23 @@ private:
             temp = temp->next;
         }
 
-        if (temp->next->key == val) {
-            return temp;
-        } else {
+        if (temp->next->key == val) { return temp; }
+        else {
             std::cout << "Key not found!" << std::endl;
             return nullptr;
         }
     }
 
-    void addNode(Node* parent) {
+    void addNodeAfter(Node* parent) {
         parent->next = new Node(this->last_input, parent->next);
         this->listsize++;
         return;
     }
 
-    void popNode(Node* parent) { // expext the parent node of the node the user wants to delete.
+    void popNodeAfter(Node* parent) { // expects the parent node of the node the user wants to delete.
         Node* temp = parent->next;
         parent->next = parent->next->next;
+        if (parent->next == nullptr) { this->Tail = parent; }
         delete temp;
         this->listsize--;
         return;
@@ -219,16 +219,51 @@ public:
                         else { 
                             // getting user to enter new key to actually create a node before requested node
                             std::cout << "Enter key to add: " << std::flush;
-                            if (this->handleInput()) {
-                                addNode(node_parent);
-                                return;
-                            }
+                            if (this->handleInput()) { addNodeAfter(node_parent); }
+                            return;
                         }
                     }
                 }
             }
         }
-        return;
+    }
+
+    void addAfter() {
+        if (this->isEmpty()) { 
+            this->printEmpty();
+            std::cout << "So add a new key.\n";
+            this->pushBack(); 
+            // since list is empty, addAfter() automatically switches to pushing to the list.
+            // pushFront() or pushBack() would result in doing the same thing.
+        } else {
+            if (this->listsize == 1) {
+                std::cout << "Only one node exists.\nAdding a new tail.." << std::endl;
+                this->pushBack();
+                // since there is only one node, choosing to addAfter can only mean you are want to add to the end of the list.
+                return;
+            } else {
+                std::cout << "Enter the key after which you add new key. " << std::endl;
+                if (this->handleInput()) {
+                    // in case user wants to assign after the tail
+                    if (this->Tail->key == this->last_input) {
+                        this->pushBack();
+                        return;
+                    } else {
+                        // Although findNodeBefore returns the node before the node of interest,
+                        // we can just move to the next node, after which we can add a node after it.
+                        // It is guaranteed that the node after which the user wants to add is not the current tail node,
+                        // because that case has already been handled
+                        Node* parent = this->findNodeBefore(this->last_input);
+                        if (parent == nullptr) { return; } // checking node requested for exists or not
+                        else {
+                            std::cout << "Enter key to add: " << std::flush;
+                            if (this->handleInput()) { addNodeAfter(parent->next); }
+                            return;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     Node* findNode() {
@@ -249,29 +284,6 @@ public:
         return nullptr;
     }
 
-    void addAfter() {
-        if (this->isEmpty()) { 
-            this->printEmpty();
-            std::cout << "So add a new key.\n";
-            this->pushBack(); 
-            // since list is empty, addAfter() automatically switches to pushing to the list.
-            // pushFront() or pushBack() would result in doing the same thing.
-        } else {
-            if (this->listsize == 1) {
-                std::cout << "Only one node exists.\nAdding a new tail.." << std::endl;
-                this->pushBack(); 
-                // since there is only one node, choosing to addAfter can only mean you are want to add to the end of the list.
-            } else {
-                std::cout << "Enter the key after which you add new key. " << std::endl;
-                Node* parent = this->findNode();
-                if (parent == nullptr) { return; } // checking node requested for exists or not
-                else {
-                    addNode(parent);
-                }
-            }
-        }
-    }
-
     void delKey() {
         if (this->isEmpty()) { 
             this->printEmpty(); 
@@ -286,6 +298,7 @@ public:
                     if (this->last_input == 1) {
                         std::cout << "Deleting the only key there is...\n";
                         popBack();
+                        return;
                     } else {
                         std::cout << "You have chosen to not delete the only key there is\n";
                         std::cout << "or you have not chosen option 1\n";
@@ -299,13 +312,13 @@ public:
                         popFront();
                     } else if (this->listsize > 1) {
                         Node* parent = this->findNodeBefore(this->last_input);
-                        if (parent != nullptr) { this->popNode(parent); }
-                    } else {
-                        std::cout << "Node was not found!" << std::endl;
-                    }
+                        if (parent == nullptr) { return; }
+                        else { this->popNodeAfter(parent); }
+                    } 
                 }
             }
         }
+        return;
     }
 
     int peekIndex() {
@@ -351,7 +364,7 @@ public:
                 if (this->handleInput()) { // enter index of node to deleted
                     if (this->last_input == 0) {
                         // if the index at which the user wants to delete is 0,
-                        // that means its a popFront() operation.
+                        // that means it's a popFront() operation.
                         popFront();
                         return;
                     }
@@ -363,7 +376,7 @@ public:
                             parent = parent->next;
                             counter--;
                         }
-                        popNode(parent);
+                        popNodeAfter(parent);
                         return;
                     } else {
                         std::cout << "Index is out of bounds!\n";
@@ -374,21 +387,19 @@ public:
                 // if there is only one node, delIndex() would mean deleting the only node,
                 // so doing popBack(). popFront() would work here too since there is only one node;
                 std::cout << "Do you want to delete the only key there is in the list?\n";
-                std::cout << "(1 = yes, 0 = NO)(Default is NO): " << std::flush;
+                std::cout << "(1 = yes, any integer = NO)(Default is NO): " << std::flush;
                 this->last_input = 0; // purposely setting it to 0, since default is NO
                 if (this->handleInput()) {
                     if (this->last_input == 1) {
                         std::cout << "Deleting the only key there is...\n";
                         popBack();
                     } else {
-                        std::cout << "You have chosen to not delete the only key there is\n";
-                        std::cout << "or you have not chosen option 1\n";
+                        std::cout << "Not performing any deletion\n";
                     }
                 }
-                
-                return;
             }
         }
+        return;
     }
 
     size_t getSize() {
