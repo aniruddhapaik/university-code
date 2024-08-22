@@ -34,20 +34,12 @@ private:
             }
             return false; 
         }
-        else {
-           return true;
-        }
+        else { return true; }
     }
 
-    const void printEmpty() const {
-        std::cout << "The list is empty!" << std::endl;
-        return;
-    }
+    const void printEmpty() const { std::cout << "The list is empty!" << std::endl; }
 
-    const void printReturnDefault() const {
-        std::cout << "Returning default value..." << std::endl;
-        return;
-    }
+    const void printReturnDefault() const { std::cout << "Returning default value..." << std::endl; }
 
     Node* findNodeBefore(int val) {
         Node* temp = this->Head;
@@ -130,23 +122,23 @@ public:
     int getFront() const {
         if (this->isEmpty()) {
             this->printEmpty();
+            this->printReturnDefault();
+            return DEFAULT;
         } else {
             std::cout << "Value at the front: " << this->Head->key << std::endl;
             return this->Head->key;
         }
-        this->printReturnDefault();
-        return DEFAULT;
     }
 
     int getBack() const {
         if (this->isEmpty()) {
             this->printEmpty();
+            this->printReturnDefault();
+            return DEFAULT; // if the list is empty, returning a default value
         } else {
             std::cout << "Value at the back: " << this->Tail->key << std::endl;
             return this->Tail->key;
         }
-        this->printReturnDefault();
-        return DEFAULT; // if the list is empty, returning a default value
     }
 
     void popFront() {
@@ -160,7 +152,6 @@ public:
             // the above if statement is for the case there was only one node in the list before the deletion,
             // so assigning the tail to nullptr as well since the head now points to nullptr.
         }
-        return;
     }
 
     void popBack() {
@@ -184,7 +175,6 @@ public:
             temp->next = nullptr;
             this->Tail = temp; // assigning new tail
         }
-        return;
     }
 
     void addBefore() {
@@ -329,9 +319,8 @@ public:
     }
 
     int peekIndex() {
-        if (this->isEmpty()) {
-            this->printEmpty();
-        } else { 
+        if (this->isEmpty()) { this->printEmpty(); } 
+        else { 
             if (this->listsize > 1) {
                 std::cout << "The list size is " << this->listsize;
                 std::cout << "\nEnter a number in the range of [0, " << this->listsize-1 << "]";
@@ -351,7 +340,6 @@ public:
                         std::cout << "Index is out of bounds!" << std::endl;
                     }
                 } 
-                // deleted else statement, for future reference
             } else {
                 std::cout << "The only key in the list is " << this->Head->key << std::endl;
                 return this->Head->key;
@@ -408,7 +396,6 @@ public:
                 }
             }
         }
-        return;
     }
 
     size_t getSize() const {
