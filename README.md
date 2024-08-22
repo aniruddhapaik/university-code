@@ -12,18 +12,18 @@
 
 - [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*implementation with* `std::vector`)
 - [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
-- [Singly Linked List](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists)
+- [Singly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Singly%20Linked%20List/singlylinkedlist.cpp) (`with tail`)
+- [Doubly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Doubly%20Linked%20List/doublylinkedlist.cpp) (`with tail`)
 </br></br>
 
 **🛠️ under development**:
 
-- Doubly Linked List
 - Circular Linked List
+- Circular Queue (*most probably will implement with* `array` or `std::vector`)
+- Priority Queue (*implementation with* `std::vector`)
 - Stack (*implementation with* `array`) (maybe)
 - Stack (*implementation with* `linked list`) (maybe)
 - Queue (*implementation with* `std::vector`) (maybe)
-- Circular Queue (*most probably will implement with* `array` or `std::vector`)
-- Priority Queue (*implementation with* `std::vector`)
 
 ### 📑 Algorithms
 
