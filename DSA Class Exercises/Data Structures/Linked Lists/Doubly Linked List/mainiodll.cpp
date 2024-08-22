@@ -1,4 +1,4 @@
-#include "singlylinkedlist.cpp"
+#include "doublylinkedlist.cpp"
 #include <conio.h>
 
 enum menu {pushfront, getfront, popfront, pushback, getback, popback, \
@@ -6,13 +6,13 @@ enum menu {pushfront, getfront, popfront, pushback, getback, popback, \
            isempty, getsize, printlist, exitprogram};
 
 int main() {
-    SinglyLinkedList list;
+    DoublyLinkedList list;
     int input{};
 
     while(1) {
         system("cls");
         std::cout << "**********************\n";
-        std::cout << "| Singly Linked list |\n";
+        std::cout << "| Doubly Linked list |\n";
         std::cout << "----------------------\n";
         std::cout << "**       Menu       **\n";
         std::cout << "**********************\n";
