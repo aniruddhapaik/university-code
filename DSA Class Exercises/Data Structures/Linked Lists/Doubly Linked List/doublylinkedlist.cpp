@@ -1,4 +1,4 @@
-#include "../../input_utils.cpp"
+#include "../../../input_utils.cpp"
 
 #define DEFAULT -1;
 
@@ -134,7 +134,9 @@ public:
 
     bool isEmpty(bool printsize=false) const {
         if (this->listsize) { 
-            if (printsize) { std::cout << "List size is " << this->listsize << std::endl; }
+            if (printsize) { 
+                std::cout << "List is not empty.\n";
+                std::cout << "List size is " << this->listsize << std::endl; }
             return false; 
         }
         if (printsize) { this->printEmpty(); }
@@ -234,7 +236,7 @@ public:
                 if (node == nullptr) { return; } // checking node requested for exists or not
                 else if (node == this->Head) { this->pushFront(); }
                 else { 
-                    std::cout << "Enter key to add: " << std::flush;
+                    std::cout << "Enter key to add before" << this->last_input << ": " << std::flush;
                     if (this->handleInput()) { addNodeBefore(node); }
                 }
             }
@@ -258,9 +260,9 @@ public:
                 std::cout << "Enter the key after which you add a new key.\n";
                 Node* node = this->findNode();
                 if (node == nullptr) { return; } // checking node requested for exists or not
-                else if (node->next == nullptr) { this->pushBack(); }
+                else if (node->next == nullptr) { this->pushBack(); } // accounting for the case where the user wants to add after the tail
                 else {
-                    std::cout << "Enter key to add: " << std::flush;
+                    std::cout << "Enter key to add after" << this->last_input << ": " << std::flush;
                     if (this->handleInput()) { addNodeAfter(node); }
                 }
             }
@@ -322,6 +324,7 @@ public:
         } else { 
             if (this->listsize > 1) {
                 std::cout << "The list size is " << this->listsize;
+                std::cout << "\nEnter a number in the range of [0, " << this->listsize-1 << "]";
                 std::cout << "\nEnter index to peek at: " << std::flush;
                 if (this->handleInput()) {
                     if (this->last_input >= 0 and this->last_input < this->listsize) {
@@ -355,6 +358,7 @@ public:
         } else {
             if (listsize > 1) {
                 std::cout << "List size is " << this->listsize;
+                std::cout << "\nEnter a number in the range of [0, " << this->listsize-1 << "]";
                 std::cout << "\nEnter index at which key is to be deleted: " << std::flush;
                 if (this->handleInput()) { // enter index of node to deleted
                     if (this->last_input == 0) {
@@ -364,14 +368,16 @@ public:
                         return;
                     }
                     if (this->last_input > 0 and this->last_input < this->listsize) {
-                        size_t counter = this->last_input - 1; 
-                        // negating 1 purposely to first get to the parent of the node the user wants to delete.
-                        Node* parent = this->Head;
+                        size_t counter = this->last_input; 
+                        
+                        Node* node = this->Head;
                         while(counter) {
-                            parent = parent->next;
+                            node = node->next;
                             counter--;
                         }
-                        popNode(parent);
+
+                        if (node == this->Tail) { this->popBack(); }
+                        else { this->popNode(node); }
                         return;
                     } else {
                         std::cout << "Index is out of bounds!\n";
@@ -382,7 +388,7 @@ public:
                 // if there is only one node, delIndex() would mean deleting the only node,
                 // so doing popBack(). popFront() would work here too since there is only one node;
                 std::cout << "Do you want to delete the only key there is in the list?\n";
-                std::cout << "(1 = yes, 0 = NO)(Default is NO): " << std::flush;
+                std::cout << "(1 = yes, (any integer except 1) = NO)(Default is NO): " << std::flush;
                 this->last_input = 0; // purposely setting it to 0, since default is NO
                 if (this->handleInput()) {
                     if (this->last_input == 1) {
@@ -399,7 +405,7 @@ public:
         }
     }
 
-    size_t getSize() {
+    size_t getSize() const {
         if (this->isEmpty()) {
             this->printEmpty();
             this->printReturnDefault();

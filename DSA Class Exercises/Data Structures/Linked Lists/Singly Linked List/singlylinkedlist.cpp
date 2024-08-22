@@ -396,7 +396,7 @@ public:
                 // if there is only one node, delIndex() would mean deleting the only node,
                 // so doing popBack(). popFront() would work here too since there is only one node;
                 std::cout << "Do you want to delete the only key there is in the list?\n";
-                std::cout << "(1 = yes, any integer = NO)(Default is NO): " << std::flush;
+                std::cout << "(1 = yes, (any integer except 1) = NO)(Default is NO): " << std::flush;
                 this->last_input = 0; // purposely setting it to 0, since default is NO
                 if (this->handleInput()) {
                     if (this->last_input == 1) {
@@ -411,7 +411,7 @@ public:
         return;
     }
 
-    size_t getSize() {
+    size_t getSize() const {
         if (this->isEmpty()) {
             this->printEmpty();
             this->printReturnDefault();
