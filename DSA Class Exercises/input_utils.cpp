@@ -10,7 +10,7 @@
 // #define PRINTRETURNDEFAULT std::cout << "Returning default value..." << std::endl;
 // #define INPUTMESSAGE(x) std::cout << x << std::flush;
 
-void clearAndResetInputState() {
+static void clearAndResetInputState() {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return;

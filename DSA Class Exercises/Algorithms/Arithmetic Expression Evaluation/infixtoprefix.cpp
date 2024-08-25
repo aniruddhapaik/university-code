@@ -1,3 +1,5 @@
+#include "input_utils.h"
+
 class InfixToPrefix {
 private:
 
