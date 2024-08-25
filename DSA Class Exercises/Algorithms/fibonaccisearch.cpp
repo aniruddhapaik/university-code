@@ -32,7 +32,7 @@ private:
             So, to keep track of the index of fm in the fibseries array, 
             this->k is at last updated to match the index of the last element in this->fibseries,
             which is the first fm value we start the algorithm with.
-            */
+        */
         this->n1 = this->arr_size - 1; // n-1
     }
 
@@ -40,7 +40,7 @@ private:
         int fm2 = 0;
         int fm1 = 1;
         int fm = fm2 + fm1;
-
+        // the numbers in the this->fibseries will act as indeces to access elements in this->arr
         this->fibseries.push_back(fm2);
         this->fibseries.push_back(fm1);
         this->fibseries.push_back(fm);
@@ -58,14 +58,14 @@ private:
     int search() {
         if (this->k < 2) { return -1; }
         int i = std::min((this->offset+this->fibseries.at(this->k-2)), this->n1);
-        // printTelemetry(i);
+
         if (this->key == this->arr->at(i)) { return i; } 
-        else if (this->key > this->arr->at(i)) {
+        else if (this->key > this->arr->at(i)) { // if the element that we are looking for is > what is at index i in the array
             this->offset = i;
             this->k--;
             return this->search();
-        } else if (this->key < this->arr->at(i)) {
-            this->k = k - 2;
+        } else if (this->key < this->arr->at(i)) { // if the element we are looking for is < what is at index i in the array
+            this->k = this->k - 2;
             return this->search();
         } 
         if (this->key == this->arr->at(this->offset+1)) { return (this->offset+1); }
@@ -101,7 +101,7 @@ public:
         if (this->k) { 
             int i = this->search();
             if (i != -1) {
-                std::cout << "Found key at index: " << i << std::endl;
+                std::cout << "Found key " << key << " at index: " << i << std::endl;
             } else {
                 std::cout << "Element not found" << std::endl;
             }
