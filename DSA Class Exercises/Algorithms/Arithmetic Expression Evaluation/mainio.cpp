@@ -25,7 +25,8 @@ int main() {
     "(a+b)*(c+d)", \
     "(a+b)*c+(d+e)*(f+g)", \
     "a+(b*c*(d/e^f)*g)*h", \
-    "(a + (b - c))* ((d - e)/(f + g - h))"
+    "(a + (b - c))* ((d - e)/(f + g - h))", \
+    "a^b^c+d*e^f^g*h"
   };
 
   int input;
@@ -48,13 +49,16 @@ int main() {
     if (handleInput(input)) {
       switch (input) {
         case inpost:
-          IPost = new InfixToPostfix();
+          IPost = new InfixToPostfix;
           for (std::string str : teststrings) {
             IPost->enterInfix(&str);
           }
           break;
         case inpre:
           IPre = new InfixToPrefix;
+          for (std::string str : teststrings) {
+            IPre->enterInfix(&str);
+          }
           break;
         case exitprogram:
           return 0;

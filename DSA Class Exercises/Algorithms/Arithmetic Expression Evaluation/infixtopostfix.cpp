@@ -32,7 +32,7 @@ private:
         // Checking which operator it was and its precedence then its associativity 
         //   to perform operations on the operators' stack.
         if (c == ')') { 
-            this->popStackUntilClosingBracket();
+            this->popStackUntilOpeningBracket();
             continue;
         }
         while (this->checkTopStatus(c) == false) {
@@ -65,7 +65,7 @@ private:
     return false;
   }
 
-  void popStackUntilClosingBracket() {
+  void popStackUntilOpeningBracket() {
     if (not this->operator_stack->empty()) {
       while(this->operator_stack->top() != '(') {
         // std::cout << this->operator_stack->size() << " | ";
