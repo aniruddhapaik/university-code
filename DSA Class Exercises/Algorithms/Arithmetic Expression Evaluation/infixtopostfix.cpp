@@ -60,7 +60,7 @@ private:
       else if (((std::string)"(+-").find(this->operator_stack->top()) != std::string::npos) { return true; } // precedence higher
     } else if (c == '+' or c == '-') {
       if (((std::string)"^/*+-").find(this->operator_stack->top()) != std::string::npos) { return false; }
-      else { return true; }
+      else if (((std::string)"(").find(this->operator_stack->top()) != std::string::npos) { return true; }
     }
     return false;
   }
@@ -81,7 +81,7 @@ private:
 
   const void printPostfixExpression() const {
     std::cout << "\nPostfix Expression:\n  ";
-    std::cout << this->postfix_expression << std::endl;
+    std::cout << this->postfix_expression << "\n----------------\n" << std::endl;
   }
 
 public:

@@ -22,17 +22,17 @@ private:
     }
   }
 
-  void reverseString() {
+  void reverseString(std::string& str) {
     // to reverse just put elements one by one in a stack, beginning from the left.
     std::stack<char> reverse;
-    for (char c : this->infix_expression) {
+    for (char c : str) {
       reverse.push(c);
     }
 
-    this->infix_expression = "";
+    str = "";
 
     while(not reverse.empty()) {
-      this->infix_expression.push_back(reverse.top());
+      str.push_back(reverse.top());
       reverse.pop();
     }
   }
@@ -61,7 +61,7 @@ private:
         this->prefix_expression.push_back(this->operator_stack->top());
         this->operator_stack->pop();
     }
-    this->reverseString();
+    this->reverseString(this->prefix_expression);
     this->printPrefixExpression();
   }
 
@@ -73,10 +73,10 @@ private:
       else { return true; }
     } else if (c == '/' or c == '*') {
       if (((std::string)"^").find(this->operator_stack->top()) != std::string::npos) { return false; } // precedence lower
-      else if (((std::string)"(/*+-").find(this->operator_stack->top()) != std::string::npos) { return true; } // precedence equal or higher
+      else if (((std::string)")/*+-").find(this->operator_stack->top()) != std::string::npos) { return true; } // precedence equal or higher
     } else if (c == '+' or c == '-') {
       if (((std::string)"^/*").find(this->operator_stack->top()) != std::string::npos) { return false; }
-      else if (((std::string)"+-").find(this->operator_stack->top()) != std::string::npos) { return true; }
+      else if (((std::string)")+-").find(this->operator_stack->top()) != std::string::npos) { return true; }
     }
     return false;
   }
@@ -89,7 +89,11 @@ private:
         char top = this->operator_stack->top();
         this->prefix_expression.push_back(top);
         this->operator_stack->pop();
-        // if (this->operator_stack->empty()) { return; }
+
+         if (this->operator_stack->empty()) { 
+           std::cout << "Matching brackets error!" << std::endl;
+           return; 
+         }
       }
       this->operator_stack->pop(); // because ')' is at the top.
     }
@@ -97,7 +101,7 @@ private:
 
   const void printPrefixExpression() const {
     std::cout << "\nPrefix Expression:\n  ";
-    std::cout << this->prefix_expression << std::endl;
+    std::cout << this->prefix_expression << "\n----------------\n" << std::endl;
   }
 
 public:
@@ -130,19 +134,20 @@ public:
       std::cout << "Enter expression: " << std::flush;
       if (this->handleInput()) {
         std::cout << "You Entered Infix Expression:\n" << this->infix_expression << std::endl;
-        this->reverseString();
+        this->reverseString(this->infix_expression);
         this->convertToPrefix();
       }
     } else {
       this->infix_expression = *expr;
       this->prefix_expression = "";
-      std::cout << "\nTesting:\n  " << this->infix_expression << std::flush;
+      std::cout << "\nTesting:\n  " << this->infix_expression << std::endl;
       if (this->operator_stack == nullptr) { this->operator_stack = new std::stack<char>; }
       else {
         delete this->operator_stack;
         this->operator_stack = new std::stack<char>;
       }
-      this->reverseString();
+      this->reverseString(this->infix_expression);
+      std::cout << "Reversed:\n  " <<  this->infix_expression << std::endl;
       this->convertToPrefix();
     }
   }

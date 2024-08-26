@@ -59,6 +59,7 @@ int main() {
           for (std::string str : teststrings) {
             IPre->enterInfix(&str);
           }
+          //IPre->enterInfix(&(teststrings[1]));
           break;
         case exitprogram:
           return 0;
