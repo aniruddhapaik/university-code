@@ -35,7 +35,7 @@ int main() {
 
   while(1) {
     system("cls");
-    std::cout << "Expression Evalutation\n";
+    std::cout << "Expression Conversion\n";
     //std::cout << test5;
     std::cout << "\nSupported Operators:\n";
     std::cout << "( ) ^ / * + -\n";
