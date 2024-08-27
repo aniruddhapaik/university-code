@@ -16,10 +16,7 @@ private:
       else { std::cout << "Enter valid input!" << std::endl; }
       return false;
       clearAndResetInputState();
-    } else {
-      clearAndResetInputState();
-      return true;
-    }
+    } else { return true; }
   }
 
   void reverseString(std::string& str) {

@@ -10,10 +10,13 @@
 
 ### 💾 Data Structures
 
-- [Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*implementation with* `std::vector`)
-- [Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
-- [Singly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Singly%20Linked%20List/singlylinkedlist.cpp) (`with tail`)
-- [Doubly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Doubly%20Linked%20List/doublylinkedlist.cpp) (`with tail`)
+- [3a. Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*implementation with* `std::vector`)
+- [3b. Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*implementation with* `singly linked list`, `with tail`)
+- 3c. Circular Queue (under development)
+- 3d. Priority Queue (under development)
+- [4a. Singly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Singly%20Linked%20List/singlylinkedlist.cpp) (`with tail`)
+- [4b. Doubly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Doubly%20Linked%20List/doublylinkedlist.cpp) (`with tail`)
+- 4c. Circular Linked List (under development)
 </br></br>
 
 **🛠️ under development**:
@@ -27,9 +30,11 @@
 
 ### 📑 Algorithms
 
-- [Linear Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/linearsearch.cpp)
-- [Binary Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/binarysearch.cpp)
-- [Fibonacci Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/fibonaccisearch.cpp)
+- [1a. Linear Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/linearsearch.cpp)
+- [1b. Binary Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/binarysearch.cpp)
+- [1c. Fibonacci Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/fibonaccisearch.cpp)
+- [2.a Arithmetic Expression Conversion](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Arithmetic%20Expression%20Conversion)(`infix -> prefix`, `infix -> postfix`)
+- [2.b Evaluation of Arithmetic Expression](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Arithmetic%20Expression%20Evaluation)(`prefix`, `postfix`)
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
