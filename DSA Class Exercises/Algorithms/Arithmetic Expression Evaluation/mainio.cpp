@@ -1,7 +1,7 @@
 #include <vector>
 #include <string>
 
-#include "../Arithmetic Expression Conversion/input_utils.h"
+#include "../input_utils.h"
 #include "prefixandpostfixtovalue.cpp"
 
 std::vector<std::string> posfixteststrings = {
@@ -61,11 +61,13 @@ bool handleInput(short int& choice) {
 		else { std::cout << "Enter valid integer!" << std::endl; }
 		clearAndResetInputState();
 		return false;
-	} else { return true; }
+	} else { 
+		clearAndResetInputState();
+		return true; 
+	}
 }
 
 bool enterExpressionString(std::string& str) {
-	clearAndResetInputState();
 	std::getline(std::cin, str);
 	if (std::cin.fail()) {
 		if (std::cin.eof()) { std::cout << "Reached end of input (EOF)." << std::endl; }
@@ -104,8 +106,8 @@ Menu inputString(std::string& expression) {
 			default:
 				std::cout << "Choose a valid option!" << std::endl;
 		}
-		// std::cout << "\n\nPress ENTER to continue..." << std::flush;
-		// _getch();
+		 std::cout << "\n\nPress ENTER to continue..." << std::flush;
+		 _getch();
 	}
 }
 

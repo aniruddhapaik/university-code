@@ -1,6 +1,6 @@
 #include <stack>
 #include <string>
-#include "input_utils.h"
+#include "../input_utils.h"
 
 class InfixToPrefix {
 private:

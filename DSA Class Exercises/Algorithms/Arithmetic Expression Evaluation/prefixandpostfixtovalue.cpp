@@ -1,4 +1,4 @@
-#include "../Arithmetic Expression Conversion/input_utils.h"
+#include "../input_utils.h"
 #include <stack>
 #include <string>
 #include <cmath>
@@ -77,6 +77,8 @@ private:
 			}
 			counter++;
 		}
+
+		if (not temp_term.empty()) { this->operands_stack.push(std::stod(temp_term)); }
 
 		if (this->operands_stack.size() == 1) { // making sure the postfix expression was correctly input
 			this->result_is_good = true;
@@ -160,6 +162,8 @@ private:
 			counter--;
 			//std::cout << "after counter decrement" << std::endl;
 		}
+
+		if (not temp_term.empty()) { this->operands_stack.push(std::stod(temp_term)); }
 
 		if (this->operands_stack.size() == 1) { // making sure the prefix expression was correctly input
 			this->result_is_good = true;
