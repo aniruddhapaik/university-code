@@ -10,22 +10,18 @@
 
 ### 💾 Data Structures
 
-- [3a. Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*implementation with* `std::vector`)
-- [3b. Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*implementation with* `singly linked list`, *with* `tail`)
-- 3c. Circular Queue (under development)
+- [3a. Stack](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Implementations%20of%20Stack/stackwithdynamicarray.cpp) (*with* `std::vector`)
+- [3b. Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*with* `singly linked list`, *with* `tail`)
+- [3c. Circular Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/Circular%20Queue/circularqueuewitharray.cpp) (*with* `std::vector`)
 - 3d. Priority Queue (under development)
 - [4a. Singly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Singly%20Linked%20List/singlylinkedlist.cpp) (*with* `tail`)
 - [4b. Doubly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Doubly%20Linked%20List/doublylinkedlist.cpp) (*with* `tail`)
-- [4c. Circular Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Circular%20Linked%20List/circularlinkedlist.cpp) (*implementation with* `singly linked list`, *with* `tail` *pointing to* `head`)
+- [4c. Circular Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Circular%20Linked%20List/circularlinkedlist.cpp) (*with* `singly linked list`, *with* `tail` *pointing to* `head`)
 </br></br>
 
 **🛠️ under development**:
 
-- Circular Queue (*most probably will implement with* `array` or `std::vector`)
 - Priority Queue (*implementation with* `std::vector`)
-- Stack (*implementation with* `array`) (maybe)
-- Stack (*implementation with* `linked list`) (maybe)
-- Queue (*implementation with* `std::vector`) (maybe)
 
 ### 📑 Algorithms
 
