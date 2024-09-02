@@ -1,6 +1,8 @@
 #include "../../input_utils.h"
+#include "circularlinkedlist.cpp"
 
-enum Menu {pushfront = 0, pushback, pushafter, deletekey, displaylist, exitprogram};
+enum Menu {pushfront = 0, pushback, pushafter,\
+           deletekey, listsize, displaylist, exitprogram};
 
 bool handleInput(short int& choice) {
     std::cin >> choice;
@@ -14,42 +16,52 @@ bool handleInput(short int& choice) {
 
 void printMenu() {
     short int choice{};
-    if (handleInput(choice)) {
-        while (1) {
-            system("cls");
-            std::cout << "** Circular Linked List **\n";
-            std::cout << "-- Menu ------------------\n";
-            std::cout << pushfront << " . Push Front (key)\n";
-            std::cout << pushback << " . Push Back (key)\n";
-            std::cout << pushafter << " . Push After (key)\n";
-            std::cout << "--------------------------\n";
-            std::cout << deletekey << " . Delete (key)\n";
-            std::cout << "--------------------------\n";
-            std::cout << displaylist << " . Display List\n";
-            std::cout << "--------------------------\n";
-            std::cout << exitprogram << " . Exit Program\n";
-            std::cout << "** -------------------- **\n\n";
-            std::cout << "Enter choice: " << std::flush;
+    CircularLinkedList list;
+    while (1) {
+        system("cls");
+        std::cout << "** Circular Linked List **\n";
+        std::cout << "-- Menu ------------------\n";
+        std::cout << pushfront << " . Push Front (key)\n";
+        std::cout << pushback << " . Push Back (key)\n";
+        std::cout << pushafter << " . Push After (key)\n";
+        std::cout << "--------------------------\n";
+        std::cout << deletekey << " . Delete (key)\n";
+        std::cout << "--------------------------\n";
+        std::cout << listsize << " . List Size\n";
+        std::cout << displaylist << " . Display List\n";
+        std::cout << "--------------------------\n";
+        std::cout << exitprogram << " . Exit Program\n";
+        std::cout << "** -------------------- **\n\n";
+        std::cout << "Enter choice: " << std::flush;
 
-            switch (choice)
-            {
-            case pushfront:
-                break;
-            case pushback:
-                break;
-            case pushafter:
-                break;
-            case deletekey:
-                break;
-            case displaylist:
-                break;
-            case exitprogram:
-                return;
-            default:
-                std::cout << "Choose valid option!" << std::endl;
+        if (handleInput(choice)) {
+            switch (choice) {
+                case pushfront:
+                  list.pushFront();
+                    break;
+                case pushback:
+                    list.pushBack();
+                    break;
+                case pushafter:
+                    list.pushAfter();
+                    break;
+                case deletekey:
+                    list.deleteKey();
+                    break;
+                case listsize:
+                    list.getListSize();
+                    break;
+                case displaylist:
+                    list.displayList();
+                    break;
+                case exitprogram:
+                    return;
+                default:
+                    std::cout << "Choose valid option!" << std::endl;
             }
         }
-        
+        //list.getListSize();
+        _getch();
     }
 }
 
