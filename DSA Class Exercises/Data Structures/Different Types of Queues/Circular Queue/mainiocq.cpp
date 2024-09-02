@@ -14,7 +14,7 @@ bool handleInput(T& choice) {
 	} else { return true; }
 }
 
-int printMenu(size_t& size_of_array) {
+void printMenu(size_t& size_of_array) {
 	short int choice;
 	CircularQueueWithArray circular_queue(size_of_array);
 
@@ -24,6 +24,7 @@ int printMenu(size_t& size_of_array) {
 		std::cout << "-- Menu -----------------------\n";
 		std::cout << getfront << " . Get Front\n";
 		std::cout << getrear << " . Get Rear\n";
+		std::cout << displayqueue << " . Display Queue\n";
 		std::cout << "-------------------------------\n";
 		std::cout << enqueue << " . Enequeue\n";
 		std::cout << dequeue << " . Dequeue\n";
@@ -52,11 +53,13 @@ int printMenu(size_t& size_of_array) {
 					circular_queue.deQueue();
 					break;
 				case isempty:
-					circular_queue.isEmpty();
+					circular_queue.isEmpty(true);
 					break;
 				case isfull:
-					circular_queue.isFull();
+					circular_queue.isFull(true);
 					break;
+				case exitprogram:
+					return;
 				default:
 					std::cout << "Enter valid choice!" << std::endl;
 			}

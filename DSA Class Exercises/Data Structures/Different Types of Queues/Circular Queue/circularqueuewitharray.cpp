@@ -13,8 +13,8 @@ private:
 			if (std::cin.eof()) { std::cout << "Reached end of input (EOF)" << std::endl; }
 			else { std::cout << "Enter valid integer!" << std::endl; }
 			clearAndResetInputState();
-			return false;
 		} else { return true; }
+		return false;
 	}
 
 public:
@@ -40,7 +40,7 @@ public:
 
 	void displayQueue() {
 		if (not this->isEmpty()) {
-			auto tempfront = this->rear;
+			auto tempfront = this->front;
 			std::cout << "Front: " << std::flush;
 			while(tempfront != this->rear) {
 				std::cout << this->queue->at(tempfront) << " | " ;
@@ -51,7 +51,7 @@ public:
 	}
 
 	void enQueue() {
-		if (this->front = -1 and this->rear == -1) {
+		if (this->isEmpty()) {
 			std::cout << "Enter key to enqueue: " << std::flush;
 			if (this->handleInput()) {
 				this->front = this->rear = 0;
@@ -77,13 +77,25 @@ public:
 		} else { std::cout << "Queue is empty!" << std::endl; }
 	}
 
-	const bool isEmpty() const { 
-		if (this->front != -1 and this->rear == -1) { return true; }
-		else { return false; }
+	const bool isEmpty(bool printmessage = false) const { 
+		if (this->front == static_cast<size_t>(-1) and this->rear == static_cast<size_t>(-1)) { 
+			if (printmessage) { std::cout << "Queue is empty!" << std::endl; }
+			return true; 
+		}
+		else { 
+			if (printmessage) { std::cout << "Queue is not empty." << std::endl; }
+			return false;
+		}
 	}
 
-	const bool isFull() const {
-		if ((this->rear + 1) % this->maxsize == this->front) { return true; }
-		else { return false; }
+	const bool isFull(bool printmessage = false) const {
+		if ((this->rear + 1) % this->maxsize == this->front) { 
+			if (printmessage) { std::cout << "Queue is full!" << std::endl; }	
+			return true; 
+		}
+		else { 
+			if (printmessage) { std::cout << "Queue is not full yet." << std::endl; }	
+			return false; 
+		}
 	}
 };
