@@ -1,7 +1,59 @@
 #include "../../input_utils.h"
 #include "priorityqueuewitharray.cpp"
 
-void printMenu() {}
+enum Menu {enqueue=0, dequeue, topelement, displayqueue, exitprogram};
+
+bool handleInput(short int& choice) {
+	std::cin >> choice;
+	if (std::cin.fail()) {
+		if (std::cin.eof()) { std::cout << "Reached end of input (EOF)." << std::endl; }
+		else { std::cout << "Enter valid integer!" << std::endl; }
+		clearAndResetInputState();
+		return false;
+	} else { return true; }
+}
+
+void printMenu() {
+	short int choice;
+	PriorityQueueWithArray queue;
+	
+	while(1) {
+		system("cls");
+		std::cout << "** Priority Queue with Array **\n";
+		std::cout << "-- Menu -----------------------\n";
+		std::cout << enqueue << " . Enqueue (value, priority)\n";
+		std::cout << dequeue << " . Dequeue\n";
+		std::cout << "-------------------------------\n";
+		std::cout << topelement << " . Top element\n";
+		std::cout << displayqueue << " . Display queue\n";
+		std::cout << "-------------------------------\n";
+		std::cout << exitprogram << " . Exit program\n";
+		std::cout << "-------------------------------\n\n";
+		std::cout << "Enter choice: " << std::flush;
+		
+		if (handleInput(choice)) {
+			switch (choice) {
+				case enqueue:
+					queue.enQueue();
+					break;
+				case dequeue:
+					queue.deQueue();
+					break;
+				case topelement:
+					queue.topElement();
+					break;
+				case displayqueue:
+					queue.displayQueue();
+					break;
+				case exitprogram:
+					return;
+				default:
+					std::cout << "Enter valid choice!" << std::endl;
+			}
+		}
+		_getch();
+	}
+}
 
 int main() {
 	printMenu();
