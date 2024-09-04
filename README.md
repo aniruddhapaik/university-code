@@ -4,7 +4,8 @@
 
 ## 🗃️ [DBMS Class Labs](https://github.com/aniruddhapaik/university-code/tree/main/DBMS%20Class%20Labs)
 
-- [First lab](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/First%20Lab%20Basic%20Commands.sql) (*basic SQL commands*)
+- [First lab](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/mysql%20First%20Lab%20Basic%20Commands.sql) (*basic SQL commands*)
+- [PostreSQL basic commands](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/postgresql%20basic%20commands.sql) (*ER diagram to Relational Model*)
 
 ## 📐 [Data Structure & Algorithms Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises)
 
