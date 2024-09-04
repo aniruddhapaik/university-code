@@ -81,7 +81,7 @@ CREATE TABLE Teacher (
 
 -- Add Foreign Key for head_of_department in Department Table (After Teacher Table Creation)
 ALTER TABLE Department
-ADD CONSTRAINT fk_head_of_department
+ADD CONSTRAINT head_of_department_fkey
 FOREIGN KEY (head_of_department) REFERENCES Teacher(teacher_id);
 
 CREATE TABLE Student (
@@ -112,6 +112,7 @@ CREATE TABLE Student_Degree (
     start_date DATE,
     expected_graduation_date DATE
 );
+
 CREATE TABLE Enrollment (
     enrollment_id SERIAL PRIMARY KEY,
     student_id INT REFERENCES Student(student_id),
@@ -135,7 +136,7 @@ CREATE TABLE Attendance (
     attendance_id SERIAL PRIMARY KEY,
     student_id INT REFERENCES Student(student_id),
     course_id INT REFERENCES Course(course_id),
-    date DATE,
+    date_of_attendance DATE,
     status VARCHAR(10)
 );
 
@@ -155,6 +156,6 @@ CREATE TABLE Exam (
     exam_type VARCHAR(20),
     location VARCHAR(100)
 );
--- Done with DDL commands - creation of tables, and altering
+-- Done with DDL commands - creation and altering of tables
 
 -- Now onto inserting test values into the tables, using DML commands
