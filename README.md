@@ -38,13 +38,11 @@
 - [2.a Arithmetic Expression Conversion](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Arithmetic%20Expression%20Conversion)(`infix -> prefix`, `infix -> postfix`)
 - [2.b Evaluation of Arithmetic Expression](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Arithmetic%20Expression%20Evaluation)(`prefix`, `postfix`)
 
-#### Tree traversal techniques
+#### Tree traversal techniques (🛠️ *under development*)
 
-    🛠️ Under Development
-
-- Inorder
-- Preorder
-- Postorder
+- 5a. Inorder
+- 5b. Preorder
+- 5c. Postorder
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
