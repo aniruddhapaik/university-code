@@ -20,6 +20,8 @@ void printMenu() {
 	while(1) {
 		system("cls");
 		std::cout << "** Priority Queue with Array **\n";
+		std::cout << "---- (Ascending order priority)\n";
+		std::cout << "- (e.g.: 1 -> highest priority)\n";
 		std::cout << "-- Menu -----------------------\n";
 		std::cout << enqueue << " . Enqueue (value, priority)\n";
 		std::cout << dequeue << " . Dequeue\n";

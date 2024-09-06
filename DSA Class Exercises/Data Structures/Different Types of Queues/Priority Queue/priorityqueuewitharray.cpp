@@ -1,5 +1,6 @@
 #include "../../input_utils.h"
 #include <vector>
+#include <string>
 
 struct Node {
 	int value;
@@ -10,6 +11,11 @@ struct Node {
 		priority = prty;
 	}
 };
+
+inline std::ostream& operator<< (std::ostream& COUT, const Node& node) {
+	COUT << node.value << " (p: " << node.priority << ") ";
+	return COUT;
+}
 
 class PriorityQueueWithArray {
 private:
@@ -27,7 +33,18 @@ private:
 	}
 
 	void push(Node* temp_node) {
-		//if ()
+		if (this->queue->empty()) { this->queue->push_back(*temp_node); }
+		else {
+			size_t counter{0};
+			while(counter < this->queue->size()) {
+				if (temp_node->priority < this->queue->at(counter).priority) { counter++; } 
+				else if (temp_node->priority >= this->queue->at(counter).priority) {
+					this->queue->emplace(this->queue->begin()+counter, *temp_node);
+					break;
+				}
+			}
+			if (counter == this->queue->size()) { this->queue->push_back(*temp_node); }
+		}
 	}
 
 public:
@@ -50,17 +67,22 @@ public:
 		this->push(new Node(temp_element, temp_priority));
 	}
 
+	friend std::ostream& operator<< (std::ostream&, const Node&);
+
 	void deQueue() {
 		if (this->queue->empty()) { std::cout << "Queue is empty! can't dequeue" << std::endl; }
-		else { this->queue->pop_back(); }
+		else {
+			std::cout << "Dequeuing: " << this->queue->back();
+			this->queue->pop_back(); 
+		}
 	}
 
 	const void topElement() const {
 		if (this->queue->empty()) { std::cout << "Queue is emtpy!" << std::endl; }
 		else { 
-			Node tempnode = *(this->queue->end());
-			std::cout << "Value: " << tempnode.value \
-							  << "Priority: " << tempnode.priority << std::endl; 
+			Node tempnode = this->queue->back();
+			std::cout << "Displaying Top Element:\n";
+			std::cout << this->queue->back();
 		}
 	}
 
@@ -68,14 +90,12 @@ public:
 		if (this->queue->empty()) { std::cout << "Queue is emtpy!" << std::endl; }
 		else {
 			size_t counter{this->queue->size()-1};
-			std::cout << "Queue element (with their priorities): " << std::endl;
-			while (counter > 0) {
-				std::cout << this->queue->at(counter).value <<\
-					    '(' << this->queue->at(counter).priority << ") | ";
+			std::cout << "Queue element (with their priorities):\nTop-> ";
+			while (counter > 0 and counter < this->queue->size()) {
+				std::cout << this->queue->at(counter) << "| ";
 				counter--;
 			}
-			std::cout << this->queue->at(counter).value <<\
-					    '(' << this->queue->at(counter).priority << ")";
+			std::cout << this->queue->at(counter);
 		}
 	}
 };
