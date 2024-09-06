@@ -34,4 +34,4 @@
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
-- [Basic implementation of classes with Inheritance and Polymorphism](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/polyinheritclass.cpp) (under development)
+- [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`)

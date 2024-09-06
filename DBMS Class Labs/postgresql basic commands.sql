@@ -256,7 +256,7 @@ INSERT INTO Course_Schedule (course_id, teacher_id, classroom_id, day_of_week, s
     (4, 3, 4, 'Thursday', '15:00', '16:30', 'Fall 2024'),
     (5, 4, 5, 'Friday', '08:00', '09:30', 'Fall 2024');
 
-INSERT INTO Attendance (student_id, course_id, date, status) VALUES
+INSERT INTO Attendance (student_id, course_id, date_of_attendance, status) VALUES
     (1, 1, '2024-09-01', 'Present'),
     (2, 3, '2024-09-02', 'Absent'),
     (3, 4, '2024-09-03', 'Present'),
