@@ -1,7 +1,5 @@
-#include <iostream>
+#include "../input_utils.h"
 #include <vector>
-#include <limits>
-#include <conio.h>
 
 #define DEFAULT -1;
 
@@ -36,14 +34,13 @@ private:
         std::cout << "Enter value: ";
         if (std::cin >> this->last_input) { return true; } 
         else {
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            clearAndResetInputState();
             std::cout << "Enter valid integer input!" << std::endl;
             return false;
         }
     }
 
-    const void printStackIsEmpty() const {
+    const void printQueueIsEmpty() const {
         std::cout << "Queue is empty!" << std::endl;
         return;
     }
@@ -87,7 +84,7 @@ public:
             this->queuesize--;
             return this->last_dequeued;
         } else {
-            this->printStackIsEmpty();
+            this->printQueueIsEmpty();
             this->printReturnDefault();
             return DEFAULT;
         }
@@ -97,16 +94,22 @@ public:
         if(this->queuesize) {
             std::cout << "First element is " << this->head->value << std::endl;
             return this->head->value;
-        } else {
-            this->printStackIsEmpty();
-            this->printReturnDefault();
-            return DEFAULT;
         }
+
+        this->printQueueIsEmpty();
+        this->printReturnDefault();
+        return DEFAULT;
     }
 
     int lastElement() {
-        std::cout << "The last element in the Queue is " << this->tail->value << std::endl;
-        return this->tail->value;
+        if(this->queuesize) {
+            std::cout << "The last element in the Queue is " << this->tail->value << std::endl;
+            return this->tail->value;
+        }
+        
+        this->printQueueIsEmpty();
+        this->printReturnDefault();
+        return DEFAULT;
     }
 
     int getQueueSize() {
@@ -133,7 +136,7 @@ public:
                     std::cout << "index is out of bounds!" << std::endl;
                 }
             }
-        } else { this->printStackIsEmpty(); }
+        } else { this->printQueueIsEmpty(); }
         this->printReturnDefault();
         return DEFAULT;
     }
@@ -146,7 +149,7 @@ public:
                 std::cout << temp->value << ", ";
                 temp = temp->next;
             }
-        } else { this->printStackIsEmpty(); }
+        } else { this->printQueueIsEmpty(); }
     }
 };
 

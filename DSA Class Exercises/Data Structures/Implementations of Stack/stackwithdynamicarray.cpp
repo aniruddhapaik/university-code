@@ -1,7 +1,5 @@
-#include <iostream>
+#include "../input_utils.h"
 #include <vector>
-#include <limits>
-#include <conio.h>
 
 #define DEFAULT -1;
 

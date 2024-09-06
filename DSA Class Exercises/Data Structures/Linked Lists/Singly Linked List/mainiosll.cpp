@@ -1,5 +1,4 @@
 #include "singlylinkedlist.cpp"
-#include <conio.h>
 
 enum menu {pushfront, getfront, popfront, pushback, getback, popback, \
            addbefore, addafter, findkey, delkey, peekindex, delindex, \
@@ -43,7 +42,7 @@ int main() {
         std::cin >> input;
         
         if (std::cin.fail()){
-            clearAndResetInputState(); // definition in input_utils.cpp
+            clearAndResetInputState(); // definition in input_utils.h
             if (std::cin.eof()) {
                 std::cout << "Reached end of input (EOF)." << std::endl;
             } else {

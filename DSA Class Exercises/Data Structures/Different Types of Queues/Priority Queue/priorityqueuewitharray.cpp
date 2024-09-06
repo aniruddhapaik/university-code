@@ -2,23 +2,44 @@
 #include <vector>
 #include <string>
 
-struct Node {
-	int value;
-	int priority;
+template<typename T>
+struct Node_t {
+	T value;
+	T priority;
 
-	Node(int val, int prty) {
+	Node_t(T val, T prty) {
 		value = val;
 		priority = prty;
 	}
 };
 
-inline std::ostream& operator<< (std::ostream& COUT, const Node& node) {
+namespace priorityqueue {
+	typedef Node_t<int> Node;
+}
+
+using namespace priorityqueue;
+
+template <typename T>
+std::ostream& operator<< (std::ostream& COUT, const Node_t<T>& node) {
 	COUT << node.value << " (p: " << node.priority << ") ";
+	return COUT;
+}
+
+template <typename T>
+std::ostream& operator<< (std::ostream& COUT, const std::vector<T>& nodelist) {
+	size_t counter{nodelist.size()-1};
+	std::cout << "Queue element (with their priorities):\nTop-> ";
+	while (counter > 0 and counter < nodelist.size()) {
+		std::cout << nodelist.at(counter) << "| ";
+		counter--;
+	}
+	std::cout << nodelist.at(counter) << std::flush;
 	return COUT;
 }
 
 class PriorityQueueWithArray {
 private:
+	
 	std::vector<Node>* queue = nullptr;
 	int last_input;
 
@@ -86,16 +107,13 @@ public:
 		}
 	}
 
+	template <typename T>
+	friend std::ostream& operator<< (std::ostream&, const std::vector<T>&);
+
 	const void displayQueue() const {
 		if (this->queue->empty()) { std::cout << "Queue is emtpy!" << std::endl; }
 		else {
-			size_t counter{this->queue->size()-1};
-			std::cout << "Queue element (with their priorities):\nTop-> ";
-			while (counter > 0 and counter < this->queue->size()) {
-				std::cout << this->queue->at(counter) << "| ";
-				counter--;
-			}
-			std::cout << this->queue->at(counter);
+			std::cout << *(this->queue);
 		}
 	}
 };

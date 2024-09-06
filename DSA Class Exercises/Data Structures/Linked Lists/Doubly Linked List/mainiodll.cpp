@@ -1,5 +1,4 @@
 #include "doublylinkedlist.cpp"
-#include <conio.h>
 
 enum menu {pushfront, getfront, popfront, pushback, getback, popback, \
            addbefore, addafter, findkey, delkey, peekindex, delindex, \
