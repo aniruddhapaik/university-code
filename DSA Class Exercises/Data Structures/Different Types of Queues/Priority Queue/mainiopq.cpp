@@ -15,7 +15,7 @@ bool handleInput(short int& choice) {
 
 void printMenu() {
 	short int choice;
-	PriorityQueueWithArray queue;
+	PriorityQueueWithArray<int> queue;
 	
 	while(1) {
 		system("cls");

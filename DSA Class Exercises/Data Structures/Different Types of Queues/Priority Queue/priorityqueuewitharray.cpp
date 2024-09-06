@@ -13,11 +13,11 @@ struct Node_t {
 	}
 };
 
-namespace priorityqueue {
+namespace intnode_namespace {
 	typedef Node_t<int> Node;
 }
 
-using namespace priorityqueue;
+using namespace intnode_namespace;
 
 template <typename T>
 std::ostream& operator<< (std::ostream& COUT, const Node_t<T>& node) {
@@ -37,11 +37,12 @@ std::ostream& operator<< (std::ostream& COUT, const std::vector<T>& nodelist) {
 	return COUT;
 }
 
+template <typename T>
 class PriorityQueueWithArray {
 private:
 	
 	std::vector<Node>* queue = nullptr;
-	int last_input;
+	T last_input;
 
 	bool handleInput() {
 		std::cin >> this->last_input;
@@ -75,7 +76,7 @@ public:
 	}
 
 	void enQueue() {
-		int temp_element{}, temp_priority{};
+		T temp_element{}, temp_priority{};
 
 		std::cout << "Enter element only: " << std::flush;
 		if (this->handleInput()) { temp_element = this->last_input; }
@@ -88,7 +89,7 @@ public:
 		this->push(new Node(temp_element, temp_priority));
 	}
 
-	friend std::ostream& operator<< (std::ostream&, const Node&);
+	friend std::ostream& operator<< (std::ostream& COUT, const Node_t<T>& node);
 
 	void deQueue() {
 		if (this->queue->empty()) { std::cout << "Queue is empty! can't dequeue" << std::endl; }
@@ -107,7 +108,6 @@ public:
 		}
 	}
 
-	template <typename T>
 	friend std::ostream& operator<< (std::ostream&, const std::vector<T>&);
 
 	const void displayQueue() const {
