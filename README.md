@@ -46,4 +46,5 @@
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
-- [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`)
+- [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`, `solve diamond problem`)
+- [Example of Copy Contructor and Operator Overloading](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Copy%20Contructor%20and%20Operator%20Overloading/copyconstructorandopoverloading.cpp) (*example for use of:* `copy constructor`, `operator overloading`)
