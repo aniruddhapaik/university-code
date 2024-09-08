@@ -43,11 +43,8 @@
 - [5a. Inorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
 - [5b. Preorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
 - [5c. Postorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
-
-🛠️ *under development*:
-
-- 5d. Bread First Search
-- 5e. Depth First Search
+- [5d. Bread First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [5e. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 

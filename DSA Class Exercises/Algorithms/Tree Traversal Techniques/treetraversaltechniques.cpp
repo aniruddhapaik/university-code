@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
+#include <queue>
 
 template <typename T>
 struct Node_t {
@@ -24,6 +26,8 @@ using namespace int_tree;
 namespace inorder{ void traverse(const Node*); };
 namespace preorder{  void traverse(const Node*); };
 namespace postorder{  void traverse(const Node*); };
+namespace breadthfirstsearch{ void search(const Node*, int); }
+namespace depthfirstsearch{ bool search(const Node*, int); }
 
 class CompleteBinaryTree {
 private:
@@ -51,6 +55,8 @@ public:
 	const void inorder() const { inorder::traverse(this->Root); }
 	const void preorder() const { preorder::traverse(this->Root);	}
 	const void postorder() const { postorder::traverse(this->Root); }
+	const void bfs(int value) const { breadthfirstsearch::search(this->Root, value); }
+	const void dfs(int value) const { if(not depthfirstsearch::search(this->Root, value)) { std::cout << "Value: (" << value << ") not found!" << std::endl; }; }
 
 
 	friend std::ostream& operator<<(std::ostream&, const CompleteBinaryTree&);
@@ -58,6 +64,8 @@ public:
 	friend void inorder::traverse(const Node*);
 	friend void preorder::traverse(const Node*);
 	friend void postorder::traverse(const Node*);
+	friend void breadthfirstsearch::search(const Node*, int);
+	friend bool depthfirstsearch::search(const Node*, int);
 };
 
 std::ostream& operator<<(std::ostream& COUT, const CompleteBinaryTree& tree) {
@@ -110,6 +118,37 @@ namespace postorder {
 	}
 }
 
+namespace breadthfirstsearch {
+	void search(const Node* node, int value) {
+		if(node == nullptr) { std::cout << " Tree is empty! "; return; }
+		else if (node->value == value) { std::cout << "Found value: " << value << std::endl; return; }
+		else {
+			std::queue<const Node*> queue{};
+			queue.push(node);
+
+			while(queue.size()) {
+				const Node* front = queue.front();
+				if (front->value == value) { std::cout << "Found value: " << value << std::endl; return; }
+				if (queue.front()->left != nullptr) { queue.push(queue.front()->left); }
+				if (queue.front()->right!= nullptr) { queue.push(queue.front()->right); }
+				queue.pop();
+			}
+			std::cout << "Value: (" << value << ") not found!" << std::endl;
+			return;
+		}
+	}
+}
+
+namespace depthfirstsearch {
+	bool search(const Node* node, int value) {
+		if (node == nullptr) { return false; }
+		else if (node->value == value) { std::cout << "Found value: " << value << std::endl; return true; }
+		if (search(node->left, value)) { return true; };
+		if (search(node->right, value)) { return true; };
+		return false;
+	}
+}
+
 int main() {
 	CompleteBinaryTree tree;
 
@@ -129,6 +168,24 @@ int main() {
 	std::cout << "Post-order: [";
 	tree.postorder();
 	std::cout << " ]" << std::endl;
+
+	std::cout << "\nSearching for value: " << 10 << std::endl;
+	tree.bfs(10);
+
+	std::cout << "\nSearching for value: " << 5 << std::endl;
+	tree.bfs(5);
+	
+	std::cout << "\nSearching for value: " << 20 << std::endl;
+	tree.bfs(20);
+
+	std::cout << "\nSearching for value: " << 8 << std::endl;
+	tree.dfs(8);
+
+	std::cout << "\nSearching for value: " << 1 << std::endl;
+	tree.dfs(1);
+	
+	std::cout << "\nSearching for value: " << 40 << std::endl;
+	tree.dfs(40);
 
 	return 0;
 }
