@@ -48,8 +48,8 @@
 
 #### Graph traversal techniques
 
-- [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/breadthfirstsearch.h) (`BFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* `Finite Multi Graph Implementation`)
-- [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* `Finite Multi Graph Implementation`)
+- [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/breadthfirstsearch.h) (`BFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
+- [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
