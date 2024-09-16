@@ -2,10 +2,10 @@
 // please refer to Data Structures folder Finite Multi Graph implementation
 #include <iostream>
 
-void BFS(const FiniteMultigraph& graph) {
+void BFS(const FiniteMultiGraph& graph) {
 	std::queue<const Node*> queue;
 	std::unordered_map<size_t, const Node*> visited_map;
-	std::queue<size_t> visited_queue;
+	//std::queue<size_t> visited_queue;
 
 	size_t numofnodes{};
 	while (numofnodes >= 0 and numofnodes < graph.graph->size()) {
@@ -19,7 +19,8 @@ void BFS(const FiniteMultigraph& graph) {
 		if (insertsuccess.second == false) {
 			queue.pop();
 			continue;
-		} else { visited_queue.push(queue.front()->label); }
+		} else { std::cout << queue.front()->label << " | "; }
+		//else { visited_queue.push(queue.front()->label); }
 		
 		// push into queue elements that are neighbor of last node visited_map
 		size_t numoflinks{};
@@ -32,9 +33,9 @@ void BFS(const FiniteMultigraph& graph) {
 		queue.pop();
 	}
 	
-	while (visited_queue.size()) {
-		std::cout << visited_queue.front() << " | ";
-		visited_queue.pop();
-	}
+	//while (visited_queue.size()) {
+	//	std::cout << visited_queue.front() << " | ";
+	//	visited_queue.pop();
+	//}
 	std::cout << std::endl;
 }
