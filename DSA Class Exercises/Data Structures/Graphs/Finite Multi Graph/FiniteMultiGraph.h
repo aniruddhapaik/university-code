@@ -4,15 +4,17 @@
 #include <utility>
 #include <unordered_map>
 #include <queue>
+#include <stack>
 #include "Node.h"
 
-class FiniteMultigraph {
+class FiniteMultiGraph {
 public:
-	FiniteMultigraph();
+	FiniteMultiGraph();
 	void buildGraph(std::vector<std::pair<size_t, size_t>>* edgelist);
 	void operator=(std::vector<std::pair<size_t, size_t>>* edgelist) { this->buildGraph(edgelist); }
-	friend void BFS(const FiniteMultigraph&);
-	friend void DFS(const FiniteMultigraph&);
+	friend void BFS(const FiniteMultiGraph&);
+	friend void DFS(const FiniteMultiGraph&);
+	friend void search(const std::vector<Node*>*, std::unordered_map<size_t, const Node*>&, std::stack<const Node*>&);
 
 private:
 	std::vector<std::pair<size_t, size_t>>* edges;

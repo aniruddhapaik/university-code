@@ -1,11 +1,11 @@
 #include "FiniteMultiGraph.h"
 
-FiniteMultigraph::FiniteMultigraph() {
+FiniteMultiGraph::FiniteMultiGraph() {
 	this->edges = nullptr;
 	this->graph = new std::vector<Node*>;
 }
 
-void FiniteMultigraph::buildGraph(std::vector<std::pair<size_t, size_t>>* edgelist) {
+void FiniteMultiGraph::buildGraph(std::vector<std::pair<size_t, size_t>>* edgelist) {
 	this->edges = edgelist;
 	auto number_of_edges = edgelist->size();
 		
