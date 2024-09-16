@@ -42,7 +42,7 @@ void MergeSort::merge(size_t leftindex, size_t mid, size_t rightindex) {
 
   size_t t{0};
   for (size_t k = leftindex; k <= rightindex; k++) {
-    this->arr->at(k) = temp.at(0);
+    this->arr->at(k) = temp.at(t);
     t++;
   }
 }
