@@ -9,6 +9,6 @@ private:
   std::vector<int>* arr;
 
 private:
-  void partition(size_t, size_t);
+  size_t sort(size_t, size_t);
   void quickSort(size_t, size_t);
 };

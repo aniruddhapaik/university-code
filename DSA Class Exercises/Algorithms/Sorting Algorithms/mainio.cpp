@@ -20,8 +20,8 @@ int main() {
   MergeSort mergearr(arr);
   std::cout << "- Sorted:     " << arr << std::endl;
 
-  std::vector<int>* arr2 = new std::vector<int> {2,15,3,8,7,1,12,10,
-                                                7,14,11,9,5,13,0,4,6};
+  std::vector<int>* arr2 = new std::vector<int> 
+  {2,15,3,8,7,1,12,10,14,11,9,5,13,0,4,6};
 
   std::cout << "Quick Sort --\n";
   std::cout << "- Not Sorted: " << arr2 << std::endl;
