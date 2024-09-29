@@ -2,6 +2,7 @@
 #include "linsearchpractice.h"
 #include "fibsearchpractice.h"
 #include "stackpractice.h"
+#include "queuepractice.h"
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -23,9 +24,16 @@ bool handleInput(int& choice) {
   return true;
 }
 
-enum stackmenu {push, top, pop, empty, size, printstack, exitprogram};
+namespace StackMenu {
+  enum stackmenu {push, top, pop, empty, size, printstack, exitprogram};
+}
+
+namespace QueueMenu {
+  enum queuemenu {enqueue, front, dequeue, empty, size, printqueue, exitprogram};
+}
 
 void stackMenu() {
+  using namespace StackMenu;
   Stack stack;
   int choice {};
 
@@ -45,26 +53,76 @@ void stackMenu() {
     if (handleInput(choice)) {
       int key = 0;
       switch(choice) {
-        case push:
+        case stackmenu::push:
           std::cout << "Enter key to push: " << std::flush;
           if (handleInput(key)) { stack.push(key); }
           break;
-        case top:
+        case stackmenu::top:
           stack.top();
           break;
-        case pop:
+        case stackmenu::pop:
           stack.pop();
           break;
-        case empty:
+        case stackmenu::empty:
           stack.empty();
           break;
-        case size:
+        case stackmenu::size:
           stack.size();
           break;
-        case printstack:
+        case stackmenu::printstack:
           std::cout << stack;
           break;
-        case exitprogram:
+        case stackmenu::exitprogram:
+          return;
+        default:
+          std::cout << "Enter valid choice!" << std::endl;
+      }
+    }
+    _getch();
+  }
+}
+
+void queueMenu() {
+  using namespace QueueMenu;
+  Queue queue;
+  int choice {};
+
+  while (true) {
+    system( "cls" );
+    std::cout << "Queue Menu ---\n";
+    std::cout << "0. Enqueue\n";
+    std::cout << "1. Front\n";
+    std::cout << "2. Dequeue\n";
+    std::cout << "3. Check if empty\n";
+    std::cout << "4. Size of Queue\n";
+    std::cout << "5. Print queue\n";
+    std::cout << "6. Exit program\n";
+    std::cout << "-----------------\n";
+    std::cout << "Enter choice: " << std::flush;
+
+    if (handleInput( choice )) {
+      int key {};
+      switch (choice) {
+        case queuemenu::enqueue:
+          std::cout << "Enter key: " << std::flush;
+          if (handleInput( key )) { queue.enQueue(key); }
+          break;
+        case queuemenu::front:
+          queue.front();
+          break;
+        case queuemenu::dequeue:
+          queue.deQueue();
+          break;
+        case queuemenu::empty:
+          queue.empty();
+          break;
+        case queuemenu::size:
+          queue.size();
+          break;
+        case queuemenu::printqueue:
+          std::cout << queue;
+          break;
+        case queuemenu::exitprogram:
           return;
         default:
           std::cout << "Enter valid choice!" << std::endl;
@@ -91,8 +149,9 @@ int main() {
   //fibsearch.setArray(&sortedarr);
   //std::cout << "\nFibonacci Search -----\n";
   //fibsearch.setTerm(12);
-  stackMenu();
+  //stackMenu();
 
+  queueMenu();
 
   return 0;
 }
