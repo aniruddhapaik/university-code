@@ -3,10 +3,12 @@
 #include "fibsearchpractice.h"
 #include "stackpractice.h"
 #include "queuepractice.h"
+#include "matchingbracketpractice.h"
 #include <iostream>
 #include <vector>
 #include <limits>
 #include <conio.h>
+#include <string>
 
 void clearAndResetInput() {
   std::cin.clear();
@@ -149,9 +151,19 @@ int main() {
   //fibsearch.setArray(&sortedarr);
   //std::cout << "\nFibonacci Search -----\n";
   //fibsearch.setTerm(12);
+  
   //stackMenu();
 
-  queueMenu();
+  //queueMenu();
+
+  MatchingBracket& matcher = MatchingBracket::get();
+
+  std::string str("()(())[][{{}}]");
+  std::string str2("()(())[[{{}}]");
+  std::string str3("()())[[{}}]");
+
+  matcher.setString(&str3);
+  matcher.match();
 
   return 0;
 }
