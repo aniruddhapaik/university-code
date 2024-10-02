@@ -25,6 +25,11 @@
 - [4c. Circular Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Circular%20Linked%20List/circularlinkedlist.cpp) (*with* `singly linked list`, *with* `tail` *pointing to* `head`)
 </br></br>
 
+#### Graphs
+
+- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way/finitemultigraph.h) (*implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
+  - [Vertex](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way/vertex.h) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
+
 ### 📑 Algorithms
 
 #### Searching Algorithms
@@ -50,6 +55,10 @@
 
 - [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/breadthfirstsearch.h) (`BFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
 - [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
+
+#### Dijkstra's Algorithm
+
+- [7. Dijkstra's Algorithm for Single Source Shortest Path](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Dijkstra%20Algorithm/dijkstraalgorithm.cpp)
 
 #### Sorting Algorithms
 
