@@ -17,6 +17,8 @@ public:
 	friend void search(const std::vector<Node*>*, std::unordered_map<size_t, const Node*>&, std::stack<const Node*>&);
 
 private:
+	// maybe replace site_t with pointers to nodes to denote edges
+	// : std::vector<std::pair<Node*, Node*>> edges
 	std::vector<std::pair<size_t, size_t>>* edges;
 	std::vector<Node*>* graph;
 };

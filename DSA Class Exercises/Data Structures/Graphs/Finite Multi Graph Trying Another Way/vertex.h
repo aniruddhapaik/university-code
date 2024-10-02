@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_map>
+#include <vector>
 
 class Vertex {
 public:
@@ -7,6 +8,7 @@ public:
   bool visited;
   std::unordered_map<unsigned int, unsigned int> linksandcost;
   unsigned int cost_from_source;
+  std::vector<unsigned int> path_from_source;
 
   Vertex() = delete;
   Vertex(unsigned int);

@@ -158,7 +158,7 @@ int main() {
 
   MatchingBracket& matcher = MatchingBracket::get();
 
-  std::string str("()(())[][{{}}]");
+  std::string str1("()(())[][{{}}]");
   std::string str2("()(())[[{{}}]");
   std::string str3("()())[[{}}]");
 

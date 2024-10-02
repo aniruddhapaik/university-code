@@ -27,7 +27,8 @@ const void FiniteMultiGraph::setSource(unsigned int src) {
     this->current_visiting_node = this->source;
 
     (*result).second->cost_from_source = 0;
-    (*result).second->visited = true;
+    //(*result).second->visit = false;
+    (*result).second->path_from_source.emplace_back(this->source);
     std::cout << "Source set: " << this->source << std::endl;
   }
 }
@@ -43,11 +44,30 @@ const void FiniteMultiGraph::printVerticesInfo() const {
     }
 
     std::cout << "  Links to Vertex(Edge Cost): ";
-    for (auto& pair: pair.second->linksandcost) {
-      std::cout << pair.first << '(' << pair.second << ") | ";
+    if (pair.second->linksandcost.size()) {
+      for (auto& pair : pair.second->linksandcost) {
+        std::cout << pair.first << '(' << pair.second << ") | ";
+      }
+    } else {
+      std::cout << "This vertex has no outbound links";
     }
+    std::cout << '\n';
+    
+    std::cout << "  Path from source: ";
+    if (pair.second->path_from_source.size()) {
+      for (std::vector<unsigned int>::iterator it = pair.second->path_from_source.begin();
+            it != pair.second->path_from_source.end()-1;
+            ++it) {
+        std::cout << *it << " -> ";
+      }
+      std::cout << *(pair.second->path_from_source.end()-1);
+    } else {
+      std::cout << "No path from source available";
+    }
+
     std::cout << "\n---------" << std::endl;
   }
+  std::cout << std::endl;
 }
 
 void FiniteMultiGraph::buildGraph(std::vector<edgecost>& edgelist) {
@@ -69,26 +89,6 @@ void FiniteMultiGraph::buildGraph(std::vector<edgecost>& edgelist) {
     if (this->direction == Direction::undirected) {
       // setting vertex 2's neighbor: vertex 1 (if the graph is undirected)
       this->allnodes.find(pair.first.second)->second->linksandcost.emplace(pair.first.first, pair.second);
-    }
-  }
-}
-
-void FiniteMultiGraph::Explore() {
-  Vertex* current_node = this->allnodes.find(this->current_visiting_node)->second;
-  if (current_node->visited == true) {
-    this->Relax(current_node);
-  }
-}
-
-void FiniteMultiGraph::Relax(Vertex* vertex) {
-  unsigned int choose_next_node_to_visit {vertex->label};
-  for (auto& pair: vertex->linksandcost) {
-    Vertex* exploring_vertex = this->allnodes.find(pair.first)->second;
-    if (exploring_vertex->visited == false) {
-      if ((vertex->cost_from_source + pair.second) < exploring_vertex->cost_from_source) {
-        exploring_vertex->cost_from_source = vertex->cost_from_source + pair.second;
-      }
-
     }
   }
 }
