@@ -1,9 +1,10 @@
-#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/vertex.h"
-#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/finitemultigraph.h"
 #include <limits>
 #include <vector>
+#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/vertex.h"
+#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/finitemultigraph.h"
 
 void Explore(FiniteMultiGraph& graph) {
+  // The vertex we are currently visiting to explore vertices connected to it. 
   Vertex* current_node = graph.allnodes.find(graph.current_visiting_node)->second;
   if (current_node->visited == false) {
     current_node->visited = true;
@@ -15,10 +16,11 @@ void Explore(FiniteMultiGraph& graph) {
 void Relax(FiniteMultiGraph& graph, Vertex* vertex) {
   unsigned int choose_next_node_to_visit {vertex->label};
   unsigned int mincost {std::numeric_limits<unsigned int>::max()};
-  for (auto& pair: vertex->linksandcost) {
+  for (auto& pair: vertex->linksandcost) { // Exploring all connected neighbor vertices
     Vertex* exploring_vertex = graph.allnodes.find(pair.first)->second;
-    if (exploring_vertex->visited == false) {
+    if (exploring_vertex->visited == false) { // Exploring vertex only if it has not been visited
       if ((vertex->cost_from_source + pair.second) < exploring_vertex->cost_from_source) {
+        // If a better cost effective path is found
         exploring_vertex->cost_from_source = vertex->cost_from_source + pair.second;
         exploring_vertex->path_from_source.clear();
 
@@ -30,6 +32,8 @@ void Relax(FiniteMultiGraph& graph, Vertex* vertex) {
         exploring_vertex->path_from_source.emplace_back(exploring_vertex->label);
       }
 
+      // Selecting the path with the least cost 
+      //   after the all neighbor vertices have been visited
       if (exploring_vertex->cost_from_source < mincost) {
         mincost = exploring_vertex->cost_from_source;
         choose_next_node_to_visit = exploring_vertex->label;
