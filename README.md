@@ -27,8 +27,8 @@
 
 #### Graphs
 
-- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way/finitemultigraph.h) (*implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
-  - [Vertex](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way/vertex.h) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
+- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way) (*implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
+  - [Vertex](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
 
 ### 📑 Algorithms
 

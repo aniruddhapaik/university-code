@@ -43,13 +43,3 @@ void Relax(FiniteMultiGraph& graph, Vertex* vertex) {
     graph.current_visiting_node = choose_next_node_to_visit;
   }
 }
-
-// *
-//if (exploring_vertex->path_from_source.size() == 0) {
-//  exploring_vertex->path_from_source.emplace_back(exploring_vertex->label);
-//}
-      
-//exploring_vertex->path_from_source.emplace(
-//  exploring_vertex->path_from_source.end()-1,
-//  *(vertex->path_from_source.end()-1)
-//);
