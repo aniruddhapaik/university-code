@@ -3,8 +3,6 @@
 #include <limits>
 #include <vector>
 
-//#include "dijkstraalgorithm.h"
-
 void Explore(FiniteMultiGraph& graph) {
   Vertex* current_node = graph.allnodes.find(graph.current_visiting_node)->second;
   if (current_node->visited == false) {
@@ -31,7 +29,6 @@ void Relax(FiniteMultiGraph& graph, Vertex* vertex) {
         );
         exploring_vertex->path_from_source.emplace_back(exploring_vertex->label);
       }
-      // *
 
       if (exploring_vertex->cost_from_source < mincost) {
         mincost = exploring_vertex->cost_from_source;
