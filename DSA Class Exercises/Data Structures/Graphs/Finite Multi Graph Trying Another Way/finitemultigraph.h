@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <vector>
 #include <iosfwd>
+
 #include "vertex.h"
 #include "directionenum.h"
 

@@ -1,11 +1,12 @@
-#include "finitemultigraph.h"
 #include <utility>
 #include <vector>
-#include "vertex.h"
-#include "directionenum.h"
 #include <iostream>
 #include <iosfwd>
 #include <limits>
+
+#include "finitemultigraph.h"
+#include "vertex.h"
+#include "directionenum.h"
 
 FiniteMultiGraph::FiniteMultiGraph() {
   this->direction = Direction::directed;
@@ -27,13 +28,13 @@ const void FiniteMultiGraph::setSource(unsigned int src) {
     this->current_visiting_node = this->source;
 
     (*result).second->cost_from_source = 0;
-    //(*result).second->visit = false;
     (*result).second->path_from_source.emplace_back(this->source);
     std::cout << "Source set: " << this->source << std::endl;
   }
 }
 
 const void FiniteMultiGraph::printVerticesInfo() const {
+  std::cout << "============================================" << std::endl;
   for (auto& pair: this->allnodes) {
     std::cout << "Vertex " << pair.second->label << std::endl;
 
@@ -72,22 +73,22 @@ const void FiniteMultiGraph::printVerticesInfo() const {
 
 void FiniteMultiGraph::buildGraph(std::vector<edgecost>& edgelist) {
   for (edgecost& pair: edgelist) {
-    // creating a vertex if it already does not exist
+    // Creating vertex 1 if it already does not exist
     if (this->allnodes.find(pair.first.first) == this->allnodes.end()) {
       this->allnodes.emplace(pair.first.first, new Vertex(pair.first.first));
     } 
     
-    // creating a vertex if it already does not 
+    // Creating vertex 2 if it already does not exist
     if (this->allnodes.find(pair.first.second) == this->allnodes.end()) {
       this->allnodes.emplace(pair.first.second, new Vertex(pair.first.second));
     }
 
-    // making the directed link between previous two vertices
-    // setting vertex 1's neighbor: vertex 2
+    // Making the directed link between previous two vertices
+    // Setting vertex 1's neighbor: vertex 2
     this->allnodes.find(pair.first.first)->second->linksandcost.emplace(pair.first.second, pair.second);
   
     if (this->direction == Direction::undirected) {
-      // setting vertex 2's neighbor: vertex 1 (if the graph is undirected)
+      // Setting vertex 2's neighbor: vertex 1 (if the graph is undirected)
       this->allnodes.find(pair.first.second)->second->linksandcost.emplace(pair.first.first, pair.second);
     }
   }

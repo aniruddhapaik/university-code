@@ -1,4 +1,5 @@
 #include <limits>
+
 #include "vertex.h"
 
 Vertex::Vertex(unsigned int key) {

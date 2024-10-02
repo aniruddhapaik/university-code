@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+
 #include "finitemultigraph.h"
 #include "directionenum.h"
 
