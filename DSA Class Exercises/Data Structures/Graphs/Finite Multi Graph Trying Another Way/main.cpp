@@ -1,8 +1,7 @@
 #include <iostream>
-#include <limits>
+#include <vector>
 #include "finitemultigraph.h"
 #include "directionenum.h"
-#include <vector>
 
 int main() {
   FiniteMultiGraph graph;
