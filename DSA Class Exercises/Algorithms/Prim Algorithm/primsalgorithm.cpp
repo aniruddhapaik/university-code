@@ -2,9 +2,9 @@
 #include <limits>
 #include <vector>
 
-#include "../../Data Structures/Graphs/Prim's Algorithm/FiniteMultiGraph.h"
-#include "../../Data Structures/Graphs/Prim's Algorithm/Vertex.h"
-#include "../../Data Structures/Graphs/Prim's Algorithm/utils.h"
+#include "../../Data Structures/Graphs/Graph for Prim's Algorithm/FiniteMultiGraph.h"
+#include "../../Data Structures/Graphs/Graph for Prim's Algorithm/Vertex.h"
+#include "../../Data Structures/Graphs/Graph for Prim's Algorithm/utils.h"
 
 void primsalgorithm(FiniteMultiGraph& graph) {
   Vertex* vertex = graph.allnodes.find(graph.source)->second;

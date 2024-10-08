@@ -1,7 +1,7 @@
 #include <limits>
 #include <vector>
-#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/vertex.h"
-#include "../../Data Structures/Graphs/Finite Multi Graph Trying Another Way/finitemultigraph.h"
+#include "../../Data Structures/Graphs/Graph for Dijkstra's Algorithm/vertex.h"
+#include "../../Data Structures/Graphs/Graph for Dijkstra's Algorithm/finitemultigraph.h"
 
 void Explore(FiniteMultiGraph& graph) {
   // The vertex we are currently visiting to explore vertices connected to it. 
