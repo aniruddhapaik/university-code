@@ -27,8 +27,8 @@
 
 #### Graphs
 
-- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way) (*implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
-  - [Vertex](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph%20Trying%20Another%20Way) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
+- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) (*Graph for Dijkstra's Algorithm, implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
+  - [Vertex](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
 
 ### 📑 Algorithms
 
@@ -59,6 +59,12 @@
 #### Dijkstra's Algorithm
 
 - [7. Dijkstra's Algorithm for Single Source Shortest Path](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Dijkstra%20Algorithm/dijkstraalgorithm.cpp)
+  - [Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) - Building and implementation.
+
+#### Prim's Algorithm
+
+- [Prim's Algorithm for Minimum Cost Spanning Tree](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Prim%20Algorithm/primsalgorithm.cpp)
+  - [Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Prim's%20Algorithm) - Building and implementation.
 
 #### Sorting Algorithms
 
