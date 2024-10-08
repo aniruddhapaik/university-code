@@ -27,7 +27,7 @@
 
 #### Graphs
 
-- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) (*Graph for Dijkstra's Algorithm, implemented using* `std::vector` *and* `std::unordered_map`. *can be made* `directed` *or* `undirected`)
+- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) `directed`/`undirected` (*Graph for Dijkstra's Algorithm, implemented using* `std::vector` *and* `std::unordered_map`.)
   - [Vertex](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
 
 ### 📑 Algorithms
