@@ -27,8 +27,9 @@
 
 #### Graphs
 
-- [Finite Multi Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) `directed`/`undirected` (*Graph for Dijkstra's Algorithm, implemented using* `std::vector` *and* `std::unordered_map`.)
+- [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) `directed`/`undirected` (*Graph for Dijkstra's Algorithm,* `adjacency list` *implemented using* `std::vector` *and* `std::unordered_map`.)
   - [Vertex](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) (*storing neighbors and edge costs in* `std::unordered_map` *inside corresponding* `vertices`)
+- [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
 
 ### 📑 Algorithms
 
@@ -53,8 +54,10 @@
 
 #### Graph traversal techniques
 
-- [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/breadthfirstsearch.h) (`BFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
-- [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Finite Multi Graph`, *refer to Data Structure Folder for* [`Finite Multi Graph Implementation`](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Finite%20Multi%20Graph/finitemultigraph.cpp))
+- [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms%20New%20Trial/breadthfirstsearch.cpp) (`BFS` *on a* `Simple Graph`)
+  - [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
+- [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Simple Graph`)
+  - [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
 
 #### Dijkstra's Algorithm
 
