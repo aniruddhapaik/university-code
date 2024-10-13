@@ -3,7 +3,6 @@
 #include <vector>
 #include <iosfwd>
 
-#include "Vertex.h"
 #include "utils.h"
 
 class SimpleGraph {
