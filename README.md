@@ -74,6 +74,14 @@
 - [9.a Merge Sort](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Sorting%20Algorithms/mergesort.cpp)
 - [9.b Quick Sort](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Sorting%20Algorithms/quicksort.cpp)
 
+#### Knapsack Problem
+
+- [10. Fractional Knapsack Problem](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Practice/KnapSack.h) (*greedy method*)
+
+#### Travelling Salesman
+
+- [11. Travelling Salesman](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Travelling%20Salesman%20using%20Dynamic%20Programming) (*using dynamic programming*)
+
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
 - [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`, `solve diamond problem`)
