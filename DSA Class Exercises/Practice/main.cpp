@@ -11,6 +11,7 @@
 #include <string>
 #include "KnapSack.h"
 #include <utility>
+#include "Dijkstra.h"
 
 void clearAndResetInput() {
   std::cin.clear();
@@ -167,14 +168,29 @@ int main() {
   //matcher.setString(&str3);
   //matcher.match();
 
-  std::vector<std::pair<float, float>> items = {
+  // Knapsack algorithm
+  /*std::vector<std::pair<float, float>> items = {
     {2, 10}, {3, 5}, {5, 15}, {7, 7}, {1, 6}, {4, 18}, {1, 3}
   };
 
   float maxcapacity = 15;
 
   KnapSack sack;
-  sack.getItemList(maxcapacity, items);
+  sack.getItemList(maxcapacity, items);*/
+
+  // Dijkstra's algorithm
+  std::vector<std::vector<int>> dijkstrasadjmatrix {
+    {0, 2, 4, 0, 0, 0},
+    {0, 0, 1, 7, 0, 0},
+    {0, 0, 0, 0, 3, 0},
+    {0, 0, 0, 0, 0, 1},
+    {0, 0, 0, 2, 0, 5},
+    {0, 0, 0, 0, 0, 0}
+  };
+
+  Dijkstra dijalgo;
+  dijalgo.getAdjMatrix(dijkstrasadjmatrix);
+  dijalgo.setSource(1); // 1 to n
 
   return 0;
 }
