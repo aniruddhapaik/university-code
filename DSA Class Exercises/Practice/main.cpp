@@ -9,6 +9,8 @@
 #include <limits>
 #include <conio.h>
 #include <string>
+#include "KnapSack.h"
+#include <utility>
 
 void clearAndResetInput() {
   std::cin.clear();
@@ -156,14 +158,23 @@ int main() {
 
   //queueMenu();
 
-  MatchingBracket& matcher = MatchingBracket::get();
+  //MatchingBracket& matcher = MatchingBracket::get();
 
-  std::string str1("()(())[][{{}}]");
-  std::string str2("()(())[[{{}}]");
-  std::string str3("()())[[{}}]");
+  //std::string str1("()(())[][{{}}]");
+  //std::string str2("()(())[[{{}}]");
+  //std::string str3("()())[[{}}]");
 
-  matcher.setString(&str3);
-  matcher.match();
+  //matcher.setString(&str3);
+  //matcher.match();
+
+  std::vector<std::pair<float, float>> items = {
+    {2, 10}, {3, 5}, {5, 15}, {7, 7}, {1, 6}, {4, 18}, {1, 3}
+  };
+
+  float maxcapacity = 15;
+
+  KnapSack sack;
+  sack.getItemList(maxcapacity, items);
 
   return 0;
 }
