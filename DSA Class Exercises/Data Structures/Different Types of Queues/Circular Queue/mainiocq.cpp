@@ -1,7 +1,8 @@
 //#include "../../input_utils.h"
 #include "circularqueuewitharray.cpp"
 
-enum Menu {getfront=0, getrear, displayqueue, enqueue, dequeue, isempty, isfull, exitprogram};
+enum Menu {getfront=0, getrear, displayqueue, enqueue, 
+					 dequeue, isempty, isfull, exitprogram};
 
 template <typename T>
 bool handleInput(T& choice) {

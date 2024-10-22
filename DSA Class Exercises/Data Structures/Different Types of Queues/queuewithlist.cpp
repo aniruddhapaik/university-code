@@ -103,7 +103,8 @@ public:
 
     int lastElement() {
         if(this->queuesize) {
-            std::cout << "The last element in the Queue is " << this->tail->value << std::endl;
+            std::cout << "The last element in the Queue is " \
+              << this->tail->value << std::endl;
             return this->tail->value;
         }
         
@@ -119,18 +120,22 @@ public:
 
     int peek() {
         if (this->queuesize) {
-            std::cout << "There are " << this->queuesize << " element in the queue." << std::endl;
-            if (this->queuesize > 1) { std::cout << "Enter index between 0 and " << (this->queuesize-1) << ".\n"; }
+            std::cout << "There are " << this->queuesize << \
+              " element in the queue." << std::endl;
+            if (this->queuesize > 1) { 
+              std::cout << "Enter index between 0 and " << (this->queuesize-1) << ".\n"; 
+            }
             else { std::cout << "The only index available to peek at is 0.\n"; }
             if(this->getInput()) {
-                int counter = this->last_input;
+                int counter = 0;
                 Node* temp = this->head;
-                if (counter >= 0 and counter < this->queuesize) {
-                    while(temp->next != nullptr) {
+                if (this->last_input >= 0 and this->last_input < this->queuesize) {
+                    while(counter < this->last_input) {
                         temp = temp->next;
-                        counter--;
+                        counter++;
                     }
-                    std::cout << "The element at index " << this->last_input << " is " << temp->value << std::endl;
+                    std::cout << "The element at index " << this->last_input << \
+                      " is " << temp->value << std::endl;
                     return temp->value;
                 } else {
                     std::cout << "index is out of bounds!" << std::endl;
@@ -143,7 +148,7 @@ public:
 
     const void printQueue() const {
         if (this->queuesize) {
-            std::cout << "Element in queue:\n";
+            std::cout << "Element in queue:\nFirst-> ";
             Node* temp = this->head;
             while(temp != nullptr) {
                 std::cout << temp->value << ", ";
@@ -157,7 +162,8 @@ int main() {
     Queue queue;
     int input{};
 
-    enum menu {enqueue=0, dequeue, first_element, last_element, peek, printstack, sizeofstack, exitprogram};
+    enum menu {enqueue=0, dequeue, first_element, last_element, 
+               peek, printstack, sizeofstack, exitprogram};
 
     while(1) {
         system("cls");

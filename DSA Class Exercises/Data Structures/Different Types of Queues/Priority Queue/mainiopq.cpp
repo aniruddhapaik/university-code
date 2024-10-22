@@ -1,7 +1,7 @@
 //#include "../../input_utils.h"
 #include "priorityqueuewitharray.cpp"
 
-enum Menu {enqueue=0, dequeue, topelement, displayqueue, exitprogram};
+enum Menu {enqueue=0, dequeue, frontelement, displayqueue, exitprogram};
 
 bool handleInput(short int& choice) {
 	std::cin >> choice;
@@ -26,7 +26,7 @@ void printMenu() {
 		std::cout << enqueue << " . Enqueue (value, priority)\n";
 		std::cout << dequeue << " . Dequeue\n";
 		std::cout << "-------------------------------\n";
-		std::cout << topelement << " . Top element\n";
+		std::cout << frontelement << " . Front element\n";
 		std::cout << displayqueue << " . Display queue\n";
 		std::cout << "-------------------------------\n";
 		std::cout << exitprogram << " . Exit program\n";
@@ -41,8 +41,8 @@ void printMenu() {
 				case dequeue:
 					queue.deQueue();
 					break;
-				case topelement:
-					queue.topElement();
+				case frontelement:
+					queue.frontElement();
 					break;
 				case displayqueue:
 					queue.displayQueue();

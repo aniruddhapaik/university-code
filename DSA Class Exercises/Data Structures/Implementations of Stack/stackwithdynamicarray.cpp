@@ -68,7 +68,9 @@ public:
     }
 
     int getStackSize() {
-        if (this->stack.size()) { std::cout << "Stack size is: " << this->stack.size(); }
+        if (this->stack.size()) { 
+          std::cout << "Stack size is: " << this->stack.size(); 
+        }
         else {this->printStackIsEmpty(); }
         return this->stack.size();
     }
@@ -76,11 +78,13 @@ public:
     int peek() {
         size_t stacksize = this->stack.size();
         if (this->stack.size()) {
-            std::cout << "There are " << stacksize << " element in the stack" << std::endl;
+            std::cout << "There are " << stacksize << \
+              " element in the stack" << std::endl;
             std::cout << "Enter index between 0 and " << (stacksize-1) << ": ";
             this->getInput();
             if (this->last_input >= 0 and this->last_input < stacksize) {
-                std::cout << "Element at index " << this->last_input << " is " << this->stack.at(this->last_input) << std::endl;
+                std::cout << "Element at index " << this->last_input << " is " << \
+                  this->stack.at(this->last_input) << std::endl;
                 return this->stack.at(this->last_input);
             } else {
                 std::cout << "index is out of bounds!" << std::endl;
@@ -100,7 +104,7 @@ public:
             for (int i: this->stack) {
                 std::cout << " | " << i;
             }
-            std::cout << std::endl;
+            std::cout << " <- TOP"<< std::endl;
         } else { this->printStackIsEmpty(); }
         return;
     }
@@ -159,6 +163,5 @@ int main() {
         }
         _getch();
     }
-
     return 0;
 }

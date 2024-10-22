@@ -25,8 +25,9 @@ private:
 					this->operands_stack.push(std::stod(temp_term));
 					temp_term = "";
 				}
-			} else if (static_cast<int>(*current_char) > 47 and static_cast<int>(*current_char) < 58 \
-								 or *current_char == '.') {
+			} else if (static_cast<int>(*current_char) > 47 \
+									and static_cast<int>(*current_char) < 58 \
+									or *current_char == '.') {
 				// evaluates to true if current_char is not an operator.
 				temp_term.push_back(*current_char);
 			} else if (*current_char == '(' or *current_char == ')') {
@@ -40,7 +41,9 @@ private:
 				}
 
 				if (this->operands_stack.size() < 2) {
-					std::cout << "Something is wrong with the expression!\n-> operand to operator ratio mismatch\n-> ratio should be operands (n):(n-1) operators" << std::endl;
+					std::cout << "Something is wrong with the expression!\n-> \
+						operand to operator ratio mismatch\n-> \
+						ratio should be operands (n):(n-1) operators" << std::endl;
 					return -1;
 				} else {
 					this->right_operand = this->operands_stack.top();
@@ -80,12 +83,15 @@ private:
 
 		if (not temp_term.empty()) { this->operands_stack.push(std::stod(temp_term)); }
 
-		if (this->operands_stack.size() == 1) { // making sure the postfix expression was correctly input
+		if (this->operands_stack.size() == 1) { 
+			// making sure the postfix expression was correctly input
 			this->result_is_good = true;
 			std::cout << "Result: " << this->operands_stack.top() << '\n';
 			return this->operands_stack.top();
 		} else {
-			std::cout << "Bad test string!\n-> operand to operator ratio mismatch\n-> ratio should be operands (n):(n-1) operators" << std::endl;
+			std::cout << "Bad test string!\n-> \
+				operand to operator ratio mismatch\n-> \
+				ratio should be operands (n):(n-1) operators" << std::endl;
 			return -1; 
 		}
 	}
@@ -102,13 +108,15 @@ private:
 					this->operands_stack.push(std::stod(temp_term));
 					temp_term = "";
 				}
-			} else if (static_cast<int>(*current_char) > 47 and static_cast<int>(*current_char) < 58 \
-								 or *current_char == '.') {
+			} else if (static_cast<int>(*current_char) > 47 \
+									and static_cast<int>(*current_char) < 58 \
+									or *current_char == '.') {
 				/*
 				in the else if statement above I am making sure that every character read,
 				that is not an operand, is between ASCII value ]47, 58[, 
 				which are ASCII values for characters 0 to 9
-				or the current character is a '.' which means there is a rational number in the expression
+				or the current character is a '.' which means 
+				there is a rational number in the expression
 				that we need to read correctly.
 				*/
 				// evaluates to true if current_char is not an operator.
@@ -124,7 +132,9 @@ private:
 				}
 
 				if (this->operands_stack.size() < 2) {
-					std::cout << "Something is wrong with the expression!\n-> operand to operator ratio mismatch\n-> ratio should be operands (n):(n-1) operators" << std::endl;
+					std::cout << "Something is wrong with the expression!\n-> \
+						operand to operator ratio mismatch\n-> \
+						ratio should be operands (n):(n-1) operators" << std::endl;
 					return -1;
 				} else {
 					this->left_operand = this->operands_stack.top();
@@ -165,12 +175,15 @@ private:
 
 		if (not temp_term.empty()) { this->operands_stack.push(std::stod(temp_term)); }
 
-		if (this->operands_stack.size() == 1) { // making sure the prefix expression was correctly input
+		if (this->operands_stack.size() == 1) { 
+			// making sure the prefix expression was correctly input
 			this->result_is_good = true;
 			std::cout << "Result: " << this->operands_stack.top() << '\n';
 			return this->operands_stack.top();
 		} else {
-			std::cout << "Bad test string!\n-> operand to operator ratio mismatch\n-> ratio should be operands (n):(n-1) operators" << std::endl;
+			std::cout << "Bad test string!\n\
+-> operand to operator ratio mismatch\n\
+-> ratio should be operands (n):(n-1) operators" << std::endl;
 			return -1; 
 		}
 	}

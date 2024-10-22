@@ -5,7 +5,9 @@
 
 FibonacciSearch& FibonacciSearch::get() { return finstance; }
 
-const void FibonacciSearch::setArray(std::vector<int>* sortedarr) { this->arr = sortedarr; }
+const void FibonacciSearch::setArray(std::vector<int>* sortedarr) { 
+  this->arr = sortedarr; 
+}
 
 void FibonacciSearch::setTerm(int searchterm) {
   this->value = searchterm;
@@ -55,8 +57,12 @@ void FibonacciSearch::search() {
   this->lognotfound();
 }
 
-const void FibonacciSearch::logfound(size_t index) const { std::cout << "Found: " << this->value << " at index: " << index << std::endl; }
+const void FibonacciSearch::logfound(size_t index) const { 
+  std::cout << "Found: " << this->value << " at index: " << index << std::endl; 
+}
 
-const void FibonacciSearch::lognotfound() const { std::cout << "Not found: " << this->value << std::endl; }
+const void FibonacciSearch::lognotfound() const { 
+  std::cout << "Not found: " << this->value << std::endl; 
+}
 
 FibonacciSearch FibonacciSearch::finstance;

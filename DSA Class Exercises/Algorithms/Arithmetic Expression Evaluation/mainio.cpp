@@ -52,7 +52,8 @@ std::vector<std::string> prefixteststrings = {
 	"^ * + 3 (4 - 5) 2 ^ 3 2"
 };
 
-enum Menu {postfixeval=0, prefixeval, inputstring, poststring, prestring, goback, exitprogram};
+enum Menu {postfixeval=0, prefixeval, inputstring, poststring, \
+						prestring, goback, exitprogram};
 
 bool handleInput(short int& choice) {
 	std::cin >> choice;

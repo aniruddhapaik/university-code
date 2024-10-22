@@ -2,12 +2,19 @@
 #include <vector>
 #include <iostream>
 #include <unordered_set>
+#include <limits>
 
 class Dijkstra {
 public:
   void getAdjMatrix(std::vector<std::vector<int>>& adjmatrix) {
     this->adjacencymatrix = adjmatrix;
     this->costmatrix = adjmatrix;
+
+    /*this->costmatrix.resize(adjmatrix.size());
+    for (auto& list: this->costmatrix) { list.resize(adjmatrix.size()); }
+    for (int i = 0; i < adjmatrix.size(); i++) {
+      this->costmatrix[this->source][i] = this->adjacencymatrix[this->source][i];
+    }*/
   }
 
   const void setSource(size_t src) {
@@ -40,13 +47,13 @@ private:
       for (auto& j : set) {
         if (this->adjacencymatrix[i][j] != 0) {
           if (this->costmatrix[this->source][j] > costfromsource+this->costmatrix[i][j]
-               or !(this->costmatrix[this->source][j] == 0)) {
+               or this->costmatrix[this->source][j] == 0) {
             this->costmatrix[this->source][j] = costfromsource+this->costmatrix[i][j];
           }
 
           std::unordered_set<size_t> newset = set;
           newset.erase(j);
-          findPaths(j, newset, costfromsource+this->costmatrix[i][j]);
+          findPaths(j, newset, costfromsource+this->costmatrix[this->source][j]);
         }
       }
     }

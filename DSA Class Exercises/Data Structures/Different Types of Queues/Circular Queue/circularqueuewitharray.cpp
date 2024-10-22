@@ -68,7 +68,9 @@ public:
 	}
 
 	void deQueue() {
-		if (not this->isEmpty()) {
+		if (not this->isEmpty()) { 
+			std::cout << "Dequeuing first element: " <<
+										this->queue->at(this->front) << std::endl;
 			if (this->front == this->rear) {
 				this->front = this->rear = -1;
 			} else {
@@ -78,7 +80,8 @@ public:
 	}
 
 	const bool isEmpty(bool printmessage = false) const { 
-		if (this->front == static_cast<size_t>(-1) and this->rear == static_cast<size_t>(-1)) { 
+		if (this->front == static_cast<size_t>(-1) 
+				 and this->rear == static_cast<size_t>(-1)) { 
 			if (printmessage) { std::cout << "Queue is empty!" << std::endl; }
 			return true; 
 		}

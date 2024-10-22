@@ -28,7 +28,7 @@ std::ostream& operator<< (std::ostream& COUT, const Node_t<T>& node) {
 template <typename T>
 std::ostream& operator<< (std::ostream& COUT, const std::vector<T>& nodelist) {
 	size_t counter{nodelist.size()-1};
-	std::cout << "Queue element (with their priorities):\nTop-> ";
+	std::cout << "Queue element (with their priorities):\nFront-> ";
 	while (counter > 0 and counter < nodelist.size()) {
 		std::cout << nodelist.at(counter) << "| ";
 		counter--;
@@ -82,7 +82,8 @@ public:
 		if (this->handleInput()) { temp_element = this->last_input; }
 		else { return; }
 
-		std::cout << "Enter priority for element (" << temp_element << ") only: " << std::flush;
+		std::cout << "Enter priority for element (" << \
+			temp_element << ") only: " << std::flush;
 		if (this->handleInput()) { temp_priority = this->last_input; }
 		else { return; }
 
@@ -92,18 +93,20 @@ public:
 	friend std::ostream& operator<< (std::ostream& COUT, const Node_t<T>& node);
 
 	void deQueue() {
-		if (this->queue->empty()) { std::cout << "Queue is empty! can't dequeue" << std::endl; }
+		if (this->queue->empty()) { 
+			std::cout << "Queue is empty! can't dequeue" << std::endl; 
+		}
 		else {
 			std::cout << "Dequeuing: " << this->queue->back();
 			this->queue->pop_back(); 
 		}
 	}
 
-	const void topElement() const {
+	const void frontElement() const {
 		if (this->queue->empty()) { std::cout << "Queue is emtpy!" << std::endl; }
 		else { 
 			Node tempnode = this->queue->back();
-			std::cout << "Displaying Top Element:\n";
+			std::cout << "Displaying Front Element:\n";
 			std::cout << this->queue->back();
 		}
 	}
