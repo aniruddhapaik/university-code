@@ -41,13 +41,15 @@ int main() {
   int choice{};
   int key{};
   int costorpriority{};
+  QueueNode* node = nullptr;
 
   while (true) {
     system("cls");
     std::cout << "Min heap costorpriority Queue\n";
     std::cout << "0. Enqueue\n";
     std::cout << "1. Dequeue\n";
-    std::cout << "2. Exit\n";
+    std::cout << "2. Get Front\n";
+    std::cout << "3. Exit\n";
     std::cout << "\nEnter choice: " << std::flush;
 
     if (handleInput(choice)) {
@@ -71,6 +73,15 @@ int main() {
           queue.displayQueue();
           break;
         case 2:
+          node = queue.getFront();
+          if (node == nullptr) {
+            std::cout << "Queue is empty" << std::endl;
+          } else {
+            std::cout << "Front: " << node->key << '(' << node->costorpriority
+                      << ')' << std::endl;
+          }
+          break;
+        case 3:
           return 0;
         default:
           std::cout << "Invalid choice!" << std::endl;

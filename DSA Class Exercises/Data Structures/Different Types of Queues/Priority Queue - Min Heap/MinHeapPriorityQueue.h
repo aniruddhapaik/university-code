@@ -17,6 +17,13 @@ class MinHeapPriorityQueue {
     }
   }
 
+  T* getFront() {
+    if (this->queue.size()) {
+      return this->queue.at(0);
+    }
+    return nullptr;
+  }
+
   const void displayQueue() const {
     for (auto& i : this->queue) {
       std::cout << i->key << '(' << i->costorpriority << ") ";
@@ -45,8 +52,6 @@ class MinHeapPriorityQueue {
   }
 
   size_t heapifydelete(size_t index) {
-    //size_t minindex = index;
-
     if (((index * 2) + 2) < this->queue.size()) {
       size_t leftindex = this->heapifydelete((index * 2) + 1);
       size_t rightindex = this->heapifydelete((index * 2) + 2);
@@ -57,13 +62,11 @@ class MinHeapPriorityQueue {
       if (leftchild->costorpriority <= rightchild->costorpriority) {
         if (leftchild->costorpriority < this->queue.at(index)->costorpriority) {
           this->swap(index, leftindex);
-          //minindex = leftindex;
         }
       } else {
         if (rightchild->costorpriority <
             this->queue.at(index)->costorpriority) {
           this->swap(index, rightindex);
-          //minindex = rightindex;
         }
       }
     } else if (((index * 2) + 1) < this->queue.size()) {
@@ -72,7 +75,6 @@ class MinHeapPriorityQueue {
 
       if (leftchild->costorpriority < this->queue.at(index)->costorpriority) {
         this->swap(index, leftindex);
-        //minindex = leftindex;
       }
     }
     return index;
