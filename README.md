@@ -24,7 +24,6 @@
 - [4a. Singly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Singly%20Linked%20List/singlylinkedlist.cpp) (*with* `tail`)
 - [4b. Doubly Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Doubly%20Linked%20List/doublylinkedlist.cpp) (*with* `tail`)
 - [4c. Circular Linked List](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Linked%20Lists/Circular%20Linked%20List/circularlinkedlist.cpp) (*with* `singly linked list`, *with* `tail` *pointing to* `head`)
-</br></br>
 
 #### Graphs
 
