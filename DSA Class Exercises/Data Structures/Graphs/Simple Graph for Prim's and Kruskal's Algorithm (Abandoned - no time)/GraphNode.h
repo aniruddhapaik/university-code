@@ -1,15 +1,19 @@
 #pragma once
 
+#include <unordered_map>
+#include <utility>
+
 template <typename T>
 class GraphNode {
 public:
-  GraphNode(T k, int cost) {
+  GraphNode(T k) {
     this->key = k;
   }
 
 public:
   T key;
+
   bool visited = false;
-  std::vector<std::pair<char, int>> adjacentnodeslinks;
+  std::unordered_map<T, int> adjacentedgeandcost;
 };
 

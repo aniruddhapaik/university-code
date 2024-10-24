@@ -17,6 +17,7 @@
 - [3b. Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/queuewithlist.cpp) (*with* `singly linked list`, *with* `tail`)
 - [3c. Circular Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/Circular%20Queue/circularqueuewitharray.cpp) (*with* `std::vector`)
 - [3d. Priority Queue](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/Priority%20Queue/priorityqueuewitharray.cpp) (*with* `std::vector`)
+- [Priority Queue with Min Heap](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Different%20Types%20of%20Queues/Priority%20Queue%20-%20Min%20Heap)
 
 #### Linked Lists
 
@@ -46,28 +47,25 @@
 
 #### Tree traversal techniques
 
-- [5a. Inorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
-- [5b. Preorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
-- [5c. Postorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
-- [5d. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
-- [5e. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [5a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [5b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [Inorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [Preorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
+- [Postorder](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Tree%20Traversal%20Techniques/treetraversaltechniques.cpp)
 
 #### Graph traversal techniques
 
-- [6a. Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms%20New%20Trial/breadthfirstsearch.cpp) (`BFS` *on a* `Simple Graph`)
+- [6a. Prim's Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Prim%20Algorithm/Prim's%20Algorithm/primsalgorithm.cpp) (*using* `adjacency matrix` *and* `ajacency list`)
+
+- [Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms%20New%20Trial/breadthfirstsearch.cpp) (`BFS` *on a* `Simple Graph`)
   - [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
-- [6b. Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Simple Graph`)
+- [Depth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms/depthfirstsearch.h) (`DFS` *on a* `Simple Graph`)
   - [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
 
 #### Dijkstra's Algorithm
 
 - [7. Dijkstra's Algorithm for Single Source Shortest Path](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Dijkstra%20Algorithm/dijkstraalgorithm.cpp)
   - [Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) - Building and implementation.
-
-#### Prim's Algorithm
-
-- [Prim's Algorithm for Minimum Cost Spanning Tree](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Prim%20Algorithm/primsalgorithm.cpp)
-  - [Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Prim's%20Algorithm) - Building and implementation.
 
 #### Sorting Algorithms
 

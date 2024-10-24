@@ -2,6 +2,7 @@
 #include <utility>
 #include <vector>
 
+#include "../../../Algorithms/Prim Algorithm/primsalgorithm2.h"
 #include "SimpleGraph.h"
 
 int main() {
@@ -11,10 +12,13 @@ int main() {
       {{'f', 'h'}, 8}, {{'e', 'h'}, 12}, {{'c', 'f'}, 3},  {{'h', 'i'}, 8},
       {{'g', 'i'}, 3}};
 
-  SimpleGraph graph;
+  SimpleGraph<char> graph;
 
   graph.buildGraph(graphdetails);
+  graph.printVertexInfo();
   graph.setSource('b');
+
+  primsAlgo(graph);
 
   return 0;
 }

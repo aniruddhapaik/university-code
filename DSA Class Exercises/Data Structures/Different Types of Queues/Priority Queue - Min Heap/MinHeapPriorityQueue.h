@@ -6,7 +6,7 @@ template <typename T>
 class MinHeapPriorityQueue {
  public:
   void enqueue(T* node) {
-    this->queue.push_back(node);
+    this->queue.emplace_back(node);
     this->heapifypush();
   }
 
@@ -86,6 +86,6 @@ class MinHeapPriorityQueue {
     this->queue.at(second) = temp;
   }
 
- private:
+ public:
   std::vector<T*> queue;
 };
