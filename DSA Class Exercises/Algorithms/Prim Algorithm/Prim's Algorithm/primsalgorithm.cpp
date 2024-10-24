@@ -63,25 +63,19 @@ class PrimAlgo {
     int index = 0;
     while (index < this->pqueue.size()) {
       // starting with first element in queue
-      if ((this->adjlist[fromv].find(this->pqueue[index].first.first) !=
-           this->adjlist[fromv].end()) and
-          this->visited.find(this->pqueue[index].first.first) ==
-              this->visited.end()) {
-        if (this->visited.find(this->pqueue[index].first.second) !=
-            this->visited.end()) {
-          this->mst.emplace_back(this->pqueue[index].first.second,
-                                 this->pqueue[index].first.first);
-          this->buildMST(this->pqueue[index].first.first);
+      auto& adjlist = this->adjlist[fromv];
+      auto& edge = this->pqueue[index];
+      if ((adjlist.find(edge.first.first) != adjlist.end()) and
+          this->visited.find(edge.first.first) == this->visited.end()) {
+        if (this->visited.find(edge.first.second) != this->visited.end()) {
+          this->mst.emplace_back(edge.first.second, edge.first.first);
+          this->buildMST(edge.first.first);
         }
-      } else if ((this->adjlist[fromv].find(this->pqueue[index].first.second) !=
-                  this->adjlist[fromv].end()) and
-                 this->visited.find(this->pqueue[index].first.second) ==
-                     this->visited.end()) {
-        if (this->visited.find(this->pqueue[index].first.first) !=
-            this->visited.end()) {
-          this->mst.emplace_back(this->pqueue[index].first.first,
-                                 this->pqueue[index].first.second);
-          this->buildMST(this->pqueue[index].first.second);
+      } else if ((adjlist.find(edge.first.second) != adjlist.end()) and
+                 this->visited.find(edge.first.second) == this->visited.end()) {
+        if (this->visited.find(edge.first.first) != this->visited.end()) {
+          this->mst.emplace_back(edge.first.first, edge.first.second);
+          this->buildMST(edge.first.second);
         }
       }
       index++;
@@ -90,12 +84,14 @@ class PrimAlgo {
 
   bool enqueue(std::pair<std::pair<int, int>, int> edge) {
     if (this->pqueue.size()) {
+      // if an adjacent vertex has already been visited,
+      // don't add the corresponding adjacent edge to the priority queue
       if (this->visited.find(edge.first.second) != this->visited.end()) {
         return false;
       }
 
+      // adding the adjacent edge to the priority queue
       int index = 0;
-
       while (index < this->pqueue.size()) {
         if (edge.second < this->pqueue[index].second) {
           this->pqueue.emplace(this->pqueue.begin() + index, edge);
@@ -112,13 +108,13 @@ class PrimAlgo {
   }
 
  private:
-  std::vector<std::vector<int>> adjmatrix;
-  std::vector<std::pair<std::pair<int, int>, int>> pqueue;
+  std::vector<std::vector<int>> adjmatrix;                  // adjacency matrix
+  std::vector<std::pair<std::pair<int, int>, int>> pqueue;  // priority queue
 
-  std::unordered_set<int> visited;
-  std::vector<std::unordered_set<int>> adjlist;
+  std::unordered_set<int> visited;               // list of nodes visited
+  std::vector<std::unordered_set<int>> adjlist;  // adjacency list
 
-  std::vector<std::pair<int, int>> mst;
+  std::vector<std::pair<int, int>> mst;  // minimum spanning tree
 
   int maxvertices;
   int source;
