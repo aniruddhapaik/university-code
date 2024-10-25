@@ -79,6 +79,10 @@
 
 - [11. Travelling Salesman](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Algorithms/Travelling%20Salesman%20using%20Dynamic%20Programming) (*using dynamic programming*)
 
+#### N Queens
+
+- [12. N Queens Problems](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/N%20Queens/nqueens.cpp)
+
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
 - [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`, `solve diamond problem`)
