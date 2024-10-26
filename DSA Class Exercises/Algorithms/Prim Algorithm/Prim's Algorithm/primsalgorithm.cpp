@@ -37,12 +37,14 @@ class PrimAlgo {
   }
 
   const void printMST() const {
+    std::cout << "** Minimum Spanning Tree with Prims's Algorithm **\n";
+    std::cout << "==================================================\n";
     int totalcost = 0;
     for (auto& edge : this->mst) {
       std::cout << '(' << edge.first << ',' << edge.second << ") ";
       totalcost += this->adjmatrix[edge.first][edge.second];
     }
-    std::cout << "\nTotal cost: " << totalcost << std::endl;
+    std::cout << "\nTotal cost: " << totalcost << '\n' << std::endl;
   }
 
  private:
