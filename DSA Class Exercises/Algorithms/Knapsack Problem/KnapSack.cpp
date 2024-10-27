@@ -102,12 +102,12 @@ void KnapSack::fillBag() {
   std::cout << *this;
 
   size_t index = this->list.size()-1;
-  unsigned maxcap = this->maxbagcapacity;
+  float maxcap = this->maxbagcapacity;
 
   while (index >= 0) {
     if ((maxcap - this->list[index].first) >= 0) {
       maxcap -= this->list[index].second.first;
-      std::
+      //std::
     }
 
     index--;

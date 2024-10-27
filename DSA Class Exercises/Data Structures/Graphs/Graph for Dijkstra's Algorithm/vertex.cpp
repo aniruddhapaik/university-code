@@ -1,6 +1,6 @@
-#include <limits>
-
 #include "vertex.h"
+
+#include <limits>
 
 Vertex::Vertex(unsigned int key) {
   this->label = key;

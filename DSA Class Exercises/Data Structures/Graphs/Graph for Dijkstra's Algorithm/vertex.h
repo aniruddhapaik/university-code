@@ -3,7 +3,7 @@
 #include <vector>
 
 class Vertex {
-public:
+ public:
   unsigned int label;
   bool visited;
   std::unordered_map<unsigned int, unsigned int> linksandcost;

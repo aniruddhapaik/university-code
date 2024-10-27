@@ -124,6 +124,8 @@ int main() {
       {{3, 5}, 2}, {{3, 6}, 10}, {{6, 7}, 7}, {{5, 7}, 8}, {{4, 7}, 12},
       {{2, 5}, 3}, {{7, 8}, 8},  {{6, 8}, 3}};
 
+  std::cout << "> Graph 1\n";
+  std::cout << "---------\n";
   KruskalAlgo krus(9, edgedetails);
   krus.printMSTEdges();
 
@@ -131,6 +133,8 @@ int main() {
       {{1, 6}, 10}, {{1, 2}, 28}, {{2, 3}, 16}, {{2, 7}, 14}, {{3, 4}, 12},
       {{7, 4}, 18}, {{4, 5}, 22}, {{7, 5}, 24}, {{6, 5}, 25}};
 
+  std::cout << "> Graph 2\n";
+  std::cout << "---------\n";
   KruskalAlgo krus2(8, edgedetails2);
   krus2.printMSTEdges();
 

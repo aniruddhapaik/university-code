@@ -39,6 +39,8 @@ class PrimAlgo {
   const void printMST() const {
     std::cout << "** Minimum Spanning Tree with Prims's Algorithm **\n";
     std::cout << "==================================================\n";
+    std::cout << "Source vertex: " << this->source << '\n';
+    std::cout << "-------------------\n";
     int totalcost = 0;
     for (auto& edge : this->mst) {
       std::cout << '(' << edge.first << ',' << edge.second << ") ";
@@ -128,6 +130,8 @@ int main() {
       {{3, 5}, 2}, {{3, 6}, 10}, {{6, 7}, 7}, {{5, 7}, 8}, {{4, 7}, 12},
       {{2, 5}, 3}, {{7, 8}, 8},  {{6, 8}, 3}};
 
+  std::cout << "> Graph 1\n";
+  std::cout << "---------\n";
   PrimAlgo prim(9, edgedetails, 1);
   prim.printMST();
 
@@ -135,6 +139,8 @@ int main() {
       {{1, 6}, 10}, {{1, 2}, 28}, {{2, 3}, 16}, {{2, 7}, 14}, {{3, 4}, 12},
       {{7, 4}, 18}, {{4, 5}, 22}, {{7, 5}, 24}, {{6, 5}, 25}};
 
+  std::cout << "> Graph 2\n";
+  std::cout << "---------\n";
   PrimAlgo prim2(8, edgedetails2, 1);
   prim2.printMST();
 
