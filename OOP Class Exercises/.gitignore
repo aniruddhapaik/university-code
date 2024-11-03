@@ -1,0 +1,17 @@
+*.exe
+*.ini
+/.vscode
+*.sln
+*.vcxproj
+*.filters
+*.user
+.vs
+x64
+*.obj
+*.tlog
+*.recipe
+*.pdb
+*.idb
+*.ilk
+*.lastbuildstate
+*.class

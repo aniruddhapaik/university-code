@@ -101,9 +101,9 @@ class PlaceQueens {
 
 int main() {
   PlaceQueens board;
-  size_t numberofqueens = 5;
+  size_t numberofqueens = 8;
   std::cout << "** " << numberofqueens << " Queens Problem Solutions **\n";
-  std::cout << "============================================================\n";
+  std::cout << "=================================\n";
   board.setQueens(numberofqueens);
 
   return 0;

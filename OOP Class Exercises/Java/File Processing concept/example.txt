@@ -1,0 +1,2 @@
+Hello, this is a file processing example in Java!
+Welcome to file handling.
