@@ -86,5 +86,31 @@
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
+### C++
+
+- [Class and Object Demo in C++](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/classexample.cpp)
+
+- [Constructor Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/contructorexample.cpp)
+
+- [Polymorphism Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/polyexample.cpp)
+
+- [Operator Overloading Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/operatoroverloadingexample.cpp)
+
+- [Inheritance Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/inheritanceexample.cpp)
+
+- [Copy Constructor Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/CPP/copyconstructor.cpp)
+
+### Java
+
+- [Classes and Objects Demo in Java](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Java/class%20concept/Main.java)
+
+- [File Processing Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Java/File%20Processing%20concept/FileProcessingExample.java)
+
+- [Multithreading Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Java/multithreading/MultithreadingExample.java)
+
+- [AWT Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Java/AWT%20example/AWTExample.java)
+
+---
+
 - [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`, `solve diamond problem`)
 - [Example of Copy Contructor and Operator Overloading](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Copy%20Contructor%20and%20Operator%20Overloading/copyconstructorandopoverloading.cpp) (*example for use of:* `copy constructor`, `operator overloading`)
