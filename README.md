@@ -7,6 +7,8 @@
 - [First lab](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/mysql%20First%20Lab%20Basic%20Commands.sql) (*basic commands | RDBMS:* `MySQL`)
 - [Basic implementation of ER diagram](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/postgresql%20basic%20commands.sql) (*ER diagram to Relational Model,* `University` *database simulation | RDBMS:* `PostgreSQL`)
 
+---
+
 ## 📐 [Data Structure & Algorithms Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises)
 
 ### 💾 Data Structures
@@ -83,6 +85,8 @@
 #### N Queens
 
 - [12. N Queens Problems](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/N%20Queens/nqueens.cpp)
+
+---
 
 ## 📇 [Object Oriented Programming Class Exercises](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises)
 
