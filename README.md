@@ -66,8 +66,7 @@
 
 #### Dijkstra's Algorithm
 
-- [7. Dijkstra's Algorithm for Single Source Shortest Path](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Dijkstra%20Algorithm/dijkstraalgorithm.cpp)
-  - [Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Graph%20for%20Dijkstra's%20Algorithm) - Building and implementation.
+- [7. Dijkstra's Algorithm for Single Source Shortest Path](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Test%20Practice%20problems/Dijkstra's%20Algorithm/dijkstraalgorithm.cpp) (*using* `adjacency matrix`, *and* `priority queue`)
 
 #### Sorting Algorithms
 
