@@ -113,6 +113,8 @@
 
 - [AWT Demo](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/Java/AWT%20example/AWTExample.java)
 
+- [Servlet Demo](https://github.com/aniruddhapaik/university-code/tree/main/OOP%20Class%20Exercises/Java/servlet%20example)
+
 ---
 
 - [OOP and C++ concepts examples](https://github.com/aniruddhapaik/university-code/blob/main/OOP%20Class%20Exercises/oopandcppconceptsexamples.cpp) (*example for use of:* `classes`, `inheritance`, `polymorphism`, `friend function`, `operator overloading`, `constructor overloading`, `solve diamond problem`)
