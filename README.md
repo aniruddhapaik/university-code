@@ -6,6 +6,11 @@
 
 - [First lab](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/mysql%20First%20Lab%20Basic%20Commands.sql) (*basic commands | RDBMS:* `MySQL`)
 - [Basic implementation of ER diagram](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/postgresql%20basic%20commands.sql) (*ER diagram to Relational Model,* `University` *database simulation | RDBMS:* `PostgreSQL`)
+  - [Basic Questions for Querying the Database](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/dbmsquestions.md)
+
+### DBMS Lab Internal
+
+- [Question C Queries](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Lab%20Internal/DBMSinternalterminaloutput.sql) (*Full terminal output while solving Question C*)
 
 ---
 
