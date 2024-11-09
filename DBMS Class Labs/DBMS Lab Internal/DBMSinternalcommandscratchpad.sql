@@ -5,6 +5,15 @@ date date,
 item_id int references product(item_id)
 );
 
+CREATE TABLE customer_order (
+    invoice_no SERIAL PRIMARY KEY,
+    order_date DATE NOT NULL,
+    quantity INT NOT NULL, 
+    customer_no INT REFERENCES customer(customer_no),
+    item_id INT,
+    FOREIGN KEY (item_id) REFERENCES product(item_id)
+);
+
 alter table item rename product;
 
 insert into customer values
@@ -47,3 +56,4 @@ on customer.customer_no = customer_order.customer_no);
 SELECT item_name from item WHERE item_name LIKE "A%";
 
 select count(*) from dispatch WHERE date >= '2024-11-07';
+
