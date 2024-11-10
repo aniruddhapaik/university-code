@@ -4,6 +4,17 @@
 #include <vector>
 
 class PrimAlgo {
+  std::vector<std::vector<int>> adjmatrix;                  // adjacency matrix
+  std::vector<std::pair<std::pair<int, int>, int>> pqueue;  // priority queue
+
+  std::unordered_set<int> visited;               // list of nodes visited
+  std::vector<std::unordered_set<int>> adjlist;  // adjacency list
+
+  std::vector<std::pair<int, int>> mst;  // minimum spanning tree
+
+  int maxvertices;
+  int source;
+
  public:
   PrimAlgo(int v, std::vector<std::pair<std::pair<int, int>, int>>& edgedetails,
            int src) {
@@ -110,18 +121,6 @@ class PrimAlgo {
     }
     return true;
   }
-
- private:
-  std::vector<std::vector<int>> adjmatrix;                  // adjacency matrix
-  std::vector<std::pair<std::pair<int, int>, int>> pqueue;  // priority queue
-
-  std::unordered_set<int> visited;               // list of nodes visited
-  std::vector<std::unordered_set<int>> adjlist;  // adjacency list
-
-  std::vector<std::pair<int, int>> mst;  // minimum spanning tree
-
-  int maxvertices;
-  int source;
 };
 
 int main() {

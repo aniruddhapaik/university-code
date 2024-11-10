@@ -56,7 +56,7 @@ class Dijkstra {
             newnode->costfromsource = node->costfromsource + cost;  // relax
             newnode->pathfromsource = node->pathfromsource;  // update path
             newnode->pathfromsource.emplace_back(node->key);
-            this->addToPQueue(newnode);
+            this->addToPQueue(newnode); // adding new node to pqueue
           } else {
             Node* oldnode = this->visitednodes.find(col)->second;
             if (node->costfromsource + cost < oldnode->costfromsource) {
@@ -70,8 +70,8 @@ class Dijkstra {
                   this->pqueue.erase(this->pqueue.begin() + j);
                   break;
                 }
-              }
-              this->addToPQueue(oldnode);  // updating pqueue
+              } // updating old node's position in pqueue:
+              this->addToPQueue(oldnode);
             }
           }
         }
