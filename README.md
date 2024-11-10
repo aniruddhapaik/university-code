@@ -62,7 +62,7 @@
 #### Graph traversal techniques
 
 - [6a. Prim's Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Prim%20Algorithm/New%20Prim's%20Correct%20Version/primalgocorrect.cpp) (*using* `adjacency matrix`*,* `std::unordered_set`, *and* `priority queue`)
-- [6b. Kruskal's Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Kruskal's%20Algorithm/kruskalalgo.cpp) (*using* `adjacency list` *and* `priority queue`)
+- [6b. Kruskal's Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/practice/krus.cpp) (*using* `adjacency matrix`*,* `std::unordered_set`, *and* `priority queue`)
 
 - [Breadth First Search](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/Graph%20Traversal%20Algorithms%20New%20Trial/breadthfirstsearch.cpp) (`BFS` *on a* `Simple Graph`)
   - [Simple Graph](https://github.com/aniruddhapaik/university-code/tree/main/DSA%20Class%20Exercises/Data%20Structures/Graphs/Simple%20Graph%20for%20DFS%20and%20BFS) (*implementation using* `adjacency matrix`)
