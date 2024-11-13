@@ -57,3 +57,10 @@ SELECT item_name from item WHERE item_name LIKE "A%";
 
 select count(*) from dispatch WHERE date >= '2024-11-07';
 
+-- DCL
+CREATE USER newuser WITH PASSWORD 'newuser';
+GRANT ALL PRIVILEGES ON DATABASE University TO newuser WITH GRANT OPTION;
+REVOKE ALL PRIVILEGES ON DATABASE University FROM newuser;
+DROP ROLE newuser;
+
+GRANT ALL PRIVILEGES ON DATABASE University TO postgres WITH GRANT OPTION;
