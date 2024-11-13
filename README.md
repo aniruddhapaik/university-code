@@ -10,11 +10,13 @@ _Coding Exercises and Experiments._
 
 ### DBMS Lab Internal
 
-- [Full Terminal Output while Solving Question Set **C**](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Lab%20Internal/DBMSinternalterminaloutput.sql) (_Queries along with query results_)
+- [Question Set C](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Lab%20Internal/QuestionsSetC.md)
+- [Full Terminal Output while Solving Question Set C](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Lab%20Internal/DBMSinternalterminaloutput.sql) (_Queries along with query results_)
 
 ### DBMS Lab Exam
 
-- [Full Terminal Output while Solving Question Set 3](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Exam/terminaloutputfull.sql)(_Queries along with query results_)
+- [Question Set 3](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Exam/QuestionSet3.md)
+- [Full Terminal Output while Solving Question Set 3](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Exam/terminaloutputfull.sql) (_Queries along with query results_)
 
 ---
 
