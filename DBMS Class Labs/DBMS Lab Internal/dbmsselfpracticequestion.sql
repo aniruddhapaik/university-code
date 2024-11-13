@@ -51,3 +51,15 @@ from customer c
 where c.customer_no 
 not in (select distinct customer_no from customer_order);
 
+select c.customer_name, d.date, p.item_name, co.quantity, d.invoice_no from customer_order co
+right outer join dispatch d on co.invoice_no = d.invoice_no
+left outer join customer c on co.customer_no = c.customer_no
+left outer join product p on d.item_id = p.item_id
+WHERE d.date >= NOW() - INTERVAL '30 days' AND d.date <= NOW();
+
+select p.item_name, sum(co.quantity), max(d.date) from product p 
+right outer join dispatch d on p.item_id = d.item_id
+left outer join customer_order co on d.invoice_no = co.invoice_no
+where d.date >= NOW() - INTERVAL '3 months' AND d.date <= NOW()
+group by p.item_id;
+
