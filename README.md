@@ -17,6 +17,7 @@ _Coding Exercises and Experiments._
 
 - [Question Set 3](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Exam/QuestionSet3.md)
 - [Full Terminal Output while Solving Question Set 3](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/DBMS%20Exam/terminaloutputfull.sql) (_Queries along with query results_)
+- [Viva Voce Questions and Answers](https://github.com/aniruddhapaik/university-code/blob/main/DBMS%20Class%20Labs/Markdown%20Files/AnswerAndDetailedExplanationtoVivaVoceQuestionofExam.md)
 
 ---
 

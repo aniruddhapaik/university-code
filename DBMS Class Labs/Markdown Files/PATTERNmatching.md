@@ -1,4 +1,4 @@
-In SQL, pattern matching is powerful and allows for flexible querying with wildcards, operators, and regular expressions. Here’s a breakdown of pattern-matching possibilities:
+## In SQL, pattern matching is powerful and allows for flexible querying with wildcards, operators, and regular expressions. Here’s a breakdown of pattern-matching possibilities:
 
 ### **1. LIKE and ILIKE**
 

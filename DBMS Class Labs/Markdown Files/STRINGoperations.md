@@ -1,4 +1,4 @@
-Here are some enhanced examples with a bit more context, showcasing each function in real-world scenarios:
+## Here are some enhanced examples with a bit more context, showcasing each function in real-world scenarios:
 
 ### **Basic Functions**
 

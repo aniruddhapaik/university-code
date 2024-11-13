@@ -29,7 +29,8 @@ This constraint enforces uniqueness for the specified columns, allowing duplicat
 
 ### 5. What is the formula to find the block address in the Disk **\_\_\_\_**?
 
-- Block address = Sector Address + Track Address
+`Block address = Sector Address + Track Address`
+
 - The formula to find the **block address** in a disk typically depends on the **cylinder**, **head**, and **sector** values, which are the components of the CHS (Cylinder-Head-Sector) addressing system. A common formula to compute the block address in CHS format is as follows:
 
 `Block Address = (Cylinder × Heads per Cylinder + Head) × Sectors per Track + (Sector − 1)`

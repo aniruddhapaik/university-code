@@ -1,4 +1,4 @@
-Sure! Let's dive into these SQL clauses and operators and see how they can be used effectively with examples.
+## Let's dive into these SQL clauses and operators and see how they can be used effectively with examples.
 
 ### **HAVING Clause**
 
