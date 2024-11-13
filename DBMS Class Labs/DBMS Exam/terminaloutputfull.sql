@@ -303,7 +303,7 @@ exam-# from tenant t
 exam-# left outer join lease l on t.tenant_id = l.tenant_id
 exam-# left outer join apartment a on l.apartment_id = a.apartment_id;
 ERROR:  syntax error at or near "'Lease Duration'"
-LINE 1: select t.*, a.*, age(l.end_date, l.start_date) as 'Lease Dur...
+LINE 1: select t.*, a.*, age(l.end_date, l.start_date) as 'Lease Dur...'
                                                           ^
 exam=# select t.*, a.*, age(l.end_date, l.start_date) as Lease_Duration
 exam-# from tenant t
@@ -455,7 +455,7 @@ exam=# select t.tenant_name, l.end_date - NOW() as "Lease Time Remaining"
 exam-# from tenant t
 exam-# right outer join lease l on t.tenant_id = l.tenant_id;
 ERROR:  column t.tenant_name does not exist
-LINE 1: select t.tenant_name, l.end_date - NOW() as "Lease Time Rema...
+LINE 1: select t.tenant_name, l.end_date - NOW() as "Lease Time Rema..."
                ^
 exam=# select t.name, l.end_date - NOW() as "Lease Time Remaining"
 exam-# from tenant t
