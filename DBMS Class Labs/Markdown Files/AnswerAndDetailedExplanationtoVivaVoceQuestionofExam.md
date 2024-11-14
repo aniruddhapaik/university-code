@@ -2,7 +2,7 @@
 
 ### 1. In normalization, the process of eliminating redundancy and organizing data into smaller tables is known as **\_\_\_\_**.
 
-- In normalization, the process of eliminating redundancy and organizing data into smaller, well-structured tables is known as **decomposition**.  
+- In normalization, the process of eliminating redundancy and organizing data into smaller, well-structured tables is known as **decomposition**.
 - This process involves dividing a database into multiple tables to ensure that each table contains data related to a single concept or entity. This is done to avoid duplication, maintain data integrity, and optimize data storage. Decomposition is often guided by normalization forms (e.g., First Normal Form, Second Normal Form, etc.), with the goal of achieving a normalized database structure that reduces anomalies in data insertion, update, and deletion.
 
 ### 2. The concept of separating the logical schema from the physical schema is known as **\_\_\_\_**.
@@ -81,6 +81,16 @@
 - In a **one-to-many** relationship, the primary key from the first table (the "one" side) is typically referenced as a foreign key in the second table (the "many" side). This relationship is common in databases and is used to model scenarios where a single entity (such as a customer) can be associated with multiple related entities (such as orders), but each order belongs to only one customer.
 
 ### 10. In a database system, enforcing **\_\_\_\_** ensures that no conflicting operations are performed on shared data concurrently.
+
+- **Enforcing isolation** in a database system is indeed what ensures that no conflicting operations are performed on shared data concurrently.
+
+- **Isolation** is one of the ACID properties (Atomicity, Consistency, Isolation, Durability) and specifically focuses on keeping transactions separate from each other while they are executing. Isolation ensures that the operations of one transaction do not interfere with the operations of another, preventing issues like:
+
+- **Dirty reads**: Where a transaction reads uncommitted changes from another transaction.
+- **Non-repeatable reads**: Where a transaction reads a data item twice and gets different results because another transaction has modified the data in the meantime.
+- **Phantom reads**: Where a transaction reads a set of rows, and then another transaction inserts or deletes rows, causing the first transaction to see different rows if it re-reads.
+
+- **Concurrency control** mechanisms (like locking, timestamp ordering, and MVCC) are tools or methods that help enforce **isolation**. By doing so, these mechanisms allow for **isolated** execution of transactions, which maintains database integrity in multi-user environments.
 
 - In a database system, enforcing **concurrency control** ensures that no conflicting operations are performed on shared data concurrently.
 
