@@ -134,7 +134,7 @@ _Coding Exercises and Experiments._
 
 ---
 
-## Internal Assessment Questions
+## [Internal Assessment Questions](https://github.com/aniruddhapaik/university-code/tree/main/Internal%20Exam%20Questions)
 
 ### OOP
 
@@ -142,4 +142,9 @@ _Coding Exercises and Experiments._
 - [CA2 Java](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/OOP_CA2_Java.md)
 
 ### MCS
-- []
+- [CA1](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/MCSCA.md#ca1)
+- [CA2](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/MCSCA.md#ca2)
+
+### DSA
+- [CA1](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/DSACA.md#ca1)
+- [CA2](github.com/aniruddhapaik/university-code/blob/main/internal%20exam%20questions/dsaca.md#ca2)

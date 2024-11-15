@@ -1,6 +1,6 @@
-# CA1
+## CA1
 
-## Group I: Answer ALL the questions
+### Group I: Answer ALL the questions
 
 **5Qx2M = 10**
 
@@ -10,7 +10,7 @@
 4. What is organization?
 5. Differentiate 'Power' and 'Authority'.
 
-## Group II: Answer ALL the questions
+### Group II: Answer ALL the questions
 
 **2Qx10M = 20**
 
@@ -24,9 +24,9 @@
 
 ---
 
-# CA2
+## CA2
 
-## Group I: Answer ALL the questions
+### Group I: Answer ALL the questions
 
 **5QX2M 10**
 
@@ -36,7 +36,7 @@
 4. 'No Average Person' comment on this statement.
 5. What is 'Equity theory'?
 
-## Group II: Answer ALL the questions
+### Group II: Answer ALL the questions
 
 **2QX 10M = 20**
 
