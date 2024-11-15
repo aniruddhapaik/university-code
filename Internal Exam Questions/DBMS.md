@@ -23,7 +23,7 @@
 
 ### III. Answer ANYONE question. 2x10=20Marks
 
-16. Given are lation R(P,Q,R,S,T and Functional Dependency set FD={PQ→R, S→T},\
+16. Given are lation R(P, Q, R, S, T) and Functional Dependency set FD={PQ→R, S→T},\
      determine whether the given R is in 2NF? If not convert it into 2NF.\
     **(OR)**
 17. (i)What are the Transaction states explain with a state diagram?\
