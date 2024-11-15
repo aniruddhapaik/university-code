@@ -193,7 +193,7 @@ int main() {
 }
 ```
 
-A. Basel's constructor called\
+A. Base1's constructor called\
 B. Base2's constructor called\
 C. Derived's constructor called\
 **D. All of the above in order A, B, C**
