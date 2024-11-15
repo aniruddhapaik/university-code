@@ -148,3 +148,6 @@ _Coding Exercises and Experiments._
 ### DSA
 - [CA1](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/DSACA.md#ca1)
 - [CA2](github.com/aniruddhapaik/university-code/blob/main/internal%20exam%20questions/dsaca.md#ca2)
+
+### DBMS
+- [CA2]()
