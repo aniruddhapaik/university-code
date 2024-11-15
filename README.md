@@ -135,3 +135,11 @@ _Coding Exercises and Experiments._
 ---
 
 ## Internal Assessment Questions
+
+### OOP
+
+- [CA1 C++](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/OOP_CA1_CPP.md)
+- [CA2 Java](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/OOP_CA2_Java.md)
+
+### MCS
+- []
