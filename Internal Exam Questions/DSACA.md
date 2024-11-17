@@ -18,5 +18,5 @@
 2. Analyze the difference between knapsack and 0/1 knapsack problem with example.
 3. If Huffman coding is used for the data compression of the word "COMMITTEE", find\
    (a) Huffman code for each character\
-   (b) Averpge code length\
+   (b) Average code length\
    (c) Length of Huffman encoded message (in bits)
