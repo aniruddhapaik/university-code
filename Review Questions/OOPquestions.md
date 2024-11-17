@@ -340,7 +340,7 @@ Java Swing is a set of GUI components used to create desktop applications. It pr
 
 C++ offers three primary categories of control statements to manage the flow of execution in a program:
 
-**1. Sequence Control:**
+### **1. Sequence Control:**
 
 - Statements are executed sequentially, one after the other.
 - This is the default flow of control in C++.
@@ -359,7 +359,7 @@ int main() {
 }
 ```
 
-**2. Selection Control:**
+### **2. Selection Control:**
 
 - These statements allow you to choose which code block to execute based on a condition.
 
@@ -388,7 +388,7 @@ int main() {
   }
   ```
 
-**3. Iteration Control:**
+### **3. Iteration Control:**
 
 - These statements allow you to repeat a block of code multiple times.
 
