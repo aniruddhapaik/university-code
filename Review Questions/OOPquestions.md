@@ -554,45 +554,45 @@ Key Classes in AWT:
 
 Represents a top-level window.
 Used to create the main window of an application.
-Methods: setTitle, setSize, setVisible, setDefaultCloseOperation.
+Methods: `setTitle`, `setSize`, `setVisible`, `setDefaultCloseOperation`.
 
 ### Panel:
 
 A container that can hold other components.
 Used to organize components within a window.
-Methods: add, setLayout.
+Methods: `add`, `setLayout`.
 
 ### Label:
 
 Displays text or images.
-Methods: setText, setIcon.
+Methods: `setText`, `setIcon`.
 
 ### Button:
 
 A clickable button that triggers an action.
-Methods: setText, addActionListener.
+Methods: `setText`, `addActionListener`.
 
 ### TextField:
 
 A single-line text input field.
-Methods: setText, getText.
+Methods: `setText`, `getText`.
 
 ### TextArea:
 
 A multi-line text input area.
-Methods: setText, getText.
+Methods: `setText`, `getText`.
 
 ### Event Handling:
 
-Event handling is a mechanism to respond to user actions, such as clicking a button or typing in a text field. AWT uses the ActionListener interface to handle events.
+Event handling is a mechanism to respond to user actions, such as clicking a button or typing in a text field. AWT uses the `ActionListener` interface to handle events.
 
 ### Steps to Handle Events:
 
 - **Create an Event Listener**:
-  - Implement the ActionListener interface.
-  - Override the actionPerformed method.
+  - Implement the `ActionListener` interface.
+  - Override the `actionPerformed` method.
 - **Register the Listener**:
-  - Use the addActionListener method to register the listener with a component.
+  - Use the `addActionListener` method to register the listener with a component.
 - **Handle the Event**:
   - Write the desired code within the `actionPerformed` method to respond to the event.
 
@@ -659,9 +659,9 @@ public class AWTExample extends Frame implements ActionListener {
 
 ### Explanation:
 
-1. **Create a Frame**: A Frame object is created to represent the main window.
-2. **Add Components**: Labels, a text field, and a button are added to the frame using the add method.
-3. **Event Handling**: The ActionListener interface is implemented, and the actionPerformed method is overridden to handle the button click event.
+1. **Create a Frame**: A `Frame` object is created to represent the main window.
+2. **Add Components**: Labels, a text field, and a button are added to the frame using the `add` method.
+3. **Event Handling**: The `ActionListener` interface is implemented, and the `actionPerformed` method is overridden to handle the button click event.
 4. **Display the Result**: The entered text is displayed in the label when the button is clicked.
 
 While AWT is a foundational technology, it's often recommended to use more modern frameworks like Swing or JavaFX for building complex and visually appealing GUI applications.

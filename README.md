@@ -154,3 +154,9 @@ _Coding Exercises and Experiments._
 ### DBMS
 
 - [CA2](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/DBMS.md#ca2)
+
+---
+
+## Reference Material & Notes
+
+### [Review Questions](https://github.com/aniruddhapaik/university-code/blob/main/Review%20Questions/OOPquestions.md)
