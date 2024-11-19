@@ -707,7 +707,7 @@ In practice, this architecture is essential for modern database systems as it en
 - determine whether the given R is in 2NF?
 - If not convert it into 2NF.\
 
-#### **Step 1: Understanding the Problem**
+### **Step 1: Understanding the Problem**
 
 Given:
 
@@ -716,7 +716,7 @@ Given:
   - \( PQ \rightarrow R \)
   - \( S \rightarrow T \)
 
-#### **Key Concepts:**
+### **Key Concepts:**
 
 1. **Second Normal Form (2NF):**
 
@@ -729,12 +729,12 @@ Given:
 
 ---
 
-#### **Step 2: Finding Candidate Key(s)**
+### **Step 2: Finding Candidate Key(s)**
 
 1. The given FDs are:
 
-   - \( PQ &rarr; R \)
-   - \( S &rarr; T \)
+   - \( PQ \rightarrow R \)
+   - \( S \rightarrow T \)
 
    The left-hand sides of the FDs suggest that:
 
@@ -746,14 +746,14 @@ Given:
    - Attributes in \( R(P, Q, R, S, T) \): \( P, Q, R, S, T \).
    - To find the candidate key, start by considering subsets of attributes and compute their closures:
 
-     - \( PQ \): \( PQ<sup>+</sup> = \{P, Q, R\}\) (from \( PQ &rarr; R \)).
-     - \( PQS \): \( PQS<sup>+</sup> = \{P, Q, R, S, T\}\) (from \( PQ &rarr; R \) and \( S &rarr; T \)).
+     - \( PQ \): \( PQ^+ = \{P, Q, R\}\) (from \( PQ \rightarrow R \)).
+     - \( PQS \): \( PQS^+ = \{P, Q, R, S, T\}\) (from \( PQ \rightarrow R \) and \( S \rightarrow T \)).
 
      Thus, \( PQS \) is a **candidate key** for the relation.
 
 ---
 
-#### **Step 3: Checking for 2NF**
+### **Step 3: Checking for 2NF**
 
 - **Attributes in the relation:** \( P, Q, R, S, T \)
 - **Candidate Key:** \( PQS \)
@@ -762,14 +762,16 @@ Given:
   - \( R \) and \( T \).
 
 - Examine the FDs for partial dependencies:
-  - \( PQ &rarr; R \):
+  - \( PQ \rightarrow R \):
     - \( PQ \) is a proper subset of the candidate key \( PQS \), and \( R \) (a non-prime attribute) depends on \( PQ \). **This is a partial dependency**.
-  - \( S &rarr; T \):
+  - \( S \rightarrow T \):
     - \( S \) is a proper subset of the candidate key \( PQS \), and \( T \) (a non-prime attribute) depends on \( S \). **This is also a partial dependency**.
 
 Thus, the relation is **not in 2NF** because of these partial dependencies.
 
-#### **Step 4: Converting to 2NF**
+---
+
+### **Step 4: Converting to 2NF**
 
 To convert \( R(P, Q, R, S, T) \) into 2NF, we remove partial dependencies by decomposing the relation.
 
@@ -779,20 +781,20 @@ To convert \( R(P, Q, R, S, T) \) into 2NF, we remove partial dependencies by de
 
    1. Relation \( R1(P, Q, R) \):
 
-      - Contains attributes involved in \( PQ &rarr; R \).
-      - Functional dependency: \( PQ &rarr; R \).
+      - Contains attributes involved in \( PQ \rightarrow R \).
+      - Functional dependency: \( PQ \rightarrow R \).
 
    2. Relation \( R2(S, T) \):
 
-      - Contains attributes involved in \( S &rarr; T \).
-      - Functional dependency: \( S &rarr; T \).
+      - Contains attributes involved in \( S \rightarrow T \).
+      - Functional dependency: \( S \rightarrow T \).
 
    3. Relation \( R3(P, Q, S) \):
       - Contains the candidate key \( PQS \) to ensure no loss of data.
 
 2. **Final Schema in 2NF:**
-   - \( R1(P, Q, R) \) with \( PQ &rarr; R \).
-   - \( R2(S, T) \) with \( S &rarr; T \).
+   - \( R1(P, Q, R) \) with \( PQ \rightarrow R \).
+   - \( R2(S, T) \) with \( S \rightarrow T \).
    - \( R3(P, Q, S) \) to ensure data integrity.
 
 This decomposition ensures that all relations are in 2NF because there are no partial dependencies in any of the decomposed relations.
@@ -801,7 +803,9 @@ This decomposition ensures that all relations are in 2NF because there are no pa
 
 The creation of the **third relation** \( R3(P, Q, S) \) in the decomposition process serves an important purpose: **preservation of the original candidate key** and ensuring that the decomposition is **lossless**. Let me explain this step in more detail, clarify why it might not be immediately apparent, and connect it to the concept of higher normal forms like **5NF**.
 
-#### **Why Create \( R3(P, Q, S) \)?**
+---
+
+### **Why Create \( R3(P, Q, S) \)?**
 
 1. **Candidate Key Preservation:**
 
@@ -817,11 +821,13 @@ The creation of the **third relation** \( R3(P, Q, S) \) in the decomposition pr
    - Without \( R3 \), we would not be able to enforce the dependency between \( P, Q, \) and \( S \), which is vital for uniquely identifying tuples in the original relation.
 
 3. **Functional Dependencies:**
-   - \( PQ &rarr; R \) is handled by \( R1(P, Q, R) \).
-   - \( S &rarr; T \) is handled by \( R2(S, T) \).
+   - \( PQ \rightarrow R \) is handled by \( R1(P, Q, R) \).
+   - \( S \rightarrow T \) is handled by \( R2(S, T) \).
    - However, \( PQS \), as the candidate key, is not fully represented in either \( R1 \) or \( R2 \). This is why \( R3 \) is required.
 
-#### **Would \( R1 \) and \( R2 \) Alone Be Enough?**
+---
+
+### **Would \( R1 \) and \( R2 \) Alone Be Enough?**
 
 No, \( R1 \) and \( R2 \) alone are **not sufficient** to ensure a lossless decomposition:
 
@@ -830,7 +836,7 @@ No, \( R1 \) and \( R2 \) alone are **not sufficient** to ensure a lossless deco
 
 ---
 
-#### **Is \( R3 \) Related to 5NF?**
+### **Is \( R3 \) Related to 5NF?**
 
 Not directly, but the reasoning aligns with the principles of **higher normal forms**:
 
