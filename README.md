@@ -144,9 +144,9 @@ _Coding Exercises and Experiments._
 ### MCS
 
 - [CA1](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/MCSCA.md#ca1)
-  - [CA1 Notes and QnA]()
+  - [CA1 Notes and QnA](https://github.com/aniruddhapaik/university-code/blob/main/MCS%20Notes%20and%20Files/CA1notes.md)
 - [CA2](https://github.com/aniruddhapaik/university-code/blob/main/Internal%20Exam%20Questions/MCSCA.md#ca2)
-  - [CA2 Notes and QnA]()
+  - [CA2 Notes and QnA](https://github.com/aniruddhapaik/university-code/blob/main/MCS%20Notes%20and%20Files/CA2notes.md)
 
 ### DSA
 
