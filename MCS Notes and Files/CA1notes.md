@@ -213,7 +213,7 @@ The sources emphasise that objectives form a hierarchy within an organisation, c
 
 #### Visual Representation of the Hierarchy of Objectives:
 
-[Image of Figure 4-3: Relationship of Objectives and the Organizational Hierarchy from source]
+![alt text](image-3.png)
 
 #### Explanation of the Hierarchy:
 
@@ -252,11 +252,9 @@ In essence, the sources emphasise that objectives are the cornerstone of effecti
 
 The sources explain that the **span of management**, also known as span of control, refers to **the number of subordinates a manager can effectively supervise**. This concept is closely tied to the principle of organisational levels, as the number of levels in an organisation is determined by the span of management adopted by managers at each level.
 
+![alt text](image-5.png)
+
 **Wide Span:** A wide span of management indicates that a manager directly supervises a larger number of subordinates, resulting in a flatter organisational structure with fewer levels.
-
-**Diagram illustrating Wide Span:**
-
-[Image of the 'Organization with wide spans' diagram from source 20]
 
 **Advantages of Wide Span:**
 
@@ -273,10 +271,6 @@ The sources explain that the **span of management**, also known as span of contr
 - **Requires highly skilled and experienced managers:** Effectively managing a wide span demands exceptional managerial skills, including delegation, communication, and coordination.
 
 **Narrow Span:** A narrow span of management implies that a manager directly supervises a smaller number of subordinates, leading to a taller organisational structure with more levels of hierarchy.
-
-**Diagram illustrating Narrow Span:**
-
-[Image of the 'Organization with narrow spans' diagram from source 20]
 
 **Advantages of Narrow Span:**
 
