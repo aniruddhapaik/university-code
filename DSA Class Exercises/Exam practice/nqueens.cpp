@@ -56,8 +56,9 @@ private:
   }
 
   const void printBoard(std::vector<std::vector<size_t>>& board) {
-    this->solutioncounter++;
+    this->solutioncounter++; size_t queencount = 0;
     std::cout << "Solution " << this->solutioncounter << std::endl;
+    
     for (auto& row : board) {
       for (auto& cell : row) {
         if (cell) {
@@ -66,15 +67,21 @@ private:
           std::cout << ". ";
         } 
       }
-      std::cout << std::endl;
+      queencount++;
+      std::cout << "| Queen #" << queencount <<  std::endl;
     }
-    std::cout << std::endl;
+    std::cout << std::string(this->maxq*2, '-') << "+\n" << std::endl;
   }
 };
 
 int main(int argc, char* argv[]) {
-  if (argc > 0) {
-    Board* board = new Board(std::stoul(argv[1]));
+  try {
+    if (argc == 2) {
+      Board* board = new Board(std::stoul(argv[1]));
+    } else { throw 1; }
+  } catch (int) {
+    std::cout << "Exception occured: Enter a valid number of queens while running the executable" << std::endl;
+    std::cout << "Example:  .\\nqueens.exe 4" << std::endl;
   }
 
   return 0;

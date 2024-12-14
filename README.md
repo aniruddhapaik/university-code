@@ -1,4 +1,4 @@
-# University Codes
+# Semester 1
 
 _Coding Exercises and Experiments._
 
@@ -87,7 +87,7 @@ _Coding Exercises and Experiments._
 
 #### Knapsack Problem
 
-- [10. Fractional Knapsack Problem](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Practice/KnapSack.h) (_greedy method_)
+- [10. Fractional Knapsack Problem](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Exam%20practice/knapsack.cpp) (_greedy method_)
 
 #### Travelling Salesman
 
@@ -95,7 +95,7 @@ _Coding Exercises and Experiments._
 
 #### N Queens
 
-- [12. N Queens Problems](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Algorithms/N%20Queens/nqueens.cpp)
+- [12. N Queens Problems](https://github.com/aniruddhapaik/university-code/blob/main/DSA%20Class%20Exercises/Exam%20practice/nqueens.cpp)
 
 ---
 
@@ -164,3 +164,14 @@ _Coding Exercises and Experiments._
 ### [1. Some OOP Review Questions](https://github.com/aniruddhapaik/university-code/blob/main/Review%20Questions/OOPquestions.md)
 
 ### [2. DSA Review]()
+
+---
+
+# Semester 2
+
+## Operating Systems
+
+---
+
+## Computer Networks
+
