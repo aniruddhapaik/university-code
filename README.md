@@ -169,9 +169,13 @@ _Coding Exercises and Experiments._
 
 # Semester 2
 
-## Operating Systems
+## [Operating Systems](https://github.com/aniruddhapaik/university-code/tree/main/Operating%20System)
 
 ---
 
-## Computer Networks
+## [Computer Networks](https://github.com/aniruddhapaik/university-code/tree/main/Networking)
+
+---
+
+## [Data Analytics with Python](https://github.com/aniruddhapaik/university-code/tree/main/Data%20Analytics%20Python)
 
