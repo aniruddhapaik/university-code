@@ -25,8 +25,7 @@ class Receiver {
       sendAcknowledgment(frame, sender);
       expectedFrame++;
     } else { 
-      System.out.println("[Receiver] Unexpected frame received. Expected: " + 
-      expectedFrame + ", Received: " + frame);
+      System.out.println("[Receiver] Unexpected frame received. Expected: " + expectedFrame + ", Received: " + frame);
     } 
   } 
 
@@ -44,8 +43,8 @@ public class StopAndWaitProtocol {
     int totalFrames = 5;
     System.out.println("Starting Stop-and-Wait Protocol Simulation...");
     
-    for (int i = 0; i < totalFrames; i++) {
-      System.out.println("\n--- Transmission " + (i + 1) + " ---");
+    for (int i = 1; i <= totalFrames; i++) {
+      System.out.println("\n--- Transmission " + (i) + " ---");
 
       sender.sendFrame(receiver);
       // Simulate a delay to make the output more readable 
