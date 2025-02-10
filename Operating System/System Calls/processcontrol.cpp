@@ -1,9 +1,33 @@
 #include <windows.h>
 //------------------
+#include <psapi.h>
 #include <tlhelp32.h>
 
 #include <iostream>
 #include <limits>
+
+enum class menu : short {
+  def = 0,
+  getpid = 1,
+  listproc,
+  forkproc,
+  termproc,
+  getproctimes,
+  getprocmem,
+  suspendproc,
+  resumeproc,
+  waitprocexit,
+  setpriority,
+  getprocexcode,
+  exitprog = 100
+};
+
+std::istream& operator>>(std::istream& input, menu& choice) {
+  short ch;
+  input >> ch;
+  choice = (menu)ch;
+  return input;
+}
 
 void GetCurrentProcessInfo() {
   DWORD processID = GetCurrentProcessId();
@@ -98,8 +122,6 @@ void GetProcessTimesInfo(DWORD processID) {
   CloseHandle(hProcess);
 }
 
-#include <psapi.h>
-
 void GetProcessMemoryInfo(DWORD processID) {
   HANDLE hProcess = OpenProcess(PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,
                                 FALSE, processID);
@@ -121,8 +143,6 @@ void GetProcessMemoryInfo(DWORD processID) {
 
   CloseHandle(hProcess);
 }
-
-// #include <tlhelp32.h>
 
 void SuspendProcess(DWORD processID) {
   HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
@@ -238,7 +258,8 @@ bool inputFailSafe(T& input) {
 }
 
 int main() {
-  int choice;
+  menu choice;
+  short prioritylevel;
   DWORD processID;
   char program[256];
 
@@ -252,51 +273,91 @@ int main() {
     std::cout << "4. Terminate Process\n";
     std::cout << "5. Get Process Execution Times (GetProcessTimes)\n";
     std::cout << "6. Get Process Memory Usage (GetProcessMemoryInfo)\n";
-    std::cout
-        << "7. Suspend and Resume a Process (SuspendThread, ResumeThread)\n";
-    std::cout << "8. Wait for a Process to Exit (WaitForSingleObject)\n";
-    std::cout << "9. Set Process Priority (SetPriorityClass)\n";
-    std::cout << "10. Get Process Exit Code (GetExitCodeProcess)\n";
+    std::cout << "7. Suspend a Process (SuspendThread)\n";
+    std::cout << "8. Resume a Process (ResumeThread)\n";
+    std::cout << "9. Wait for a Process to Exit (WaitForSingleObject)\n";
+    std::cout << "10. Set Process Priority (SetPriorityClass)\n";
+    std::cout << "11. Get Process Exit Code (GetExitCodeProcess)\n";
     std::cout << "100. Exit\n";
     std::cout << std::string(10, '-') << '\n';
-    std::cout << "Enter choice: ";
-    
-    if(not inputFailSafe(choice)) { choice = 0; }
+    std::cout << ">> Enter choice: ";
+
+    if (not inputFailSafe(choice)) {
+      choice = menu::def;
+    }
+
+    std::cout << std::endl;
 
     switch (choice) {
-      case 1:
+      case menu::getpid:
         GetCurrentProcessInfo();
         break;
-      case 2:
+      case menu::listproc:
         ListRunningProcesses();
         break;
-      case 3:
+      case menu::forkproc:
         std::cout << "Enter the program to run (e.g., notepad.exe): ";
         std::cin >> program;
         CreateNewProcess(program);
         break;
-      case 4:
+      case menu::termproc:
         std::cout << "Enter Process ID to terminate: ";
         std::cin >> processID;
         TerminateProcessByID(processID);
         break;
-      case 5:
+      case menu::getproctimes:
         std::cout << "Enter Process ID for getting process times: ";
         if (inputFailSafe(processID)) {
           GetProcessTimesInfo(processID);
         }
         break;
-      case 6:
+      case menu::getprocmem:
+        std::cout << "Enter Process ID for getting process memory usage: ";
+        if (inputFailSafe(processID)) {
+          GetProcessMemoryInfo(processID);
+        }
         break;
-      case 7:
+      case menu::suspendproc:
+        std::cout << "Enter Process ID to suspend process: ";
+        if (inputFailSafe(processID)) {
+          SuspendProcess(processID);
+        }
         break;
-      case 8:
+      case menu::resumeproc:
+        std::cout << "Enter Process ID to resume process: ";
+        if (inputFailSafe(processID)) {
+          ResumeProcess(processID);
+        }
         break;
-      case 9:
+      case menu::waitprocexit:
+        std::cout << "Enter Process ID to wait for its exit: ";
+        if (inputFailSafe(processID)) {
+          WaitForProcessToExit(processID);
+        }
         break;
-      case 10:
+      case menu::setpriority:
+        std::cout << "Enter Process ID to set its priority: ";
+        if (inputFailSafe(processID)) {
+          std::cout << "* Priority Level Guide *\n";
+          std::cout << "1. IDLE_PRIORITY_CLASS\n";
+          std::cout << "2. NORMAL_PRIORITY_CLASS\n";
+          std::cout << "3. HIGH_PRIORITY_CLASS\n";
+          std::cout << "4. REALTIME_PRIORITY_CLASS\n";
+          std::cout << std::string(10, '-') << std::endl;
+          std::cout << ">> Enter priority level: ";
+
+          if (inputFailSafe(prioritylevel)) {
+            // SetProcessPriority()
+          }
+        }
         break;
-      case 100:
+      case menu::getprocexcode:
+        std::cout << "Enter Process ID to get its exit status code: ";
+        if (inputFailSafe(processID)) {
+          GetProcessExitCode(processID);
+        }
+        break;
+      case menu::exitprog:
         return 0;
       default:
         std::cout << "Invalid choice. Try again.\n";
