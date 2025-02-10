@@ -44,3 +44,45 @@ int main() {
   
   return 0;
 }
+
+/*
+Key Windows System Calls for Information Management
+
+File and Directory Management:
+  GetFileAttributes()
+  SetFileAttributes()
+  GetFileInformationByHandle()
+  GetFileSize()
+  GetFileSizeEx()
+  GetFileTime() and SetFileTime()
+  FindFirstFile() and FindNextFile()
+
+System Information:
+  GetSystemInfo()
+  GetNativeSystemInfo()
+  GetVersion() (deprecated) or GetVersionEx() (deprecated, prefer RtlGetVersion() via NtDll)
+  GlobalMemoryStatusEx()
+
+Process and Thread Information:
+  GetCurrentProcessId()
+  GetCurrentThreadId()
+  GetProcessTimes()
+  QueryInformationJobObject()
+  GetThreadTimes()
+
+System Time and Date:
+  GetSystemTime()
+  GetLocalTime()
+  SetSystemTime()
+  SetLocalTime()
+
+Registry Information:
+  RegQueryValueEx()
+  RegSetValueEx()
+  RegCreateKeyEx()
+  RegOpenKeyEx()
+
+Environment Variables:
+  GetEnvironmentVariable()
+  SetEnvironmentVariable()
+*/
