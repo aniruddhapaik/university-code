@@ -6,6 +6,7 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#include <vector>
 
 template <typename T>
 bool inputFailSafe(T& input) {
@@ -103,16 +104,36 @@ void ReadFromFile(const std::string& filename) {
     return;
   }
 
-  char buffer[1024] = {0};
+  std::vector<char> buffer(1024);
   DWORD bytesRead;
+  std::string line("1. ");
+  int line_num = 1;
 
-  if (ReadFile(hFile, buffer, sizeof(buffer) - 1, &bytesRead, NULL)) {
+  while (ReadFile(hFile, buffer.data(), buffer.size(), &bytesRead, NULL) and
+         bytesRead > 0) {
+    for (DWORD i = 0; i < bytesRead; ++i) {
+      if (buffer[i] == '\n') {
+        std::cout << line << std::endl;
+        line.clear();
+        ++line_num;
+        line += std::to_string(line_num) + std::string("  ");
+      } else {
+        line += buffer[i];
+      }
+    }
+  }
+
+  if (not line.empty()) {
+    std::cout << line << std::endl;
+  }
+
+  /*if (ReadFile(hFile, buffer, sizeof(buffer) - 1, &bytesRead, NULL)) {
     std::cout << "[i] Read from file:\n" << buffer << std::endl;
   } else {
     std::cerr << "[!] Failed to read file. Error: " << GetLastError()
               << std::endl;
     std::cerr << "[!] File name: " << filename << std::endl;
-  }
+  }*/
 
   CloseHandle(hFile);
 }
@@ -190,6 +211,7 @@ int main() {
     std::cout << "4. Delete File\n";
     std::cout << "5. Get File Attributes\n";
     std::cout << "6. List Directory\n";
+    std::cout << "7. Clear Screen\n";
     std::cout << "10. Exit\n";
     std::cout << std::string(10, '-') << '\n';
     std::cout << "Enter choice: ";
@@ -260,6 +282,9 @@ int main() {
           break;
         case 6:
           ListCurrentDirectory();
+          break;
+        case 7:
+          system("cls");
           break;
         case 10:
           return 0;
