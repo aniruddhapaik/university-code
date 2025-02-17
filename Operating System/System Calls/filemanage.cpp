@@ -41,9 +41,11 @@ void createFile(const std::string& filename) {
 }
 
 void writeFile(const std::string& filename, const std::string& content) {
-  std::ofstream file(filename);
+  std::ofstream file;
+  file.open(filename);
   if (file.is_open()) {
     file << content;  // Write to file
+    file.close();
     std::cout << "File written successfully.\n";
   } else {
     std::cerr << "Error creating file.\n";
