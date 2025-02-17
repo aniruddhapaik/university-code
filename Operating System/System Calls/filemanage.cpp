@@ -64,7 +64,7 @@ void readFile(const std::string& filename) {
 }
 
 void listFiles(const std::string& directory) {
-  for (const auto& entry : std::filesystem::directory_iterator(directory)) {
+  for (const auto& entry : fs::directory_iterator(directory)) {
     std::cout << entry.path() << '\n';
   }
 }
