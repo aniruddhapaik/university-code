@@ -1,4 +1,4 @@
 str = input("Enter a sentence: ")
-splitstr = str[0].upper() + str[1:-1] + str[-1].upper()
 
-print(splitstr)
+for word in str.split() :
+  print(word[0].upper() + word[1:-1] + word[-1].upper(), end=" ")

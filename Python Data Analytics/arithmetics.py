@@ -1,17 +1,20 @@
 import os
 
 def add():
-  a, b = int(input("Enter two numbers to add separated by spaces: "))
-  print(a, b, sep=" ")
+  a, b = map(int, input("Enter two numbers to ADD separated by space: ").split())
+  print("Sum of",a,"and",b, "is", a+b, sep=" ", end="\n")
 
 def sub():
-  pass
+  a, b = map(int, input("Enter two numbers to SUBTRACT Second from First separated by space: ").split())
+  print("Subtraction",b,"from",a, "is", a-b, sep=" ", end="\n")
 
 def mul():
-  pass
+  a, b = map(int, input("Enter two numbers to MULTIPLY separated by space: ").split())
+  print("Multiplication of",a,"and",b, "is", a*b, sep=" ", end="\n")
 
 def div():
-  pass
+  a, b = map(int, input("Enter two numbers to DIVIDE First by Second separated by space: ").split())
+  print("Division of",a,"by",b, "is", a/b, sep=" ", end="\n")
 
 def clear():
   os.system("cls")
@@ -26,7 +29,7 @@ def menu():
     print("4. Divide")
     print("5. Clear Screen")
     print("6. Exit")
-    choice = int(input("Enter choice:"))
+    choice = int(input("Enter choice: "))
     match choice:
       case 1:
           add()
@@ -40,5 +43,6 @@ def menu():
           clear()
       case 6:
           return
+    print("\n")
 
 menu()
