@@ -6,15 +6,15 @@ Microsoft Windows has extensive networking capabilities, supporting both peer-to
 
 ### Windows utilizes two key internal networking interfaces
 
-- Network Device Interface Specification (NDIS): Developed by Microsoft and 3Com in 1989, NDIS separates network adapters from transport protocols, allowing either to be changed without affecting the other. It resides between the data-link and network layers of the ISO model and enables multiple protocols to operate over various network adapters.
+- **Network Device Interface Specification (NDIS)**: Developed by Microsoft and 3Com in 1989, NDIS separates network adapters from transport protocols, allowing either to be changed without affecting the other. It resides between the data-link and network layers of the ISO model and enables multiple protocols to operate over various network adapters.
 
-- Transport Driver Interface (TDI): TDI acts as the interface between the transport layer (layer 4) and the session layer (layer 5) of the ISO model. It allows any session-layer component to use any available transport mechanism, supporting both connection-based and connectionless transport and offering functions to send any type of data. A similar reasoning led to the streams mechanism in UNIX.
+- **Transport Driver Interface (TDI)**: TDI acts as the interface between the transport layer (layer 4) and the session layer (layer 5) of the ISO model. It allows any session-layer component to use any available transport mechanism, supporting both connection-based and connectionless transport and offering functions to send any type of data. A similar reasoning led to the streams mechanism in UNIX.
 
 ## Networking Protocols
 
 Windows implements transport protocols as drivers that can be loaded and unloaded dynamically, although a system reboot is often required after a change. Several networking protocols are included with Windows:
 
-- Server Message Block (SMB): Introduced in MS-DOS 3.1, SMB is used to send I/O requests over the network. It has four message types:
+- **Server Message Block (SMB):** Introduced in MS-DOS 3.1, SMB is used to send I/O requests over the network. It has four message types:
 
   - Session control messages (start and end redirector connections to shared server resources).
 
@@ -24,19 +24,19 @@ Windows implements transport protocols as drivers that can be loaded and unloade
 
   - Message messages (communicate with other workstations). A version of SMB, the Common Internet File System (CIFS), is supported on various operating systems. Windows uses CIFS servers.
 
-- Transmission Control Protocol/Internet Protocol (TCP/IP): The de facto standard networking infrastructure used on the Internet. Windows uses TCP/IP to connect to a wide range of operating systems and hardware platforms. The Windows TCP/IP package includes Simple Network Management Protocol (SNMP), Dynamic Host Configuration Protocol (DHCP), and Windows Internet Name Service (WINS). Windows Vista introduced a TCP/IP implementation supporting both IPv4 and IPv6 in the same network stack, along with the offloading of the network stack onto advanced hardware for high performance on servers. Windows also includes a software firewall to limit the TCP ports programs can use for network communication, enhancing security.
+- **Transmission Control Protocol/Internet Protocol (TCP/IP):** The de facto standard networking infrastructure used on the Internet. Windows uses TCP/IP to connect to a wide range of operating systems and hardware platforms. The Windows TCP/IP package includes Simple Network Management Protocol (SNMP), Dynamic Host Configuration Protocol (DHCP), and Windows Internet Name Service (WINS). Windows Vista introduced a TCP/IP implementation supporting both IPv4 and IPv6 in the same network stack, along with the offloading of the network stack onto advanced hardware for high performance on servers. Windows also includes a software firewall to limit the TCP ports programs can use for network communication, enhancing security.
 
-- Point-to-Point Tunneling Protocol (PPTP): A protocol provided by Windows for communication between remote-access server modules on Windows Server machines and client systems connected over the Internet. Remote-access servers can encrypt data and support multiprotocol Virtual Private Networks (VPNs).
+- **Point-to-Point Tunneling Protocol (PPTP):** A protocol provided by Windows for communication between remote-access server modules on Windows Server machines and client systems connected over the Internet. Remote-access servers can encrypt data and support multiprotocol Virtual Private Networks (VPNs).
 
-- HTTP Protocol: Used for getting and putting information on the World Wide Web. Windows implements HTTP using a kernel-mode driver, allowing web servers to operate with low overhead. HTTP is also available as a transport option for implementing Remote Procedure Calls (RPC).
+- **HTTP Protocol:** Used for getting and putting information on the World Wide Web. Windows implements HTTP using a kernel-mode driver, allowing web servers to operate with low overhead. HTTP is also available as a transport option for implementing Remote Procedure Calls (RPC).
 
-- Web-Distributed Authoring and Versioning Protocol (WebDAV): An HTTP-based protocol for collaborative authoring across a network. Windows integrates a WebDAV redirector into the file system, enabling it to work with other file-system features like encryption. This allows secure storage of personal files in public locations, with local caching due to HTTP's get/put nature.
+- **Web-Distributed Authoring and Versioning Protocol (WebDAV):** An HTTP-based protocol for collaborative authoring across a network. Windows integrates a WebDAV redirector into the file system, enabling it to work with other file-system features like encryption. This allows secure storage of personal files in public locations, with local caching due to HTTP's get/put nature.
 
-- Named Pipes: A connection-oriented messaging mechanism for communication between processes on the same machine. Accessed through the file-system interface, they inherit file object security mechanisms. The SMB protocol supports named pipes, enabling inter-system communication as well.
+- **Named Pipes:** A connection-oriented messaging mechanism for communication between processes on the same machine. Accessed through the file-system interface, they inherit file object security mechanisms. The SMB protocol supports named pipes, enabling inter-system communication as well.
 
-- Remote Procedure Calls (RPCs): Client–server mechanisms enabling an application on one machine to make a procedure call to code on another. A client stub packs arguments into a message and sends it across the network to a server process, then blocks. The server unpacks the message, calls the procedure, packs results, and sends them back to the client stub, which unblocks and returns the results. This packing is called marshaling, and the necessary code is compiled from a Microsoft Interface Definition Language specification. Windows RPC follows the distributed-computing-environment standard, ensuring portability by specifying standard data formats to hide architectural differences. RPC uses multiple transports, such as named pipes and TCP/IP, for inter-system communication.
+- **Remote Procedure Calls (RPCs):** Client–server mechanisms enabling an application on one machine to make a procedure call to code on another. A client stub packs arguments into a message and sends it across the network to a server process, then blocks. The server unpacks the message, calls the procedure, packs results, and sends them back to the client stub, which unblocks and returns the results. This packing is called marshaling, and the necessary code is compiled from a Microsoft Interface Definition Language specification. Windows RPC follows the distributed-computing-environment standard, ensuring portability by specifying standard data formats to hide architectural differences. RPC uses multiple transports, such as named pipes and TCP/IP, for inter-system communication.
 
-- Component Object Model (COM): A mechanism for interprocess communication in Windows, providing well-defined interfaces to manipulate object data. Used by technologies like Object Linking and Embedding (OLE). A distributed extension, DCOM, utilizes RPC over a network for transparent distributed application development.
+- **Component Object Model (COM):** A mechanism for interprocess communication in Windows, providing well-defined interfaces to manipulate object data. Used by technologies like Object Linking and Embedding (OLE). A distributed extension, DCOM, utilizes RPC over a network for transparent distributed application development.
 
 ## Client-Server Model
 
