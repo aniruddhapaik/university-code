@@ -28,7 +28,7 @@ class Buffer {
     auto elapsed =
         std::chrono::duration_cast<std::chrono::milliseconds>(now - starttime)
             .count();
-    std::cout << std::string("[T " + std::to_string(elapsed) + " ms]" +
+    std::cout << std::string("[T+" + std::to_string(elapsed) + "ms]" +
                              " + Produced: " + std::to_string(item))
               << std::endl;
 
@@ -46,7 +46,7 @@ class Buffer {
     auto elapsed =
         std::chrono::duration_cast<std::chrono::milliseconds>(now - starttime)
             .count();
-    std::cout << std::string("[T " + std::to_string(elapsed) + " ms]" +
+    std::cout << std::string("[T+" + std::to_string(elapsed) + "ms]" +
                              " - Consumed: " + std::to_string(item))
               << std::endl;
 
@@ -73,7 +73,7 @@ void consumer(Buffer &buffer, int count) {
     int sleeptime = dis(gen);
     std::this_thread::sleep_for(std::chrono::milliseconds(sleeptime));
     std::cout << std::string("Resuming after " + std::to_string(sleeptime) +
-                             " ms ");
+                             "ms ");
   }
 }
 
