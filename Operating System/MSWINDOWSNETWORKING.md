@@ -6,9 +6,9 @@ Microsoft Windows has extensive networking capabilities, supporting both peer-to
 
 ### Windows utilizes two key internal networking interfaces
 
-- **Network Device Interface Specification (NDIS)**: Developed by Microsoft and 3Com in 1989, NDIS separates network adapters from transport protocols, allowing either to be changed without affecting the other. It resides between the data-link and network layers of the ISO model and enables multiple protocols to operate over various network adapters.
+- **Network Device Interface Specification (NDIS)**: Developed by Microsoft and 3Com in 1989, NDIS separates network adapters from transport protocols, allowing either to be changed without affecting the other. It resides between the data-link and network layers of the OSI model and enables multiple protocols to operate over various network adapters.
 
-- **Transport Driver Interface (TDI)**: TDI acts as the interface between the transport layer (layer 4) and the session layer (layer 5) of the ISO model. It allows any session-layer component to use any available transport mechanism, supporting both connection-based and connectionless transport and offering functions to send any type of data. A similar reasoning led to the streams mechanism in UNIX.
+- **Transport Driver Interface (TDI)**: TDI acts as the interface between the transport layer (layer 4) and the session layer (layer 5) of the OSI model. It allows any session-layer component to use any available transport mechanism, supporting both connection-based and connectionless transport and offering functions to send any type of data. A similar reasoning led to the streams mechanism in UNIX.
 
 ## Networking Protocols
 

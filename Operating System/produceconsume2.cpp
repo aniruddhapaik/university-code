@@ -1,9 +1,7 @@
-#include <chrono>
 #include <condition_variable>
 #include <iostream>
 #include <mutex>
 #include <queue>
-#include <random>
 #include <thread>
 
 class Buffer {
@@ -43,21 +41,16 @@ class Buffer {
 };
 
 void producer(Buffer &buffer, int count) {
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  std::uniform_int_distribution<> distrib(1, 100);
-
   for (int i = 0; i < count; ++i) {
-    buffer.produce(distrib(gen));
-    std::this_thread::sleep_for(
-        std::chrono::milliseconds(50 + distrib(gen) % 100));
+    buffer.produce(i);
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
   }
 }
 
 void consumer(Buffer &buffer, int count) {
   for (int i = 0; i < count; ++i) {
     buffer.consume();
-    std::this_thread::sleep_for(std::chrono::milliseconds(100 + (i % 100)));
+    std::this_thread::sleep_for(std::chrono::milliseconds(150));
   }
 }
 
