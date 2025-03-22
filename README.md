@@ -178,41 +178,23 @@ _Coding Exercises and Experiments._
 - [1c. Informatio Maintenance](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/infomaintain.cpp)
 - [1d. Process Control](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/processcontrol.cpp)
 
-#### File Permissions
+### [2. File Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/2%20fileperm.cpp)
 
-- [2. File Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/2%20fileperm.cpp)
+### [3. File Operations](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/filemanage.cpp)
 
-#### File Operations
+### [4. File Copy and Move](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/4%20filecopymove.cpp)
 
-- [3. File Operations](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/filemanage.cpp)
+### [5. Dining Philosophers](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/5%20diningphil.cpp)
 
-#### File Copy and Move
+### [6. Producer-Consumer Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/6%20produceconsume.cpp)
 
-- [4. File Copy and Move](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/4%20filecopymove.cpp)
+### [7. First Come First Serve Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/7%20firstcomefirstserve.cpp)
 
-#### Dining Philosophers Problem
+### [8. Shortest Job First Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/8%20shortestjobfirst.cpp)
 
-- [5. Dining Philosophers](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/5%20diningphil.cpp)
+### [9. Round Robin Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/9%20roundrobin.cpp)
 
-#### Producer-Consumer Problem
-
-- [6. Producer-Consumer Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/6%20produceconsume.cpp)
-
-#### First Come First Serve Problem
-
-- [7. First Come First Serve Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/7%20firstcomefirstserve.cpp)
-
-#### Shortest Job First Scheduling Algorithm
-
-- [8. Shortest Job First Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/8%20shortestjobfirst.cpp)
-
-#### Round Robin Scheduling Algorithm
-
-- [9. Round Robin Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/9%20roundrobin.cpp)
-
-#### Priority Scheduling Algorithm (Preemptive)
-
-- [10. Preemptive Priority Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/10%20priorityscheduling.cpp)
+### [10. Preemptive Priority Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/10%20priorityscheduling.cpp)
 
 ---
 
