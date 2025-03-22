@@ -169,37 +169,61 @@ _Coding Exercises and Experiments._
 
 # Semester 2
 
-## [Operating Systems](https://github.com/aniruddhapaik/university-code/tree/main/Operating%20System)
+## ⌨️ [Operating Systems](https://github.com/aniruddhapaik/university-code/tree/main/Operating%20System)
 
-#### System Calls
+#### 1. [System Calls](https://github.com/aniruddhapaik/university-code/tree/main/Operating%20System/1%20System%20Calls)
 
 - [1a. Device Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/devicemanage.cpp)
 - [1a File Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/filemanage.cpp)
 - [1c. Informatio Maintenance](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/infomaintain.cpp)
 - [1d. Process Control](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/processcontrol.cpp)
 
-### [2. File Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/2%20fileperm.cpp)
+#### 2. [File Management](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/2%20fileperm.cpp)
 
-### [3. File Operations](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/filemanage.cpp)
+#### 3. [File Operations](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/1%20System%20Calls/filemanage.cpp)
 
-### [4. File Copy and Move](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/4%20filecopymove.cpp)
+#### 4. [File Copy and Move](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/4%20filecopymove.cpp)
 
-### [5. Dining Philosophers](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/5%20diningphil.cpp)
+#### 5. [Dining Philosophers](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/5%20diningphil.cpp)
 
-### [6. Producer-Consumer Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/6%20produceconsume.cpp)
+#### 6. [Producer-Consumer Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/6%20produceconsume.cpp)
 
-### [7. First Come First Serve Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/7%20firstcomefirstserve.cpp)
+#### 7. [First Come First Serve Problem](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/7%20firstcomefirstserve.cpp)
 
-### [8. Shortest Job First Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/8%20shortestjobfirst.cpp)
+#### 8. [Shortest Job First Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/8%20shortestjobfirst.cpp)
 
-### [9. Round Robin Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/9%20roundrobin.cpp)
+#### 9. [Round Robin Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/9%20roundrobin.cpp)
 
-### [10. Preemptive Priority Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/10%20priorityscheduling.cpp)
-
----
-
-## [Computer Networks](https://github.com/aniruddhapaik/university-code/tree/main/Networking)
+#### 10. [Preemptive Priority Scheduling Algorithm](https://github.com/aniruddhapaik/university-code/blob/main/Operating%20System/10%20priorityscheduling.cpp)
 
 ---
 
-## [Data Analytics with Python](https://github.com/aniruddhapaik/university-code/tree/main/Data%20Analytics%20Python)
+## 📡 [Computer Networks](https://github.com/aniruddhapaik/university-code/tree/main/Networking)
+
+#### 1. [Simplex Commmunication using a Connection-Oriented Service](https://github.com/aniruddhapaik/university-code/tree/main/Networking/1%20Simplex%20Communication%20TCP)
+
+#### 2. [Simplex Commmunication using a Connectionless Service](https://github.com/aniruddhapaik/university-code/tree/main/Networking/2%20Simplex%20Communication%20UDP)
+
+#### 3. [Full Duplex Communication Using a Connection-Oriented Service (TCP)](https://github.com/aniruddhapaik/university-code/tree/main/Networking/3%20Full%20Duplex%20Communication%20TCP)
+
+#### 4. [Full Duplex Communication Using a Connectionless Service (UDP)](https://github.com/aniruddhapaik/university-code/tree/main/Networking/4%20Full%20Duplex%20Communication%20UDP)
+
+#### 5. [Unrestricted Simplex Protocol of Data Link Layer](https://github.com/aniruddhapaik/university-code/tree/main/Networking/5%20Unrestricted%20Simplex)
+
+#### 6. [Unrestricted Simplex Protocol of Data Link Layer (Stop & Wait)](https://github.com/aniruddhapaik/university-code/blob/main/Networking/6%20Unrestricted%20Simplex/StopAndWaitProtocol.java)
+
+#### 7. [Simplex Protocol for a Noisy Channel of Data Link Layer](https://github.com/aniruddhapaik/university-code/blob/main/Networking/7%20Simplex%20Protocol%20Noisy/SimplexNoisy.java)
+
+#### 8. Sliding Windows Protocols
+
+- [8a. One-Bit Sliding Window Protocol](https://github.com/aniruddhapaik/university-code/blob/main/Networking/8%20One%20Bit%20Sliding%20Window/OneBitSlidingWindowProtocol.java)
+- [8b. Go Back N Protocol](https://github.com/aniruddhapaik/university-code/blob/main/Networking/8%20Go%20Back%20N%20Protocol/GoBackNProtocol.java)
+- [8c. Selective Repeat Protocol](https://github.com/aniruddhapaik/university-code/blob/main/Networking/8%20Selective%20Repeat%20Protocol/SelectiveRepeatProtocol.java)
+
+#### 9. [Muticast Routing of Network Layer](https://github.com/aniruddhapaik/university-code/blob/main/Networking/9%20Multicast%20Routing%20Network%20Layer/MulticastSenderReceiver.java)
+
+#### 10. [File Transfer Program](https://github.com/aniruddhapaik/university-code/blob/main/Networking/10%20File%20Transfer/FileTransferSingle.java)
+
+---
+
+## 🐍 [Data Analytics with Python](https://github.com/aniruddhapaik/university-code/tree/main/Data%20Analytics%20Python)
