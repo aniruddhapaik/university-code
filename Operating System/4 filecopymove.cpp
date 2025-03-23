@@ -10,7 +10,7 @@ std::string readline;
 bool inputLineFailSafe(std::string& input) {
   std::getline(std::cin, input);
 
-  if (std::cin.fail()) {
+  if (std::cin.fail()) {  
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cerr << "Error occurred while reading" << std::endl;

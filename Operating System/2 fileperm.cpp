@@ -12,8 +12,9 @@ void setPermissions(const std::string& filename) {
                     fs::perm_options::replace);
 
     // Explicitly remove unwanted permissions
-    fs::permissions(filename, fs::perms::owner_write,
-                    fs::perms::group_write | fs::perms::others_write,
+    fs::permissions(filename,
+                    fs::perms::owner_write | fs::perms::group_write |
+                        fs::perms::others_write,
                     fs::perm_options::remove);
 
     std::cout << "Permissions set successfully.\n";

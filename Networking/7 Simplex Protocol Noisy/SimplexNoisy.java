@@ -1,7 +1,7 @@
 import java.util.Random;
 // Sender class that sends frames 
 class Sender { 
-  private static final int MAX_FRAME = 2; // Maximum number of frames
+  private static final int MAX_FRAME = 5; // Maximum number of frames
   private int frameNumber = 0;
   private Random random = new Random();
 
