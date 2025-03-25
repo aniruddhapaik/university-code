@@ -22,7 +22,7 @@ void executeProcesses(std::vector<Process>& processes) {
     int i = 0;
     while(runningTime < processes[i].arrivalTime) {
       i++;
-      if (not (i < processes.size())) {
+      if (i >= processes.size()) {
         std::cout << "[T+" << runningTime << "]" << std::endl;
         i = 0;
         runningTime++;
@@ -32,11 +32,11 @@ void executeProcesses(std::vector<Process>& processes) {
     std::cout << "[T+" << runningTime << "] Executing P" << processes[i].id << std::endl;
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
     processes[i].burstTime--;
+    runningTime++;
     if (not (processes[i].burstTime > 0)) { 
-      std::cout << "- P" << processes[i].id << " completed" << std::endl;
+      std::cout << "[T+" << runningTime << "] - P" << processes[i].id << " completed." << std::endl;
       processes.erase(processes.begin()+i); 
     }
-    runningTime++;
   }
 }
 

@@ -32,7 +32,7 @@ void roundRobin(std::vector<Process>& processes) {
       processqueue.push(currentProcess); 
       std::cout << " - BT remaining: " << currentProcess.remainingTime << std::endl;
     }
-    else { std::cout << " - P" << currentProcess.id << " completed." << std::endl; }
+    else { std::cout << " -> P" << currentProcess.id << " completed." << std::endl; }
   }
 }
 
