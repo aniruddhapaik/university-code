@@ -1,0 +1,39 @@
+import java.io.*;
+import java.net.*;
+
+public class FullDuplexClient {
+  public static void main(String[] args) {
+    final String HOST = "localhost";
+    final int PORT = 12345;
+    try{
+      Socket socket = new Socket(HOST, PORT);
+      System.out.println("Connected to the server");
+
+      BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      PrintWriter outputToServer = new PrintWriter(socket.getOutputStream(), true);
+      BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(System.in));
+
+      String clientMessage, serverMessage;
+      
+      while(true) {
+        System.out.print("Client: ");
+        clientMessage = inputFromClient.readLine();
+        outputToServer.println(clientMessage);
+        if(clientMessage.equalsIgnoreCase("exit")) {
+          System.out.println("Client disconnected!");
+          break;
+        }
+
+        serverMessage = inputFromServer.readLine();
+        if(serverMessage.equalsIgnoreCase("exit")) {
+          System.out.println("Server disconnected!");
+          break;
+        }
+        System.out.println("Server: " + serverMessage);
+      }
+      socket.close();
+    } catch(IOException e) {
+      e.printStackTrace();
+    }
+  }
+}

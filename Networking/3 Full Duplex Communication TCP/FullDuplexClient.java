@@ -7,7 +7,6 @@ public class FullDuplexClient {
       // Connect to the server on localhost and port 12345 
       Socket socket = new Socket("localhost", 12345);
       System.out.println("Connected to the server!");
-      
       // Streams for communication 
       BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
       PrintWriter outputToServer = new PrintWriter(socket.getOutputStream(), true);
