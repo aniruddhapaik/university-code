@@ -7,12 +7,12 @@ public class SimplexUDPClient {
     final String HOST = "localhost";
     final int PORT = 12345;
     try(DatagramSocket socket = new DatagramSocket()) {
-      String message = "Message for server";
+      String message = "hello server";
       byte[] buffer = message.getBytes();
       InetAddress serverAddress = InetAddress.getByName(HOST);
       DatagramPacket packet = new DatagramPacket(buffer, buffer.length, serverAddress, PORT);
       socket.send(packet);
-      System.out.println("Message sent to the server");
+      System.out.println("Message sent to server");
     } catch(Exception e) {
       e.printStackTrace();
     }
