@@ -6,9 +6,9 @@ public class FullDuplexServer {
     final int PORT = 12345;
     try{
       ServerSocket serverSocket = new ServerSocket(PORT);
-      System.out.println("Waiting for client...");
+      System.out.println("Server is waiting for client...");
       Socket clientSocket = serverSocket.accept();
-      System.out.println("Client connected!");
+      System.out.println("Client connected.");
 
       BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
       PrintWriter outputToClient = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -18,8 +18,8 @@ public class FullDuplexServer {
 
       while(true) {
         clientMessage = inputFromClient.readLine();
-        if (clientMessage.equalsIgnoreCase("exit")) {
-          System.out.println("Client disconnected.");
+        if(clientMessage.equalsIgnoreCase("exit")) {
+          System.out.println("Client disconnected");
           break;
         }
         System.out.println("Client: " + clientMessage);
@@ -27,8 +27,8 @@ public class FullDuplexServer {
         System.out.print("Server: ");
         serverMessage = inputFromServer.readLine();
         outputToClient.println(serverMessage);
-        if (serverMessage.equalsIgnoreCase("exit")) {
-          System.out.println("Disconnected!");
+        if(serverMessage.equalsIgnoreCase("exit")) {
+          System.out.println("Server disconnected");
           break;
         }
       }

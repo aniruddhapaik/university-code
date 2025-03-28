@@ -7,7 +7,7 @@ public class SimplexClient {
     final String HOST = "localhost";
     final int PORT = 12345;
     try(Socket socket = new Socket(HOST, PORT)) {
-      System.out.println("Connected to server");
+      System.out.println("Connected to the server");
       BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
       String message = reader.readLine();
       System.out.println("Server: " + message);
