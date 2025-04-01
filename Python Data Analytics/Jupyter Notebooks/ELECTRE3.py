@@ -83,26 +83,23 @@ def compute_credibility(C_ab, discordances, concordances):
 # -------------------------------
 
 if __name__ == '__main__':
-  input_excel = "input.xlsx"
-  output_excel = "output.xlsx"
+  input_excel = "inputelectre.xlsx"
+  output_excel = "outputelectre.xlsx"
   # Read the Excel file
   try:
     alternatives_df = pd.read_excel(input_excel, sheet_name='alternatives')
     parameters_df = pd.read_excel(input_excel, sheet_name='parameters')
+    alternativenames_df = pd.read_excel(input_excel, sheet_name='alternativenames')
   except Exception as e:
     sys.exit(f"Error reading the Excel file: {e}")
   
-  # Assume the alternatives_df has a column "Name" for alternative names; if not, use index
-  if "Name" in alternatives_df.columns:
-    alt_names = alternatives_df["Name"].tolist()
-    data = alternatives_df.drop(columns=["Name"])
-  else:
-    alt_names = alternatives_df.index.astype(str).tolist()
-    data = alternatives_df
+  # Extract alternative names and the evaluation matrix as a NumPy array
+  alternativenames = alternativenames_df['Alternatives'].values
+  alternativematrix = alternatives_df
 
-  # Ensure that the criteria in parameters match the data columns
+  # Ensure that the criteria in parameters match the alternative names columns
   criteria = parameters_df["Criterion"].tolist()
-  missing = [crit for crit in criteria if crit not in data.columns]
+  missing = [crit for crit in criteria if crit not in alternativematrix.columns]
   if missing:
     sys.exit(f"The following criteria are missing in the alternatives data: {missing}")
   
@@ -123,19 +120,19 @@ if __name__ == '__main__':
   #   col = data[crit]
   #   data[crit] = col / np.sqrt((col**2).sum())
   
-  n_alts = len(alt_names)
-  n_crit = len(criteria)
+  altlength = len(alternativenames)
+  criterialength = len(criteria)
   
   # Initialize matrices to store global concordance, credibility (outranking), and optionally discordance.
-  concordance_matrix = pd.DataFrame(np.zeros((n_alts, n_alts)), index=alt_names, columns=alt_names)
-  credibility_matrix = pd.DataFrame(np.zeros((n_alts, n_alts)), index=alt_names, columns=alt_names)
+  concordance_matrix = pd.DataFrame(np.zeros((altlength, altlength)), index=alternativenames, columns=alternativenames)
+  credibility_matrix = pd.DataFrame(np.zeros((altlength, altlength)), index=alternativenames, columns=alternativenames)
   discordance_matrices = {}  # for each criterion, we can store partial discordance
   for crit in criteria:
-    discordance_matrices[crit] = pd.DataFrame(np.zeros((n_alts, n_alts)), index=alt_names, columns=alt_names)
+    discordance_matrices[crit] = pd.DataFrame(np.zeros((altlength, altlength)), index=alternativenames, columns=alternativenames)
   
   # For each ordered pair of alternatives (a,b)
-  for i, a in enumerate(alt_names):
-    for j, b in enumerate(alt_names):
+  for i, a in enumerate(alternativenames):
+    for j, b in enumerate(alternativenames):
       if a == b:
         concordance_matrix.loc[a, b] = np.nan
         credibility_matrix.loc[a, b] = np.nan
@@ -148,8 +145,8 @@ if __name__ == '__main__':
       
       # For each criterion, compute partial indices
       for crit in criteria:
-        v_a = data.loc[data.index[i], crit]
-        v_b = data.loc[data.index[j], crit]
+        v_a = alternativematrix.loc[alternativematrix.index[i], crit]
+        v_b = alternativematrix.loc[alternativematrix.index[j], crit]
         q = params[crit]["q"]
         p = params[crit]["p"]
         weight = params[crit]["weight"]
@@ -166,11 +163,11 @@ if __name__ == '__main__':
         discordance_matrices[crit].loc[a, b] = d_val
       
       # Global concordance for (a,b)
-      C_ab = weighted_sum
-      concordance_matrix.loc[a, b] = C_ab
+      globalconcordance_ab = weighted_sum
+      concordance_matrix.loc[a, b] = globalconcordance_ab
       
       # Compute overall credibility sigma(a,b)
-      sigma_ab = compute_credibility(C_ab, discordances, concordances)
+      sigma_ab = compute_credibility(globalconcordance_ab, discordances, concordances)
       credibility_matrix.loc[a, b] = sigma_ab
   
   # -------------------------------
@@ -178,11 +175,11 @@ if __name__ == '__main__':
   # -------------------------------
   # Compute net flow for each alternative:
   net_flows = {}
-  for a in alt_names:
+  for a in alternativenames:
     flow_out = credibility_matrix.loc[a, :].sum(skipna=True)
     flow_in = credibility_matrix.loc[:, a].sum(skipna=True)
     # Divide by (n-1) to average over comparisons
-    net_flow = (flow_out - flow_in) / (n_alts - 1)
+    net_flow = (flow_out - flow_in) / (altlength - 1)
     net_flows[a] = net_flow
 
   ranking_df = pd.DataFrame(list(net_flows.items()), columns=["Alternative", "Net_Flow"])
