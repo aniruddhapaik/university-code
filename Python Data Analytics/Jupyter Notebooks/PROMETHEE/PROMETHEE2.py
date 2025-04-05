@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-DEBUG = False
 
 input_excel = 'inputpromethee.xlsx'
 output_excel = 'outputpromethee.xlsx'
