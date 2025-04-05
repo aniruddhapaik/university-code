@@ -1,0 +1,31 @@
+# Cryptographic Network Security at the Concerned Layers of the OSI Model
+
+The OSI model is a conceptual framework with seven layers. While cryptographic security can be implemented at various layers, the sources primarily discuss it in detail at the Data Link, Network, Transport, and Application layers. Notably, the TCP/IP protocol suite, which is a focus of many sources, has a five-layer model where some OSI layers are combined or their functionalities are distributed.
+Here’s a breakdown of cryptographic network security at the relevant OSI layers based on the sources:
+
+- **Physical Layer:** The sources do not provide specific details about cryptographic security mechanisms at the physical layer. The physical layer is primarily concerned with the transmission of raw bits over a physical medium.
+- **Data Link Layer:** Source mentions that encryption is needed to maintain privacy, which can be a function implemented at this layer. Source also indicates that security services can be provided on a link basis. A concrete example of security at the data link layer is the IEEE 802.11i standard for wireless LAN security. This involves authentication of wireless clients and encryption of data transmitted over the wireless link. For instance, WEP (Wired Equivalent Privacy) is mentioned as a security protocol for 802.11 that uses a secret key and an Initialization Vector (IV) for encryption.
+- **Network Layer:** The primary cryptographic security mechanism discussed at the network layer is **IPSec (IP Security)**.
+  - **IPSec** is a collection of protocols designed by the Internet Engineering Task Force (IETF) to provide security for a packet at the network level.
+  - It operates in two modes:
+    - **Transport mode:** Protects the payload delivered from the transport layer to the network layer. It's typically used for host-to-host (end-to-end) protection.
+    - **Tunnel mode:** Protects the entire IP packet, including the header, and adds a new IP header. This mode is often used between security gateways, such as routers, to create Virtual Private Networks (VPNs).
+  - **IPSec** defines two main security protocols:
+    - Authent**ication Header (AH) Protocol:** Provides message authentication and data integrity. It ensures that the packet has not been tampered with and verifies the sender's identity.
+    - **Encapsulating Security Payload (ESP) Protocol:** Provides confidentiality (encryption) and can also provide message authentication and data integrity.
+  - **IPSec** creates a connection-oriented association at the network layer to provide security. Authentication in IPSec generally refers to message authentication.
+- **Transport Layer:** The dominant protocols for providing cryptographic security at the transport layer are **SSL (Secure Sockets Layer)** and its successor **TLS (Transport Layer Security)**.
+  - **SSL/TLS** provides end-to-end security services for applications that use reliable, connection-oriented transport protocols like TCP.
+  - The primary goals of these protocols are to provide server and client authentication, data confidentiality (encryption), and data integrity.
+  - SSL operates conceptually as a sublayer between the application and transport layers (TCP).
+  - The SSL process involves a **handshake protocol** to establish security capabilities and cryptographic secrets between the client and server. This phase includes authentication and key exchange. Random nonces are used in the SSL handshake for security purposes.
+  - The **record protocol** in SSL handles data received from the application layer by fragmenting it, optionally compressing it, adding a Message Authentication Code (MAC) for integrity, and then encrypting the data.
+  - Authentication in SSL typically refers to **entity authentication**, ensuring the client and server are who they claim to be.
+- **Presentation Layer:** The OSI model's presentation layer is responsible for functions such as translation, encryption, and compression of data. However, the **TCP/IP protocol suite does not have a distinct presentation layer**. The functionalities of the presentation layer, including encryption and decryption for confidentiality, are often handled by the application layer itself or by libraries used by application-layer protocols. Source clarifies that in the TCP/IP model, it is the application developer's responsibility to include such security features if needed.
+- **Application Layer:** Several application-layer protocols incorporate cryptographic security to protect the data exchanged by specific applications. Examples include:
+  - **SSH (Secure Shell):** Provides secure remote login and other secure network services. It uses encryption for confidentiality, integrity checks, and server authentication.
+  - **S/MIME (Secure/Multipurpose Internet Mail Extension) and PGP (Pretty Good Privacy):** These protocols provide security for email, including confidentiality through encryption and message authentication for integrity. Authentication in PGP and S/MIME also refers to entity authentication.
+  - **HTTPS (HTTP over SSL/TLS):** Secures web communication by encapsulating HTTP data within SSL/TLS packets, providing confidentiality and integrity for web browsing and other web-based applications.
+  - Source also mentions proxy firewalls and application gateways that operate at the application layer and can implement security policies, including filtering of potentially malicious content.
+
+In summary, cryptographic network security is a critical aspect of modern communication and is implemented at various layers of the OSI model. The Network layer utilizes IPSec for general IP-level security, the Transport layer employs SSL/TLS for secure end-to-end connections, and specific applications at the Application layer use protocols like SSH, S/MIME, and PGP to secure their communications. While the OSI model has a dedicated Presentation layer for encryption, in practice, especially within the TCP/IP suite, these functions are often handled within the Application layer or by underlying transport layer security protocols. The Data Link layer, particularly in wireless networks, also implements security measures like encryption and authentication.
