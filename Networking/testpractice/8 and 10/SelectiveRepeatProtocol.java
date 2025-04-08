@@ -54,11 +54,8 @@ class Sender {
         base++;
       } 
 
-      try { 
-        Thread.sleep(1000); // Simulate delay
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      } 
+      try { Thread.sleep(1000); }
+      catch (InterruptedException e) { e.printStackTrace(); } 
     }
 
     System.out.println("[i] Sender: All frames successfully transmitted!");
