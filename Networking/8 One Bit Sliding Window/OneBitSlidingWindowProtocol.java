@@ -31,7 +31,7 @@ class Sender {
       } 
       simulateDelay();
     } 
-    System.out.println("[i] Sender: Transmission completed. All frames sent successfully.");
+    System.out.println("[i] Sender: Transmission completed. All " + totalFrames + " frames sent successfully.");
   } 
 
   void simulateDelay() {

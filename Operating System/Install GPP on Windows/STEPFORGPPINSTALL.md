@@ -107,3 +107,4 @@ Open the **terminal** / **PowerShell** / **CMD** and apply the commands serially
 For checking the **G++ version**:
 
 **`g++ version`**
+![alt text](Screenshot--69-.png)
