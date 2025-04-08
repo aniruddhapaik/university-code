@@ -10,7 +10,6 @@ class Sender {
     while (framesSent < totalFrames) {
       System.out.println("TRANSMISSION " + transmissionCount);
       System.out.println("[i] Sender: Sending frame with sequence number " + sequenceNumber);
-      // Simulating transmission with 20% probability of error
       boolean frameCorrupted = random.nextInt(5) == 0; // 1 in 5 chance of corruption
       boolean frameLost = random.nextInt(5) == 1; // 1 in 5 chance of loss
       if (frameLost) {
@@ -23,7 +22,6 @@ class Sender {
         sequenceNumber = 1 - sequenceNumber; // Toggle sequence number (0 → 1 or 1 → 0)
       }
 
-      // Waiting for ACK
       boolean ackReceived = receiver.getAcknowledgment(sequenceNumber);
       if (ackReceived) {
         System.out.println("[i] Sender: ACK received for sequence number " + sequenceNumber + "\n");
@@ -45,7 +43,7 @@ class Sender {
         e.printStackTrace();
       }
     }
-    System.out.println("Sender: Transmission completed. All frames sent successfully.");
+    System.out.println("Sender: Transmission completed. All " + totalFrames + " frames sent successfully.");
   }
 }
 
