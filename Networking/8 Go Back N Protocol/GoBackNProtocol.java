@@ -4,49 +4,47 @@ import java.util.Scanner;
 class Sender { 
   private int windowSize;
   private int base;
-  private int nextSeqNum;
+  private int seqNum;
   private Random random;
 
   public Sender(int windowSize) { 
     this.windowSize = windowSize;
     this.base = 0;
-    this.nextSeqNum = 0;
+    this.seqNum = 0;
     this.random = new Random();
   } 
   
   public void sendFrames(Receiver receiver, int totalFrames) { 
     while (base < totalFrames) { 
-      // Send frames within the window 
-      while (nextSeqNum < base + windowSize && nextSeqNum < totalFrames) { 
-        System.out.println("Sender: Sending frame " + nextSeqNum);
+      while (seqNum < Math.min(base + windowSize, totalFrames)) { 
+        System.out.println("[i] Sender: Sending frame " + seqNum);
 
         boolean isLost = random.nextInt(5) == 0; // 20% chance of loss
         if (isLost) { 
-          System.out.println("Sender: Frame " + nextSeqNum + " lost!");
+          System.out.println("[x] Sender: Frame " + seqNum + " lost!");
         } else { 
-          receiver.receiveFrame(nextSeqNum);
+          receiver.receiveFrame(seqNum);
         } 
-        nextSeqNum++;
+        seqNum++;
       } 
+      System.out.println("");
 
-      // Wait for acknowledgment 
       int ack = receiver.getAcknowledgment();
 
-      if (ack >= base) { 
-        System.out.println("Sender: ACK received for frame " + ack);
-        base = ack + 1; // Slide the window
+      if (ack < 0) { 
+        System.out.println("[i] Sender: ACK not received, resending frames from " + base);
+        seqNum = base; // Reset seqNum to base for retransmission
       } else { 
-        System.out.println("Sender: ACK not received, resending frames from " + base);
-        nextSeqNum = base; // Reset nextSeqNum to base for retransmission
-      } 
+        if (ack > 0) { System.out.println("[i] Sender: ACK received for frame " + (ack - 1)); }
+        else { System.out.println("[i] Sender: Retransmitting from frame 0"); }
+        seqNum = base = ack;
+      }
+      System.out.println("");
       
-      try { 
-        Thread.sleep(1000); // Simulate delay
-      } catch (InterruptedException e) {
-        e.printStackTrace();
-      } 
+      try { Thread.sleep(1000); } 
+      catch (InterruptedException e) { e.printStackTrace(); } 
     } 
-    System.out.println("Sender: All frames sent successfully!");
+    System.out.println("[i] Sender: All frames sent successfully!");
   } 
 } 
 
@@ -63,15 +61,15 @@ class Receiver {
     boolean isCorrupted = random.nextInt(5) == 1; // 20% chance of corruption
     
     if (isCorrupted) { 
-      System.out.println("Receiver: Frame " + frameNumber + " corrupted! Discarding...");
+      System.out.println("[x] Receiver: Frame " + frameNumber + " corrupted! Discarding...");
       return;
     } 
 
     if (frameNumber == expectedFrame) { 
-      System.out.println("Receiver: Frame " + frameNumber + " received successfully!");
+      System.out.println("[i] Receiver: Frame " + frameNumber + " received successfully!");
       expectedFrame++; // Expect the next frame
     } else { 
-      System.out.println("Receiver: Out-of-order frame received! Discarding...");
+      System.out.println("[x] Receiver: Out-of-order frame received! Discarding...");
     } 
   } 
 
@@ -79,12 +77,14 @@ class Receiver {
     boolean ackLost = random.nextInt(5) == 2; // 20% chance of ACK loss
     
     if (ackLost) { 
-      System.out.println("Receiver: ACK lost!");
-      return expectedFrame - 1; // Simulate ACK loss
+      System.out.println("[x] Receiver: ACK lost!");
+      return -1;
     } 
     
-    System.out.println("Receiver: Sending ACK for frame " + (expectedFrame - 1));
-    return expectedFrame - 1;
+    if (expectedFrame - 1 < 0) { 
+      System.out.println("[i] Receiver: Requesting retransmission from frame 0");
+    } else { System.out.println("[i] Receiver: Sending ACK for frame " + (expectedFrame - 1)); }
+    return expectedFrame;
   } 
 } 
 
@@ -92,11 +92,11 @@ public class GoBackNProtocol {
   public static void main(String[] args) { 
     Scanner scanner = new Scanner(System.in);
     
-    System.out.print("Enter the window size: ");
-    int windowSize = scanner.nextInt();
-
     System.out.print("Enter the total number of frames: ");
     int totalFrames = scanner.nextInt();
+
+    System.out.print("Enter the window size: ");
+    int windowSize = scanner.nextInt();
     
     Sender sender = new Sender(windowSize);
     Receiver receiver = new Receiver();
