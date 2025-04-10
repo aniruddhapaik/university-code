@@ -1,62 +1,59 @@
 import java.util.Random;
 
 class Sender {
-  private int sequenceNumber = 0;
-  private Random random = new Random();
+  private int seqNum = 0;
   private int transmissionCount = 0;
+  private Random random = new Random();
 
   public void sendFrame(Receiver receiver, int totalFrames) {
     int framesSent = 0;
-    while (framesSent < totalFrames) {
-      System.out.println("\nTRANSMISSION " + transmissionCount);
-      System.out.println("S: sending frame with sequence number " + sequenceNumber);
+    while(framesSent < totalFrames) {
+      System.out.println("TRANSMISSION " + transmissionCount);
+      System.out.println("S: sending frame with seq num " + seqNum);
       boolean frameLost = random.nextInt(5) == 0;
       boolean frameCorrupted = random.nextInt(5) == 1;
 
-      if (frameLost) { System.out.println("S: frame lost in transmission..."); }
-      else { receiver.receiveFrame(sequenceNumber, frameCorrupted); }
+      if (frameLost) { System.out.println("S: frame lost..."); }
+      else { receiver.receiveFrame(seqNum, frameCorrupted); }
 
-      if (frameLost || frameCorrupted) { sequenceNumber = 1 - sequenceNumber; }
+      if (frameLost || frameCorrupted) { seqNum = 1 - seqNum; }
 
-      boolean ackReceived = receiver.getAcknowledgement(sequenceNumber);
-      if (ackReceived) { 
-        System.out.println("S: ACK received for sequence number " + sequenceNumber);
+      boolean ackReceived = receiver.getAck(seqNum);
+      if (ackReceived) {
+        System.out.println("S: ACK received for seq num " + seqNum);
         if (!frameLost && !frameCorrupted) { framesSent++; }
-      } else { System.out.println("S: ACK not received. resending frame..."); }
+      } else { System.out.println("S: ACK not received. resending frame"); }
 
-      if (frameLost || frameCorrupted || ackReceived) { sequenceNumber = 1 - sequenceNumber; }
+      if (frameLost || frameCorrupted || ackReceived) { seqNum = 1 - seqNum; }
       transmissionCount++;
       try { Thread.sleep(1000); }
       catch (InterruptedException e) { e.printStackTrace(); }
     }
-    System.out.println("Sent all frames successfully.");
+    System.out.println("All frames sent successfully.");
   }
 }
 
 class Receiver {
-  private int expectedSequenceNumber = 0;
+  private int expectedSeqNum = 0;
   private Random random = new Random();
 
-  public void receiveFrame(int sequenceNumber, boolean frameCorrupted) {
-    if (frameCorrupted) {
-      System.out.println("R: Frame is corrupted. discarding...");
-    } else {
-      if (expectedSequenceNumber == sequenceNumber) { 
-        System.out.println("R: received frame with sequence number " + expectedSequenceNumber); 
-        expectedSequenceNumber = 1 - expectedSequenceNumber;
-      } else {
-        System.out.println("R: received duplicate frame. discarding...");
-      }
+  public void receiveFrame(int seqNum, boolean frameCorrupted) {
+    if (frameCorrupted) { System.out.println("R: frame corrupted. discarding..."); }
+    else {
+      if (expectedSeqNum == seqNum) {
+        System.out.println("R: received frame " + expectedSeqNum);
+        expectedSeqNum = 1 - expectedSeqNum;
+      } else { System.out.println("R: received duplicate frame. discarding..."); }
     }
   }
 
-  public boolean getAcknowledgement(int sequenceNumber) {
+  public boolean getAck(int seqNum) {
     boolean ackLost = random.nextInt(5) == 2;
     if (ackLost) { 
-      System.out.println("R: ACK lost..."); 
+      System.out.println("R: ACK lost...");
       return false;
     }
-    System.out.println("R: ACK sent for sequence number " + sequenceNumber);
+    System.out.println("R: ACK sent for frame " + seqNum);
     return true;
   }
 }
