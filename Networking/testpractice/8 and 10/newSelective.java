@@ -11,19 +11,17 @@ class Frame {
 class Sender {
   private int windowSize = 3;
   private int base = 0;
-  private Random random = new Random();
   private Frame[] frames;
+  private Random random = new Random();
 
   public void sendFrame(Receiver receiver, int totalFrames) {
     this.frames = new Frame[totalFrames];
-    for (int i = 0; i < totalFrames; i++) {
-      this.frames[i] = new Frame(i);
-    }
+    for (int i = 0; i < totalFrames; i++) { this.frames[i] = new Frame(i); }
 
-    while(base < totalFrames) {
+    while (base < totalFrames) {
       System.out.println("");
-      for(int i = base; i < Math.min(base + windowSize, totalFrames); i++) {
-        if (this.frames[i].retransmit) { System.out.println("S: Retransmitting " + i); }
+      for (int i = base; i < Math.min(base + windowSize, totalFrames); i++) {
+        if (this.frames[i].retransmit) { System.out.println("S: retransmitting " + i); }
         else if (this.frames[i].received) { continue; }
 
         System.out.println("S: sending frame " + i);
@@ -31,14 +29,16 @@ class Sender {
         if (frameLost) {
           System.out.println("S: frame lost...");
           this.frames[i].retransmit = true;
-        } else { receiver.receiveFrame(this.frames[i]); }
+        } else {
+          receiver.receiveFrame(this.frames[i]);
+        }
       }
-      while(base < totalFrames && this.frames[base].received) { base++; }
+      while (base < totalFrames && this.frames[base].received) { base++; }
 
       try { Thread.sleep(1000); }
       catch (InterruptedException e) { e.printStackTrace(); }
     }
-    System.out.println("All frames sent successfully.");
+    System.out.println("Sent all frames");
   }
 }
 
@@ -48,12 +48,12 @@ class Receiver {
   public void receiveFrame(Frame frame) {
     boolean frameCorrupted = random.nextInt(5) == 1;
     if (frameCorrupted) {
-      System.out.println("R: frame corrupted. discarding...");
+      System.out.println("R: frame corrupted. retranmission needed...");
       frame.retransmit = true;
     } else {
-      System.out.println("R: frame received successfully. sending ACK...");
+      System.out.println("R: frame received successfully. sending ACK");
       frame.received = true;
-      frame.retransmit = false; 
+      frame.retransmit = false;
     }
   }
 }
