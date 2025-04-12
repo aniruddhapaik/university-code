@@ -19,15 +19,15 @@ class Sender {
     for (int i = 0; i < totalFrames; i++) { this.frames[i] = new Frame(i); }
 
     while (base < totalFrames) {
-      System.out.println("");
+      System.out.println("\nWINDOW: [" + base + " - " + (Math.min(base + windowSize, totalFrames) - 1) + "]");
       for (int i = base; i < Math.min(base + windowSize, totalFrames); i++) {
-        if (this.frames[i].retransmit) { System.out.println("S: retransmitting " + i); }
+        if (this.frames[i].retransmit) { System.out.println("[i] [R] Sender: retransmitting " + i); }
         else if (this.frames[i].received) { continue; }
 
-        System.out.println("S: sending frame " + i);
+        System.out.println("[i] Sender: sending frame " + i);
         boolean frameLost = random.nextInt(5) == 0;
         if (frameLost) {
-          System.out.println("S: frame lost...");
+          System.out.println("[x] Sender: frame lost...");
           this.frames[i].retransmit = true;
         } else {
           receiver.receiveFrame(this.frames[i]);
@@ -38,7 +38,7 @@ class Sender {
       try { Thread.sleep(1000); }
       catch (InterruptedException e) { e.printStackTrace(); }
     }
-    System.out.println("Sent all frames");
+    System.out.println("Sent all " + totalFrames + " frames successfully.");
   }
 }
 
@@ -48,10 +48,10 @@ class Receiver {
   public void receiveFrame(Frame frame) {
     boolean frameCorrupted = random.nextInt(5) == 1;
     if (frameCorrupted) {
-      System.out.println("R: frame corrupted. retranmission needed...");
+      System.out.println("[x] - Receiver: frame " + frame.seqNum + " corrupted. retransmission needed...");
       frame.retransmit = true;
     } else {
-      System.out.println("R: frame received successfully. sending ACK");
+      System.out.println("[i] - Receiver: frame " + frame.seqNum + " received successfully. sending ACK");
       frame.received = true;
       frame.retransmit = false;
     }

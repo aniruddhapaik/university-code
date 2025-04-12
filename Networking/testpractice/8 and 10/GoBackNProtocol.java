@@ -1,9 +1,9 @@
 import java.util.Random;
 
 class Sender {
+  private int seqNum = 0;
   private int windowSize = 3;
   private int base = 0;
-  private int seqNum = 0;
   private Random random = new Random();
 
   public void sendFrame(Receiver receiver, int totalFrames) {
@@ -11,16 +11,16 @@ class Sender {
       while (seqNum < Math.min(base + windowSize, totalFrames)) {
         System.out.println("S: sending frame " + seqNum);
         boolean frameLost = random.nextInt(5) == 0;
-        receiver.receiveFrame(seqNum);
+        if (frameLost) { System.out.println("S: frame lost..."); }
+        else { receiver.receiveFrame(seqNum); }
         seqNum++;
       } System.out.println("");
-
       int ack = receiver.getAck();
-      if (ack < 0) {
-        System.out.println("S: ACK not received. resending frames from " + base);
+      if (ack < 0) { 
+        System.out.println("S: ACK not received. retransmitting from frame " + base); 
         seqNum = base;
       } else {
-        System.out.println("S: received ack for frame " + (ack-1));
+        System.out.println("S: ACK received for frame " + (ack-1));
         base = seqNum = ack;
       } System.out.println("");
 
@@ -37,12 +37,12 @@ class Receiver {
 
   public void receiveFrame(int seqNum) {
     boolean frameCorrupted = random.nextInt(5) == 1;
-    if (frameCorrupted) { System.out.println("R: frame " + seqNum + " is corrupted. discarding..."); }
+    if (frameCorrupted) { System.out.println("R: frame " + seqNum + " corrupted. discarding..."); }
     else {
       if (expectedSeqNum == seqNum) {
-        System.out.println("R: received frame " + seqNum + " successfully.");
+        System.out.println("R: frame " + expectedSeqNum + " received successfully.");
         expectedSeqNum++;
-      } else { System.out.println("R: received out of order frame. discarding..."); }
+      } else { System.out.println("R: out of order frame received. discarding..."); }
     }
   }
 

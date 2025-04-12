@@ -7,9 +7,9 @@ class Sender {
 
   public void sendFrame(Receiver receiver, int totalFrames) {
     int framesSent = 0;
-    while(framesSent < totalFrames) {
-      System.out.println("TRANSMISSION " + transmissionCount);
-      System.out.println("S: sending frame with seq num " + seqNum);
+    while (framesSent < totalFrames) {
+      System.out.println("\nTRANSMISSION " + transmissionCount);
+      System.out.println("S: sending frame " + seqNum);
       boolean frameLost = random.nextInt(5) == 0;
       boolean frameCorrupted = random.nextInt(5) == 1;
 
@@ -20,14 +20,14 @@ class Sender {
 
       boolean ackReceived = receiver.getAck(seqNum);
       if (ackReceived) {
-        System.out.println("S: ACK received for seq num " + seqNum);
+        System.out.println("S: ACK received for frame " + seqNum);
         if (!frameLost && !frameCorrupted) { framesSent++; }
-      } else { System.out.println("S: ACK not received. resending frame"); }
+      } else { System.out.println("S: ACK not received. resending frame..."); }
 
       if (frameLost || frameCorrupted || ackReceived) { seqNum = 1 - seqNum; }
       transmissionCount++;
       try { Thread.sleep(1000); }
-      catch (InterruptedException e) { e.printStackTrace(); }
+      catch (InterruptedException e) { e.printStackTrace(); } 
     }
     System.out.println("All frames sent successfully.");
   }
@@ -38,22 +38,22 @@ class Receiver {
   private Random random = new Random();
 
   public void receiveFrame(int seqNum, boolean frameCorrupted) {
-    if (frameCorrupted) { System.out.println("R: frame corrupted. discarding..."); }
+    if (frameCorrupted) { System.out.println("R: frame is corrupted. discarding..."); }
     else {
       if (expectedSeqNum == seqNum) {
-        System.out.println("R: received frame " + expectedSeqNum);
+        System.out.println("R: frame received successfully.");
         expectedSeqNum = 1 - expectedSeqNum;
-      } else { System.out.println("R: received duplicate frame. discarding..."); }
+      } else { System.out.println("R: duplicate frame received. discarding..."); }
     }
   }
 
   public boolean getAck(int seqNum) {
     boolean ackLost = random.nextInt(5) == 2;
-    if (ackLost) { 
+    if (ackLost) {
       System.out.println("R: ACK lost...");
       return false;
     }
-    System.out.println("R: ACK sent for frame " + seqNum);
+    System.out.println("R: ACK sent for seq num " + seqNum);
     return true;
   }
 }
