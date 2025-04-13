@@ -9,7 +9,7 @@ void ListDrives() {
     return;
   }
 
-  std::cout << "Available drives << std::endl;
+  std::cout << "Available drives " << std::endl;
   for(char letter = 'A'; letter <= 'Z'; ++letter) {
     if (drives & (1 << (letter - 'A'))) {
       std::cout << letter << ".\\" << std::endl;
