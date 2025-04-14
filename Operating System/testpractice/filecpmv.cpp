@@ -11,7 +11,7 @@ void copyFile() {
     fs::path source = "example.txt";
     if (fs::exists(source)) {
       std::cout << "Source: " << source.string() << " exists\n" << std::endl;
-    } else { return; }
+    } else { std::ofstream file(source); file.close(); }
 
     fs::path destination = "copied.txt";
     if (not fs::exists(destination)) {
