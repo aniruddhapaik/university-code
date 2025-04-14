@@ -3,16 +3,16 @@ import java.net.*;
 import java.util.Scanner;
 
 public class FileTransferSingle {
-  private static final int PORT = 5000;
-  private static final String FILE_READ = "D:\\Games\\sample.txt";
-  private static final String FILE_WRITE = "D:\\Games\\received.txt";
+  static private final int PORT = 5000;
+  static private final String FILE_READ = "D:\\Games\\sample.txt";
+  static private final String FILE_WRITE = "D:\\Games\\received.txt";
 
-  public static void sender() {
+  public static void Sender() {
     try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-      System.out.println("S: Waiting for client to connect...");
+      System.out.println("S: waiting for client to connect...");
       Socket socket = serverSocket.accept();
-      System.out.println("S: Client connected.");
-      
+      System.out.println("S: client connected.");
+
       File file = new File(FILE_READ);
       FileInputStream fileInputStream = new FileInputStream(file);
       OutputStream outputStream = socket.getOutputStream();
@@ -22,7 +22,7 @@ public class FileTransferSingle {
       while((bytesRead = fileInputStream.read(buffer)) != -1) {
         outputStream.write(buffer, 0, bytesRead);
       }
-
+      System.out.println("S: Sent file succesffully.");
       fileInputStream.close();
       outputStream.close();
       serverSocket.close();
@@ -30,9 +30,9 @@ public class FileTransferSingle {
     } catch (IOException e) { e.printStackTrace(); }
   }
 
-  public static void receiver() {
+  public static void Receiver() {
     try (Socket socket = new Socket("localhost", PORT)) {
-      System.out.println("R: connected to the server.");
+      System.out.println("R: Connected to server.");
 
       FileOutputStream fileOutputStream = new FileOutputStream(FILE_WRITE);
       InputStream inputStream = socket.getInputStream();
@@ -42,19 +42,18 @@ public class FileTransferSingle {
       while((bytesRead = inputStream.read(buffer)) != -1) {
         fileOutputStream.write(buffer, 0, bytesRead);
       }
-
-      fileOutputStream.close();
+      System.out.println("R: file received successfully.");
       inputStream.close();
+      fileOutputStream.close();
       socket.close();
     } catch (IOException e) { e.printStackTrace(); }
   }
 
   public static void main(String[] args) {
+    System.out.println("choose mode: \n1. Send\n2. Receive\nchoice: ");
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Choose mode: \n1. Send\n2. Receive");
     int choice = scanner.nextInt();
-    if (choice == 1) { sender(); }
-    else if (choice == 2) { receiver(); }
-    scanner.close();
+    if (choice == 1) { Sender(); }
+    else if (choice == 2) { Receiver(); }
   }
 }

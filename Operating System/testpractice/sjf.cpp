@@ -1,38 +1,32 @@
 #include <iostream>
-#include <chrono>
-#include <thread>
 #include <algorithm>
+#include <thread>
 #include <vector>
+
+int runningTime = 0;
 
 struct Process {
   int id;
   int burstTime;
 };
 
-bool compareBurstTime(const Process& a, const Process& b) {
+bool compareBurst(const Process& a, const Process& b) {
   return a.burstTime < b.burstTime;
 }
 
-std::ostream& operator<<(std::ostream& COUT, const std::vector<Process>& processes) {
-  for (const auto& p : processes) {
-    COUT << "P" << p.id << " BT: " << p.burstTime << "ms\n";
-  }
-  return COUT;
-}
-
-void executeProcesses(const Process& process) {
-  std::cout << "Executing P" << process.id << " for burst time " << process.burstTime << "ms\n";
+void executeProcess(const Process& process) {
+  std::cout << "[T+" << runningTime << "ms] Executing process " << process.id 
+            << " for " << process.burstTime << "ms" << std::endl;
   std::this_thread::sleep_for(std::chrono::milliseconds(process.burstTime));
-  std::cout << "- P" << process.id << " completed. "<< std::endl;
+  runningTime += process.burstTime;
 }
 
 int main() {
-  std::vector<Process> processes{{1,100},{2,200},{3,150},{4,80}};
-  std::cout << "Before sorting:\n" << processes;
-  std::sort(processes.begin(), processes.end(), compareBurstTime);
-  std::cout << "After sorting:\n" << processes;
+  std::vector<Process> processes = {{1, 30}, {2, 40}, {3, 10}, {4, 20}};
+  std::sort(processes.begin(), processes.end(), compareBurst);
   for (const auto& p : processes) {
-    executeProcesses(p);
+    executeProcess(p);
   }
+  std::cout << "[T+" << runningTime << "ms] Finished executing all processes" << std::endl;
   return 0;
 }

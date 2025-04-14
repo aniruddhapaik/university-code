@@ -1,43 +1,40 @@
 #include <iostream>
 #include <queue>
-#include <vector>
-#include <chrono>
 #include <thread>
 
-const int timequantum = 50;
+const int TIMEQUANTUM = 20;
+int runningTime = 0;
 
 struct Process {
   int id;
   int burstTime;
-  int remainingTime;
 };
 
-void roundRobin(std::vector<Process>& processes) {
-  std::queue<Process> processqueue;
-  for(auto& p : processes) {
-    p.remainingTime = p.burstTime;
-    processqueue.push(p);
-  }
-
-  int currentTime = 0;
-  while(not processqueue.empty()) {
-    Process currentProcess = processqueue.front();
-    processqueue.pop();
-    int executionTime = std::min(currentProcess.remainingTime, timequantum);
-    std::cout << "[T+" << currentTime << "] Processing P" << currentProcess.id << " for time quantum " << executionTime;
-    std::this_thread::sleep_for(std::chrono::milliseconds(executionTime));
-    currentTime += executionTime;
-    currentProcess.remainingTime -= executionTime;
-    if (currentProcess.remainingTime > 0) { 
-      processqueue.push(currentProcess); 
-      std::cout << " - BT remaining: " << currentProcess.remainingTime << std::endl;
-    }
-    else { std::cout << " -> P" << currentProcess.id << " completed." << std::endl; }
-  }
+void executeProcess(Process& process) {
+  int executionTime = std::min(process.burstTime, TIMEQUANTUM);
+  std::cout << "[T+" << runningTime << "ms] Executing process P" << process.id
+            << " for " << executionTime << "ms. ";
+  std::this_thread::sleep_for(std::chrono::milliseconds(executionTime));
+  runningTime += executionTime;
+  process.burstTime -= executionTime;
+  std::cout << "BT left " << process.burstTime << "ms" << std::endl;
 }
 
 int main() {
-  std::vector<Process> processes = {{1, 200}, {2, 150}, {3, 100}};
-  roundRobin(processes);
+  std::queue<Process> processes;
+  processes.push({1, 50});
+  processes.push({2, 100});
+  processes.push({3, 200});
+  processes.push({4, 150});
+  Process* process;
+  while(not processes.empty()) {
+    process = &processes.front();
+    processes.pop();
+    executeProcess(*process);
+    if (process->burstTime > 0) {
+      processes.push(*process);
+    } else { std::cout << "finished executing P" << process->id << std::endl; }
+  }
+  std::cout << "[T+" << runningTime << "ms] Finished executing all tasks" << std::endl;
   return 0;
 }

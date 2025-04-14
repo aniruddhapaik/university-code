@@ -2,8 +2,8 @@ import java.util.Random;
 
 class Sender {
   private int seqNum = 0;
-  private int windowSize = 3;
   private int base = 0;
+  private int windowSize = 3;
   private Random random = new Random();
 
   public void sendFrame(Receiver receiver, int totalFrames) {
@@ -14,20 +14,21 @@ class Sender {
         if (frameLost) { System.out.println("S: frame lost..."); }
         else { receiver.receiveFrame(seqNum); }
         seqNum++;
-      } System.out.println("");
+      } System.out.println();
+
       int ack = receiver.getAck();
-      if (ack < 0) { 
-        System.out.println("S: ACK not received. retransmitting from frame " + base); 
+      if (ack < 0) {
+        System.out.println("S: ACK not received. resending from frame " + base);
         seqNum = base;
       } else {
         System.out.println("S: ACK received for frame " + (ack-1));
         base = seqNum = ack;
-      } System.out.println("");
+      } System.out.println();
 
       try { Thread.sleep(1000); }
       catch (InterruptedException e) { e.printStackTrace(); }
     }
-    System.out.println("All frames sent successfully.");
+    System.out.println("All frames sent.");
   }
 }
 
@@ -37,12 +38,12 @@ class Receiver {
 
   public void receiveFrame(int seqNum) {
     boolean frameCorrupted = random.nextInt(5) == 1;
-    if (frameCorrupted) { System.out.println("R: frame " + seqNum + " corrupted. discarding..."); }
+    if (frameCorrupted) { System.out.println("R: frame is corrupted. discarding..."); }
     else {
       if (expectedSeqNum == seqNum) {
-        System.out.println("R: frame " + expectedSeqNum + " received successfully.");
+        System.out.println("R: received frame " + expectedSeqNum + " successfully.");
         expectedSeqNum++;
-      } else { System.out.println("R: out of order frame received. discarding..."); }
+      } else { System.out.println("R: received frame out of order. discarding..."); }
     }
   }
 
@@ -51,9 +52,10 @@ class Receiver {
     if (ackLost) {
       System.out.println("R: ACK lost...");
       return -1;
+    } else {
+      System.out.println("R: sending ACK for frame " + (expectedSeqNum-1));
+      return expectedSeqNum;
     }
-    System.out.println("R: ACK sent for frame " + (expectedSeqNum-1));
-    return expectedSeqNum;
   }
 }
 

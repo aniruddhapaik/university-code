@@ -1,7 +1,8 @@
 #include <iostream>
-#include <queue>
-#include <chrono>
+#include <vector>
 #include <thread>
+
+int runningTime = 0;
 
 struct Process {
   int id;
@@ -9,21 +10,14 @@ struct Process {
 };
 
 void executeProcess(const Process& process) {
-  std::cout << "Executing Process P" << process.id << " for burst time: " << process.burstTime << "ms\n";
+  std::cout << "[T+" << runningTime << "ms] Executing process " << process.id << std::endl;
   std::this_thread::sleep_for(std::chrono::milliseconds(process.burstTime));
-  std::cout << "- P" << process.id << " finished executing." << std::endl;
+  runningTime += process.burstTime;
 }
 
 int main() {
-  std::queue<Process> processqueue;
-  processqueue.push({1, 100});
-  processqueue.push({2, 200});
-  processqueue.push({3, 120});
-  processqueue.push({4, 150});
-  while(not processqueue.empty()) {
-    Process currentprocess = processqueue.front();
-    processqueue.pop();
-    executeProcess(currentprocess);
-  }
+  std::vector<Process> processes = {{1, 10}, {2, 15}, {3, 30}, {4, 20}};
+  for (const auto& p : processes) { executeProcess(p); }
+  std::cout << "[T+" << runningTime << "ms] Finished executing all processes" << std::endl;
   return 0;
 }

@@ -20,14 +20,16 @@ class Sender {
 
       boolean ackReceived = receiver.getAck(seqNum);
       if (ackReceived) {
-        System.out.println("S: ACK received for frame " + seqNum);
-        if (!frameLost && !frameCorrupted) { framesSent++; }
-      } else { System.out.println("S: ACK not received. resending frame..."); }
+        System.out.println("S: received ACK for frame " + seqNum);
+        if (!frameLost && !frameCorrupted) { framesSent++; } 
+      } else {
+        System.out.println("S: ACK not received. resending frame...");
+      }
 
       if (frameLost || frameCorrupted || ackReceived) { seqNum = 1 - seqNum; }
       transmissionCount++;
       try { Thread.sleep(1000); }
-      catch (InterruptedException e) { e.printStackTrace(); } 
+      catch (InterruptedException e) { e.printStackTrace(); }
     }
     System.out.println("All frames sent successfully.");
   }
@@ -41,9 +43,9 @@ class Receiver {
     if (frameCorrupted) { System.out.println("R: frame is corrupted. discarding..."); }
     else {
       if (expectedSeqNum == seqNum) {
-        System.out.println("R: frame received successfully.");
+        System.out.println("R: received frame " + expectedSeqNum + " successfully");
         expectedSeqNum = 1 - expectedSeqNum;
-      } else { System.out.println("R: duplicate frame received. discarding..."); }
+      } else { System.out.println("R: received duplicate frame. discarding..."); };
     }
   }
 
@@ -53,7 +55,7 @@ class Receiver {
       System.out.println("R: ACK lost...");
       return false;
     }
-    System.out.println("R: ACK sent for seq num " + seqNum);
+    System.out.println("R: ACK sent for frame " + seqNum);
     return true;
   }
 }

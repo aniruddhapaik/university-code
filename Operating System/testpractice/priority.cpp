@@ -1,8 +1,9 @@
 #include <iostream>
-#include <chrono>
-#include <algorithm>
 #include <vector>
+#include <algorithm>
 #include <thread>
+
+int runningTime = 0;
 
 struct Process {
   int id;
@@ -15,33 +16,30 @@ bool comparePriority(const Process& a, const Process& b) {
   return a.priority > b.priority;
 }
 
-void executeProcesses(std::vector<Process>& processes) {
-  int runningTime = 0;
+void executeProcess(Process& process) {
+  std::cout << "[T+" << runningTime << "] Executing P" << process.id << " of priority " << process.priority << std::endl;
+  std::this_thread::sleep_for(std::chrono::milliseconds(20));
+  runningTime++;
+  process.burstTime--;
+}
+
+int main() {
+  std::vector<Process> processes = {{1, 5, 20, 2}, {2, 15, 40, 1}, {3, 5, 10, 5}, {4, 0, 30, 3}};
   std::sort(processes.begin(), processes.end(), comparePriority);
-  while (not processes.empty()) {
+  while(not processes.empty()) {
     int i = 0;
     while(runningTime < processes[i].arrivalTime) {
       i++;
       if (i >= processes.size()) {
         std::cout << "[T+" << runningTime << "]" << std::endl;
-        i = 0;
-        runningTime++;
+        runningTime++; i = 0;
       }
     }
-
-    std::cout << "[T+" << runningTime << "] Executing P" << processes[i].id << std::endl;
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
-    processes[i].burstTime--;
-    runningTime++;
-    if (not (processes[i].burstTime > 0)) { 
-      std::cout << "[T+" << runningTime << "] - P" << processes[i].id << " completed." << std::endl;
-      processes.erase(processes.begin()+i); 
+    executeProcess(processes[i]);
+    if (processes[i].burstTime <= 0) {
+      processes.erase(processes.begin()+i);
     }
   }
-}
-
-int main() {
-  std::vector<Process> processes = {{1, 10, 10, 2}, {2, 5, 15, 1}, {3, 15, 5, 3}};
-  executeProcesses(processes);
+  std::cout << "[T+" << runningTime << "] Finished executing all processes" << std::endl;
   return 0;
 }
