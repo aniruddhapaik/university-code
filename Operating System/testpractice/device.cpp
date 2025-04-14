@@ -2,22 +2,22 @@
 #include <iostream>
 #include <bitset>
 
-void listDrives() {
-  DWORD drivemask = GetLogicalDrives();
-  if (drivemask == 0) { 
-    std::cerr << "Failed to get drives info, " << GetLastError() << std::endl;
+void ListDrives() {
+  DWORD drivesmask = GetLogicalDrives();
+  if (drivesmask == 0) {
+    std::cerr << "Failed to get drives info" << std::endl;
     return;
   }
-  std::cout << "drive mask: " << std::bitset<sizeof(DWORD)*8>(drivemask) << std::endl;
+  std::cout << "Drives Mask: " << std::bitset<sizeof(DWORD)*8>(drivesmask) << std::endl;
   std::cout << "Available drives:\n";
   for (char letter = 'A'; letter <= 'Z'; letter++) {
-    if (drivemask & (1 << (letter - 'A'))) {
+    if (drivesmask & (1 << (letter - 'A'))) {
       std::cout << letter << ":\\" << std::endl;
     }
   }
 }
 
 int main() {
-  listDrives();
+  ListDrives();
   return 0;
 }
