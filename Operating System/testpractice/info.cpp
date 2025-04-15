@@ -13,8 +13,8 @@ void printMemoryStatus() {
   MEMORYSTATUSEX memorystatusex;
   memorystatusex.dwLength = sizeof(MEMORYSTATUSEX);
   if (GlobalMemoryStatusEx(&memorystatusex)) {
-    std::cout << "Total physical memory: " << memorystatusex.ullTotalPhys / (1024*1024) << " MB" << std::endl;
-    std::cout << "Available physical memory: " << memorystatusex.ullAvailPhys / (1024*1024) << " MB" << std::endl;
+    std::cout << "Total memory: " << memorystatusex.ullTotalPhys << std::endl;
+    std::cout << "Available memory: " << memorystatusex.ullAvailPhys << std::endl;
   } else { std::cerr << "Failed to get memory info" << std::endl; }
 }
 
