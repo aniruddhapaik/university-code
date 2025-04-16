@@ -17,47 +17,43 @@ public class FullDuplexConnectionOriented {
   public static void Server() {
     try {
       ServerSocket serverSocket = new ServerSocket(PORT);
-      System.out.println("Waiting for client to connect...");
+      System.out.println("waiting for client");
       Socket socket = serverSocket.accept();
-      System.out.println("Client connected.");
-      
+      System.out.println("client connected");
+
       BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(System.in));
       BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(socket.getInputStream()));
       PrintWriter outputToClient = new PrintWriter(socket.getOutputStream(), true);
       String clientMessage, serverMessage;
       while(true) {
         clientMessage = inputFromClient.readLine();
-        if (clientMessage.equalsIgnoreCase("exit")) { System.out.println("Client exit"); break; }
-        System.out.println("Client: " + clientMessage);
+        if (clientMessage.equalsIgnoreCase("exit")) { break; }
+        System.out.println("client: " + clientMessage);
+
         serverMessage = inputFromServer.readLine();
         outputToClient.println(serverMessage);
-        if (serverMessage.equalsIgnoreCase("exit")) { System.out.println("Server exit"); break; }
+        if (serverMessage.equalsIgnoreCase("exit")) { break; }
       }
-
-      serverSocket.close();
-      socket.close();
-    } catch (IOException e) { e.printStackTrace(); }
+    } catch (Exception e) { e.printStackTrace(); }
   }
 
   public static void Client() {
-    try {
-      Socket socket = new Socket(HOST, PORT);
-      System.out.println("Connected to server.");
+    try (Socket socket = new Socket(HOST, PORT)) {
+      System.out.println("Connected to the server");
 
       BufferedReader inputFromClient = new BufferedReader(new InputStreamReader(System.in));
       BufferedReader inputFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
       PrintWriter outputToServer = new PrintWriter(socket.getOutputStream(), true);
       String clientMessage, serverMessage;
-      while(true) {
+      while (true) {
         clientMessage = inputFromClient.readLine();
         outputToServer.println(clientMessage);
-        if (clientMessage.equalsIgnoreCase("exit")) { System.out.println("Client exit"); break; }
+        if (clientMessage.equalsIgnoreCase("exit")) { break; }
+
         serverMessage = inputFromServer.readLine();
-        if (serverMessage.equalsIgnoreCase("exit")) { System.out.print("Server exit"); break; }
+        if (serverMessage.equalsIgnoreCase("exit")) { break; }
         System.out.println("Server: " + serverMessage);
       }
-
-      socket.close();
-    } catch (IOException e) { e.printStackTrace(); }
+    } catch (Exception e) { e.printStackTrace(); }
   }
 }

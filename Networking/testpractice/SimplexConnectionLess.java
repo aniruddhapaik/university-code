@@ -1,6 +1,4 @@
-import java.net.DatagramSocket;
-import java.net.DatagramPacket;
-import java.net.InetAddress;
+import java.net.*;
 import java.util.Scanner;
 
 public class SimplexConnectioLess {

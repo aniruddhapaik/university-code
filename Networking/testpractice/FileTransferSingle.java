@@ -2,16 +2,16 @@ import java.io.*;
 import java.net.*;
 import java.util.Scanner;
 
-public class FileTransferSingle {
+class FileTransferSingle {
   static private final int PORT = 5000;
-  static private final String FILE_READ = "D:\\Games\\sample.txt";
-  static private final String FILE_WRITE = "D:\\Games\\received.txt";
+  static private String FILE_READ = "D:\\Games\\sample.txt";
+  static private String FILE_WRITE = "D:\\Games\\samplereceived.txt";
 
   public static void Sender() {
     try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-      System.out.println("S: waiting for client to connect...");
+      System.out.println("waiting for client to connect...");
       Socket socket = serverSocket.accept();
-      System.out.println("S: client connected.");
+      System.out.println("Client connected");
 
       File file = new File(FILE_READ);
       FileInputStream fileInputStream = new FileInputStream(file);
@@ -19,33 +19,29 @@ public class FileTransferSingle {
       byte[] buffer = new byte[4096];
       int bytesRead = 0;
 
-      while((bytesRead = fileInputStream.read(buffer)) != -1) {
+      while ((bytesRead = fileInputStream.read(buffer)) != -1) {
         outputStream.write(buffer, 0, bytesRead);
-      }
-      System.out.println("S: Sent file succesffully.");
+      } 
+      System.out.println("File sent successfully");
       fileInputStream.close();
-      outputStream.close();
-      serverSocket.close();
       socket.close();
+      serverSocket.close();
+      outputStream.close();
     } catch (IOException e) { e.printStackTrace(); }
   }
 
   public static void Receiver() {
     try (Socket socket = new Socket("localhost", PORT)) {
-      System.out.println("R: Connected to server.");
+      System.out.println("Connected to server");
 
       FileOutputStream fileOutputStream = new FileOutputStream(FILE_WRITE);
       InputStream inputStream = socket.getInputStream();
       byte[] buffer = new byte[4096];
       int bytesRead = 0;
-
-      while((bytesRead = inputStream.read(buffer)) != -1) {
+      while ((bytesRead = inputStream.read(buffer)) != -1) {
         fileOutputStream.write(buffer, 0, bytesRead);
       }
-      System.out.println("R: file received successfully.");
-      inputStream.close();
-      fileOutputStream.close();
-      socket.close();
+      System.out.println("Successfully received file");
     } catch (IOException e) { e.printStackTrace(); }
   }
 

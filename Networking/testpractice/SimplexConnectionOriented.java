@@ -1,10 +1,6 @@
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
+import java.io.*;
+import java.net.*;
 import java.util.Scanner;
-import java.net.ServerSocket;
-import java.net.Socket;
 
 public class SimplexConnectionOriented {
   static final int PORT = 12345;
@@ -23,8 +19,7 @@ public class SimplexConnectionOriented {
       System.out.println("Waiting for receiver to connect...");
       Socket socket = serverSocket.accept();
       System.out.println("Receiver connected.");
-      OutputStream outputStream = socket.getOutputStream();
-      PrintWriter writer = new PrintWriter(outputStream, true);
+      PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
       writer.println("This is a message sent to the receiver");
       System.out.println("Message sent to receiver");
       serverSocket.close();
